@@ -8,7 +8,7 @@ import logo from '../../../assets/logo-with-text-horizontal.svg';
 const Header = _ => {
 	return (
 		<header className={styles.header}>
-			<HiddenButton label='Ocean Dive Homepage'>
+			<HiddenButton label='Ocean Dive'>
 				<img className={styles.logo} src={logo} alt='Logo Ocean Dive' />
 			</HiddenButton>
 
