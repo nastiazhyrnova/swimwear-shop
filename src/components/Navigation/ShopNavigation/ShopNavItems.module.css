@@ -1,0 +1,10 @@
+.shopNav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+.shopNav .icon {
+	max-height: 1.5rem;
+	margin: 0 0.5rem;
+}

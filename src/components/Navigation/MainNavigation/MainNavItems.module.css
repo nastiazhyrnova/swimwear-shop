@@ -1,0 +1,15 @@
+.nav {
+	margin: 0 auto;
+}
+.nav ul {
+	list-style: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 0;
+	text-align: center;
+}
+.nav li {
+	margin: 0 2rem;
+	text-transform: uppercase;
+}
