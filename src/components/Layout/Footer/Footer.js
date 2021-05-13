@@ -1,7 +1,13 @@
-import React from 'react';
+import FooterNav from '../../Navigation/FooterNavigation/FooterNav';
 
-const Footer = () => {
-	return <div>Footer</div>;
+import styles from './Footer.module.css';
+
+const Footer = _ => {
+	return (
+		<footer className={styles.footer}>
+			<FooterNav />
+		</footer>
+	);
 };
 
 export default Footer;

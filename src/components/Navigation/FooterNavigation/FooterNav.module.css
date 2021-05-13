@@ -1,29 +1,32 @@
-.nav {
+.footerNav {
+	display: flex;
+	flex-direction: row;
 	margin: 0 auto;
+	justify-content: center;
 }
-.nav ul {
+
+.footerNav ul {
 	list-style: none;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	align-items: center;
 	padding: 0;
 	text-align: center;
+	width: 85%;
 }
-.nav li {
+.footerNav li {
 	margin: 0 2rem;
 	text-transform: uppercase;
 	position: relative;
 	padding: 0.5rem 0 0.5rem;
 	cursor: pointer;
+	font-size: 0.8rem;
 }
-/* .nav li:hover {
+.footerNav li:hover {
 	font-weight: 500;
-} */
-.nav li:hover::after {
-	content: '';
-	position: absolute;
-	left: 25%;
-	right: 25%;
-	bottom: 0;
-	border: 1px solid var(--accent-color);
+}
+.logo {
+	max-height: 50px;
+	max-width: 50px;
 }

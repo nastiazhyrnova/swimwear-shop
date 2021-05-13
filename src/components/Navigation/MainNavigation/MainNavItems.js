@@ -4,10 +4,10 @@ const MainNavItems = props => {
 	return (
 		<nav className={styles.nav}>
 			<ul>
-				<li>Shop</li>
-				<li>Create Yours</li>
-				<li>About</li>
-				<li>Contact</li>
+				<li tabIndex='0'>Shop</li>
+				<li tabIndex='0'>Create Yours</li>
+				<li tabIndex='0'>About</li>
+				<li tabIndex='0'>Contact</li>
 			</ul>
 		</nav>
 	);
