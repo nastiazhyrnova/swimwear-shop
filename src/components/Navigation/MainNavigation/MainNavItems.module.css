@@ -19,7 +19,8 @@
 /* .nav li:hover {
 	font-weight: 500;
 } */
-.nav li:hover::after {
+.nav li:hover::after,
+.active::after {
 	content: '';
 	position: absolute;
 	left: 25%;

@@ -24,7 +24,8 @@
 	font-size: 0.8rem;
 	font-weight: 300;
 }
-.footerNav li:hover {
+.footerNav li:hover,
+.active {
 	color: var(--accent-color);
 }
 .logo {

@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import MainNavItems from '../../Navigation/MainNavigation/MainNavItems';
 import ShopNavItems from '../../Navigation/ShopNavigation/ShopNavItems';
 import HiddenButton from '../../UI/Buttons/HiddenButton/HiddenButton';
@@ -8,10 +10,11 @@ import logo from '../../../assets/logo-with-text-horizontal.svg';
 const Header = _ => {
 	return (
 		<header className={styles.header}>
-			<HiddenButton label='Ocean Dive'>
-				<img className={styles.logo} src={logo} alt='Logo Ocean Dive' />
-			</HiddenButton>
-
+			<Link to='/'>
+				<HiddenButton label='Ocean Dive'>
+					<img className={styles.logo} src={logo} alt='Logo Ocean Dive' />
+				</HiddenButton>
+			</Link>
 			<MainNavItems />
 			<ShopNavItems />
 		</header>
