@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
 
@@ -44,7 +44,7 @@ const App = props => {
 				<Route path='/legal-advice' exact>
 					<LegalAdvice />
 				</Route>
-				<Route path=' *'>
+				<Route path='*'>
 					<Page404 />
 				</Route>
 			</Switch>

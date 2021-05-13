@@ -1,9 +1,8 @@
-import React from 'react';
-
-const Page404 = () => {
+const Page404 = _ => {
 	return (
-		<div>
-			<h1>Ooops! Not found</h1>
+		<div className='centered'>
+			<h1>Ooops!</h1>
+			<h3>Page not found or does not exist</h3>
 		</div>
 	);
 };

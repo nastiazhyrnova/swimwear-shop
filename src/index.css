@@ -15,3 +15,9 @@ body {
 a {
 	text-decoration: none;
 }
+p {
+	text-align: justify;
+}
+.centered {
+	text-align: center;
+}
