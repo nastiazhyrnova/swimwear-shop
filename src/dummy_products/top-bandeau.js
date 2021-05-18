@@ -1,4 +1,5 @@
 import sampleImage from '../assets/products/bras/bandeau/Black.png';
+import sampleImage2 from '../assets/products/bras/cups/blue.png';
 
 const BANDEAU = [
 	{
@@ -10,6 +11,7 @@ const BANDEAU = [
 		color: 'Black',
 		image: sampleImage,
 		featured: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -99,7 +101,7 @@ const BANDEAU = [
 		},
 	},
 	{
-		sku: '1BAND',
+		sku: '10BAND',
 		title: 'Bandeau bikini top',
 		description: 'Lorem Ipsum',
 		category: 'tops',
@@ -107,6 +109,7 @@ const BANDEAU = [
 		color: 'Black',
 		image: sampleImage,
 		featured: false,
+		bestseller: true,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -196,14 +199,15 @@ const BANDEAU = [
 		},
 	},
 	{
-		sku: '1BAND',
+		sku: '2BAND',
 		title: 'Bandeau bikini top',
 		description: 'Lorem Ipsum',
-		category: 'tops',
+		category: 'bottoms',
 		price: 38,
 		color: 'Black',
-		image: sampleImage,
+		image: sampleImage2,
 		featured: false,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -293,14 +297,15 @@ const BANDEAU = [
 		},
 	},
 	{
-		sku: '1BAND',
+		sku: '3BAND',
 		title: 'Bandeau bikini top',
 		description: 'Lorem Ipsum',
-		category: 'tops',
+		category: 'bottoms',
 		price: 38,
 		color: 'Black',
 		image: sampleImage,
-		featured: false,
+		featured: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -390,7 +395,7 @@ const BANDEAU = [
 		},
 	},
 	{
-		sku: '1BAND',
+		sku: '4BAND',
 		title: 'Bandeau bikini top',
 		description: 'Lorem Ipsum',
 		category: 'tops',
@@ -398,6 +403,7 @@ const BANDEAU = [
 		color: 'Black',
 		image: sampleImage,
 		featured: false,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -487,7 +493,7 @@ const BANDEAU = [
 		},
 	},
 	{
-		sku: '1BAND',
+		sku: '5BAND',
 		title: 'Bandeau bikini top',
 		description: 'Lorem Ipsum',
 		category: 'tops',
@@ -495,6 +501,7 @@ const BANDEAU = [
 		color: 'Black',
 		image: sampleImage,
 		featured: false,
+		bestseller: true,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -584,7 +591,7 @@ const BANDEAU = [
 		},
 	},
 	{
-		sku: '1BAND',
+		sku: '6BAND',
 		title: 'Bandeau bikini top',
 		description: 'Lorem Ipsum',
 		category: 'tops',
@@ -592,6 +599,7 @@ const BANDEAU = [
 		color: 'Black',
 		image: sampleImage,
 		featured: false,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -681,7 +689,7 @@ const BANDEAU = [
 		},
 	},
 	{
-		sku: '1BAND',
+		sku: '7BAND',
 		title: 'Bandeau bikini top',
 		description: 'Lorem Ipsum',
 		category: 'tops',
@@ -689,6 +697,7 @@ const BANDEAU = [
 		color: 'Black',
 		image: sampleImage,
 		featured: false,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,

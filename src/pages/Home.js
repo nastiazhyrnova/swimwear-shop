@@ -6,7 +6,7 @@ const Home = _ => {
 		<>
 			<Slider />
 			<h1 className='centered'>Featured</h1>
-			<ProductListing quantity={6} featured />
+			<ProductListing max={6} />
 		</>
 	);
 };
