@@ -16,9 +16,9 @@
 	padding: 0.5rem 0 0.5rem;
 	cursor: pointer;
 }
-/* .nav li:hover {
-	font-weight: 500;
-} */
+.nav li a {
+	font-weight: 400;
+}
 .nav li:hover::after,
 .active::after {
 	content: '';
@@ -27,4 +27,11 @@
 	right: 25%;
 	bottom: 0;
 	border: 1px solid var(--accent-color);
+}
+@media (max-width: 750px) {
+	.nav ul {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
 }

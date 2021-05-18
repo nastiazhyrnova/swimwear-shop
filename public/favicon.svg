@@ -7,6 +7,9 @@
   fill:#1a1a1a;
   }
 @media (prefers-color-scheme: dark) {
+  .cls-1 {
+    fill:#038a8a
+  }
   .cls-2 {
     fill:#ffffff;
   }

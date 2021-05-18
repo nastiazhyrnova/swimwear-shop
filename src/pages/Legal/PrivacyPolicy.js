@@ -3,7 +3,7 @@ import useScrollToTop from '../../hooks/use-scroll-to-top';
 const PrivacyPolicy = _ => {
 	useScrollToTop();
 	return (
-		<div>
+		<main>
 			<h1 className='centered'>Privacy Policy</h1>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
@@ -66,7 +66,7 @@ const PrivacyPolicy = _ => {
 				egestas odio pharetra. Praesent nibh magna, tincidunt et scelerisque
 				vel, posuere vitae turpis.
 			</p>
-		</div>
+		</main>
 	);
 };
 

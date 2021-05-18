@@ -1,16 +1,22 @@
 :root {
 	--dark-color: #1a1a1a;
 	--light-color: #ffffff;
-	--accent-color: #d48152;
+	/* --accent-color: #d48152; */
+	--accent-color: #038a8a;
 }
 * {
 	box-sizing: border-box;
 	font-family: 'Lexend', sans-serif;
+	font-weight: 300;
 	color: var(--dark-color);
+	transition: 0.3s all ease-out;
 }
 
 body {
 	margin: 0;
+}
+main {
+	padding: 2rem;
 }
 a {
 	text-decoration: none;

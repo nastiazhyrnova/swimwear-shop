@@ -2,8 +2,25 @@ import useScrollToTop from '../../hooks/use-scroll-to-top';
 const LegalAdvice = _ => {
 	useScrollToTop();
 	return (
-		<div>
+		<main>
 			<h1 className='centered'>Legal Advice</h1>
+
+			<h3>Licence and Copyrights</h3>
+			<p>
+				Home Slider: Photo by{' '}
+				<a
+					href='https://unsplash.com/@gratilo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+					rel='nofollow'>
+					Oleg Gratilo{' '}
+				</a>
+				on{' '}
+				<a
+					href='https://unsplash.com/s/photos/bikini?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText'
+					rel='nofollow'>
+					Unsplash
+				</a>
+			</p>
+			<h3>Other</h3>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
 				tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis
@@ -65,7 +82,7 @@ const LegalAdvice = _ => {
 				egestas odio pharetra. Praesent nibh magna, tincidunt et scelerisque
 				vel, posuere vitae turpis.
 			</p>
-		</div>
+		</main>
 	);
 };
 

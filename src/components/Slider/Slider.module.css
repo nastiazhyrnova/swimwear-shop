@@ -1,0 +1,54 @@
+/* TODO - slider layout & responsive */
+
+.slider {
+	text-align: right;
+	position: relative;
+}
+.sliderContainer {
+	display: flex;
+	flex-flow: row no-wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+	/* background-color: red; */
+	width: 100%;
+	flex: 1 2 100px;
+}
+.rightColumn {
+	max-width: 60%;
+}
+.leftColumn {
+	margin: 0 auto;
+}
+.cta {
+	font-weight: 400;
+}
+.homePhoto {
+	width: 100%;
+}
+.sliderTextBox {
+	text-align: center;
+}
+.sliderTitle,
+.sliderSubtitle {
+	display: block;
+	font-size: 3rem;
+	color: var(--dark-color);
+	/* background-color: var(--light-color); */
+	position: absolute;
+}
+.sliderTitle {
+	top: 10%;
+	left: 20%;
+	font-weight: 600;
+}
+.sliderSubtitle {
+	top: 20%;
+	left: 30%;
+}
+.sliderSubtitle strong {
+	color: inherit;
+}
+.white {
+	color: var(--light-color);
+}

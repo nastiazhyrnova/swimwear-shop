@@ -32,3 +32,10 @@
 	max-height: 45px;
 	max-width: 45px;
 }
+@media (max-width: 750px) {
+	.footerNav ul {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+}

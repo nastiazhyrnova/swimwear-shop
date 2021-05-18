@@ -1,0 +1,17 @@
+.productGrid {
+	max-width: 80%;
+	margin: 0 auto;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	/* display: grid;
+	grid-template-columns: repeat(3, 1fr); */
+}
+@media (max-width: 750px) {
+	.productGrid {
+		max-width: 100%;
+	}
+}
