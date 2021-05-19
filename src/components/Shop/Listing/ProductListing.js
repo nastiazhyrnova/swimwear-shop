@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import lodash from 'lodash';
 
 import styles from './ProductListing.module.css';
@@ -6,10 +5,9 @@ import BANDEAU from '../../../dummy_products/top-bandeau';
 
 import ProductCard from './ProductCard/ProductCard';
 
+//Filters to accept via props: No of products - 'quantity' (number), 'featured' (boolean), 'category' (string), 'onSale' (boolean)
 const ProductListing = props => {
 	//TODO - add fetch from the database
-
-	//Filters to accept: No of products - 'quantity' (number), 'featured' (boolean), 'category' (string), 'onSale' (boolean)
 
 	//Filter products by filters passed in props:
 	const products = lodash.cloneDeep(BANDEAU);
