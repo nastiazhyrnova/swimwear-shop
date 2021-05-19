@@ -9,8 +9,9 @@ import ProductCard from './ProductCard/ProductCard';
 const ProductListing = props => {
 	//TODO - add fetch from the database
 
-	//Filters to accept: No of products - 'quantity' (number), 'featured' (boolean), 'category' (string)
+	//Filters to accept: No of products - 'quantity' (number), 'featured' (boolean), 'category' (string), 'onSale' (boolean)
 
+	//Filter products by filters passed in props:
 	const products = lodash.cloneDeep(BANDEAU);
 	const filteredProducts = products.filter(product => {
 		if (props.featured && !product.featured) {
@@ -19,6 +20,9 @@ const ProductListing = props => {
 		}
 		if (props.category && product.category !== props.category) {
 			console.log('category filter');
+			return false;
+		}
+		if (props.onSale && !product.sale.onSale) {
 			return false;
 		}
 		return true;

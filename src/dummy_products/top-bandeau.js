@@ -11,7 +11,7 @@ const BANDEAU = [
 		color: 'Black',
 		image: sampleImage,
 		featured: true,
-		bestseller: false,
+		bestseller: true,
 		stock: 100,
 		sale: {
 			onSale: true,
@@ -109,7 +109,7 @@ const BANDEAU = [
 		color: 'Black',
 		image: sampleImage,
 		featured: false,
-		bestseller: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
