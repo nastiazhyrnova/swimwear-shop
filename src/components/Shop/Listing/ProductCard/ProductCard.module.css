@@ -1,9 +1,12 @@
 .product {
 	text-align: center;
-	margin: 2rem 1.5rem;
-	width: 250px;
+	margin: 2rem 1rem;
+	max-width: 250px;
+	min-width: 200px;
 	height: 370px;
 	cursor: pointer;
+	align-self: center;
+	justify-self: center;
 	position: relative;
 }
 .product:hover .button {
@@ -56,4 +59,20 @@
 .button {
 	width: 100%;
 	text-transform: none;
+}
+@media (max-width: 1024px) {
+	.product {
+		margin: 2rem 0.2rem;
+	}
+}
+@media (max-width: 768px) {
+	.product {
+		max-width: 300px;
+		min-width: 200px;
+		height: 500px;
+	}
+	.imgContainer {
+		width: 250px;
+		height: 300px;
+	}
 }

@@ -16,10 +16,13 @@
 .active {
 	font-weight: 600;
 }
-@media (max-width: 750px) {
+
+/* ! TODO fix responsive! */
+@media (max-width: 1025px) {
 	.header {
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: column;
+		max-width: 90%;
 	}
 }

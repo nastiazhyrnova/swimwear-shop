@@ -52,3 +52,9 @@
 .white {
 	color: var(--light-color);
 }
+/*!  todo fix responsive */
+@media (max-width: 1025px) {
+	.slider {
+		width: 80%;
+	}
+}
