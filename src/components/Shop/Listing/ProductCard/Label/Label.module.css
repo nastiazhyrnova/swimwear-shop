@@ -1,10 +1,17 @@
-.label {
+.sale,
+.bestseller {
 	position: absolute;
 	top: 0;
-	left: 0;
-	background-color: var(--accent-color);
 	color: var(--light-color);
 	padding: 0.5rem;
 	font-size: 0.6rem;
 	font-weight: 500;
+}
+.sale {
+	left: 0;
+	background-color: var(--sale-color);
+}
+.bestseller {
+	right: 0;
+	background-color: var(--accent-color);
 }

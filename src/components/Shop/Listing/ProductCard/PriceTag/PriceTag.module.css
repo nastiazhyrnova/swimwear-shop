@@ -1,0 +1,17 @@
+.initialPrice {
+	text-align: right;
+	margin: 1rem 0;
+	font-size: 1.2rem;
+	font-weight: 400;
+	display: block;
+}
+.salePrice {
+	display: inline-block;
+	font-weight: 400;
+	color: var(--sale-color);
+}
+.discountedPrice {
+	display: inline-block;
+	text-decoration: line-through;
+	opacity: 0.5;
+}

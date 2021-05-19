@@ -3,6 +3,7 @@
 	--light-color: #ffffff;
 	/* --accent-color: #d48152; */
 	--accent-color: #038a8a;
+	--sale-color: #fa3a3a;
 }
 * {
 	box-sizing: border-box;

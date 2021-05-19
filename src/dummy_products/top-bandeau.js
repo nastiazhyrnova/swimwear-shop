@@ -14,8 +14,8 @@ const BANDEAU = [
 		bestseller: false,
 		stock: 100,
 		sale: {
-			onSale: false,
-			discount: 0,
+			onSale: true,
+			discount: 22,
 		},
 		options: {
 			colors: [

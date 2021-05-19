@@ -1,15 +1,10 @@
 import styles from './ProductCard.module.css';
 
 import Label from './Label/Label';
+import PriceTag from './PriceTag/PriceTag';
 import Button from '../../../UI/Buttons/Button/Button';
 
 const ProductItem = props => {
-	const formattedPrice = new Intl.NumberFormat('de-DE', {
-		style: 'currency',
-		currency: 'EUR',
-		maximumFractionDigits: 0,
-	}).format(props.product.price);
-
 	const openProductDetails = _ => {
 		//TODO - add routing to the single product
 	};
@@ -26,7 +21,7 @@ const ProductItem = props => {
 					{props.product.options.colors.length} colors
 				</span>
 			</div>
-			<span className={styles.productPrice}>{formattedPrice}</span>
+			<PriceTag product={props.product} />
 			<Button additionalClass={styles.button} onClick={openProductDetails}>
 				See Details
 			</Button>

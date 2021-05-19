@@ -13,9 +13,6 @@
 	background-color: var(--accent-color);
 	color: var(--light-color);
 }
-.product span {
-	display: block;
-}
 
 .productDetails {
 	display: flex;
@@ -25,6 +22,8 @@
 	padding: 1rem 0 0;
 }
 .productDetails span {
+	display: block;
+
 	font-weight: 300;
 	letter-spacing: 1.5px;
 }
@@ -50,12 +49,7 @@
 .product:hover img {
 	transform: scale(1.05);
 }
-.productPrice {
-	text-align: right;
-	margin: 1rem 0;
-	font-size: 1.2rem;
-	font-weight: 400;
-}
+
 .button {
 	width: 100%;
 	text-transform: none;

@@ -25,7 +25,7 @@ const ProductListing = props => {
 	});
 
 	//Reduce number of products if necessary
-	if (props.max < filteredProducts.length) {
+	if (props.max <= filteredProducts.length) {
 		filteredProducts.splice(props.max);
 	}
 
