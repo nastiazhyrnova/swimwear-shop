@@ -5,7 +5,8 @@ const HiddenButton = props => {
 		<button
 			className={styles.hiddenButton}
 			aria-label={props.label}
-			title={props.label}>
+			title={props.label}
+			onClick={props.onClick}>
 			{props.children}
 		</button>
 	);

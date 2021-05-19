@@ -1,0 +1,21 @@
+.cart {
+	position: relative;
+	height: 90vh;
+	text-align: center;
+}
+.cart h4 {
+	text-transform: uppercase;
+	font-weight: 400;
+	position: relative;
+	padding-bottom: 0.4rem;
+	border-bottom: 1.5px solid lightgray;
+	width: fit-content;
+	margin: 1rem auto 3rem;
+}
+.cart img {
+	max-width: 30%;
+	position: absolute;
+	bottom: 0;
+	left: 35%;
+	margin: 0 auto;
+}

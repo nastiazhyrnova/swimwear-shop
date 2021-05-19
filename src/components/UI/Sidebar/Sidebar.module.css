@@ -1,0 +1,22 @@
+.sidebarRight {
+	height: 100%;
+	width: 40%;
+	position: fixed;
+	right: 0;
+	top: 0;
+	background-color: var(--light-color);
+	z-index: 2500;
+	padding: 1rem;
+	margin: 0 auto;
+}
+.sidebarLeft {
+	height: 100%;
+	width: 40%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background-color: var(--light-color);
+	z-index: 2500;
+	padding: 1rem;
+	margin: 0 auto;
+}

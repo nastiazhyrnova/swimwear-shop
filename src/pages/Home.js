@@ -13,7 +13,7 @@ const Home = _ => {
 
 	return (
 		<>
-			<Backdrop />
+			{/* <Backdrop /> */}
 			<Slider />
 			<h1 className='centered'>Featured Models</h1>
 			<ProductListing max={6} />
