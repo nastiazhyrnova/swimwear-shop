@@ -1,9 +1,10 @@
-.cart {
+.card {
 	position: relative;
 	height: 90vh;
 	text-align: center;
+	padding: 0 1.2rem;
 }
-.cart h4 {
+.card h4 {
 	text-transform: uppercase;
 	font-weight: 400;
 	position: relative;
@@ -12,10 +13,17 @@
 	width: fit-content;
 	margin: 1rem auto 3rem;
 }
-.cart img {
+.card img {
 	max-width: 30%;
 	position: absolute;
 	bottom: 0;
 	left: 35%;
 	margin: 0 auto;
+}
+
+@media (max-width: 380px) {
+	.card img {
+		max-width: 60%;
+		left: 20%;
+	}
 }

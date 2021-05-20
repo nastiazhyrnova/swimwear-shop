@@ -1,0 +1,10 @@
+.authPage {
+	/* margin: 0 1rem; */
+}
+.authPage button {
+	width: 100%;
+}
+.authPage p {
+	margin-top: 2rem;
+	text-align: center;
+}

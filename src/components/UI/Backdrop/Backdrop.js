@@ -9,7 +9,10 @@ const Backdrop = props => {
 
 	return (
 		<>
-			{ReactDOM.createPortal(backdrop, document.getElementById('modal-root'))}
+			{ReactDOM.createPortal(
+				backdrop,
+				document.getElementById('backdrop-root')
+			)}
 		</>
 	);
 };

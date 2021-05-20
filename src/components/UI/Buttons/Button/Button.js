@@ -10,7 +10,10 @@ const Button = props => {
 	}
 
 	return (
-		<button className={mergedStyles} onClick={props.onClick}>
+		<button
+			className={mergedStyles}
+			onClick={props.onClick}
+			title={props.children}>
 			{props.children}
 		</button>
 	);
