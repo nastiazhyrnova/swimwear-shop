@@ -1,9 +1,12 @@
 import { NavLink } from 'react-router-dom';
+import useReactSimpleMatchMedia from 'react-simple-matchmedia';
 
 import styles from './FooterNav.module.css';
 import logo from '../../../assets/logo-without-text.svg';
 
 const FooterNav = _ => {
+	const mobileView = useReactSimpleMatchMedia('phone');
+
 	return (
 		<nav className={styles.footerNav}>
 			<ul>
@@ -17,7 +20,9 @@ const FooterNav = _ => {
 						Privacy Policy
 					</NavLink>
 				</li>
-				<img className={styles.logo} src={logo} alt='Logo Ocean Dive' />
+				{!mobileView && (
+					<img className={styles.logo} src={logo} alt='Logo Ocean Dive' />
+				)}
 				<li tabIndex='0'>
 					<NavLink to='/terms-and-conditions' activeClassName={styles.active}>
 						Terms and Conditions

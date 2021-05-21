@@ -10,18 +10,32 @@
 	top: 0;
 	background-color: white;
 }
+.logoContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
 .header .logo {
 	max-height: 3rem;
+}
+.header .logoNoText {
+	height: 2rem;
+	margin: 0 2rem;
 }
 .active {
 	font-weight: 600;
 }
 
 /* ! TODO fix responsive! */
-@media (max-width: 1025px) {
+/* @media (max-width: 1025px) {
 	.header {
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: column;
+	}
+} */
+@media (max-width: 567px) {
+	.header {
+		padding: 0.7rem;
 	}
 }

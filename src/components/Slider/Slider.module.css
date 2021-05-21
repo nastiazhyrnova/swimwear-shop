@@ -16,6 +16,7 @@
 }
 .rightColumn {
 	max-width: 60%;
+	position: relative;
 }
 .leftColumn {
 	margin: 0 auto;
@@ -53,8 +54,32 @@
 	color: var(--light-color);
 }
 /*!  todo fix responsive */
-@media (max-width: 1025px) {
-	.slider {
-		width: 80%;
+@media (max-width: 567px) {
+	.sliderContainer {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.leftColumn {
+		margin-top: 1rem;
+	}
+	.rightColumn {
+		max-width: 100%;
+	}
+	.titleContainer {
+		position: absolute;
+		margin: 0 auto;
+		top: 15%;
+		left: 5%;
+	}
+	.sliderTitle,
+	.sliderSubtitle {
+		position: relative;
+		left: 0;
+		top: 0;
+		text-align: left;
+		margin: 0 auto;
+		font-size: 1.2rem;
+		overflow-wrap: break-word;
+		color: var(--light-color);
 	}
 }

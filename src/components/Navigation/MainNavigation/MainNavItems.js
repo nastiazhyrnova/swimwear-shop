@@ -7,6 +7,11 @@ const MainNavItems = props => {
 		<nav className={styles.nav}>
 			<ul>
 				<li tabIndex='0'>
+					<NavLink to='/' exact activeClassName={styles.active}>
+						Home
+					</NavLink>
+				</li>
+				<li tabIndex='0'>
 					<NavLink to='/shop' activeClassName={styles.active}>
 						Shop
 					</NavLink>
