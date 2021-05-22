@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import styles from './ProductCard.module.css';
 
 import Label from './Label/Label';
@@ -5,7 +6,9 @@ import PriceTag from './PriceTag/PriceTag';
 import Button from '../../../UI/Buttons/Button/Button';
 
 const ProductItem = props => {
+	const history = useHistory();
 	const openProductDetails = _ => {
+		history.push(`/product/${props.product.sku}`);
 		//TODO - add routing to the single product
 	};
 

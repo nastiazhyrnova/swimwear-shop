@@ -1,0 +1,18 @@
+.topSectionContainer {
+	text-align: left;
+}
+
+.goBack {
+	cursor: pointer;
+}
+
+.detailsContainer {
+	display: flex;
+	flex-direction: row;
+}
+.leftColumn {
+	background-color: red;
+}
+.rightColumn {
+	background-color: green;
+}

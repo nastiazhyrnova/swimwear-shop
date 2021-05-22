@@ -12,6 +12,7 @@ import PrivacyPolicy from './pages/Legal/PrivacyPolicy';
 import TermsAndConditions from './pages/Legal/TermsAndConditions';
 import LegalAdvice from './pages/Legal/LegalAdvice';
 import Page404 from './pages/404';
+import SingleProduct from './components/Shop/Single/SingleProduct';
 
 const App = props => {
 	return (
@@ -31,6 +32,9 @@ const App = props => {
 				</Route>
 				<Route path='/contact' exact>
 					<Contact />
+				</Route>
+				<Route path='/product/:id' exact>
+					<SingleProduct />
 				</Route>
 				<Route path='/delivery-and-returns' exact>
 					<DeliveryAndReturns />
