@@ -20,7 +20,7 @@ const SingleProduct = _ => {
 		<main>
 			<div className={styles.topSectionContainer}>
 				<span className={styles.goBack} type='button' onClick={goBack}>
-					{'<'} Back
+					{'<'} Go Back
 				</span>
 			</div>
 			<h1>{product.title}</h1>
