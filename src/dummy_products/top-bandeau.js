@@ -5,7 +5,8 @@ const BANDEAU = [
 	{
 		sku: '1BAND',
 		title: 'Bandeau bikini top',
-		description: 'Lorem Ipsum',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		category: 'tops',
 		price: 38,
 		color: 'Black',
@@ -103,7 +104,8 @@ const BANDEAU = [
 	{
 		sku: '10BAND',
 		title: 'Bandeau bikini top',
-		description: 'Lorem Ipsum',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		category: 'tops',
 		price: 38,
 		color: 'Black',
@@ -201,7 +203,8 @@ const BANDEAU = [
 	{
 		sku: '2BAND',
 		title: 'Bandeau bikini top',
-		description: 'Lorem Ipsum',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		category: 'bottoms',
 		price: 38,
 		color: 'Black',
@@ -299,7 +302,8 @@ const BANDEAU = [
 	{
 		sku: '3BAND',
 		title: 'Bandeau bikini top',
-		description: 'Lorem Ipsum',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		category: 'bottoms',
 		price: 38,
 		color: 'Black',
@@ -397,7 +401,8 @@ const BANDEAU = [
 	{
 		sku: '4BAND',
 		title: 'Bandeau bikini top',
-		description: 'Lorem Ipsum',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		category: 'tops',
 		price: 38,
 		color: 'Black',
@@ -495,7 +500,8 @@ const BANDEAU = [
 	{
 		sku: '5BAND',
 		title: 'Bandeau bikini top',
-		description: 'Lorem Ipsum',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		category: 'tops',
 		price: 38,
 		color: 'Black',
@@ -593,7 +599,8 @@ const BANDEAU = [
 	{
 		sku: '6BAND',
 		title: 'Bandeau bikini top',
-		description: 'Lorem Ipsum',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		category: 'tops',
 		price: 38,
 		color: 'Black',
@@ -691,7 +698,8 @@ const BANDEAU = [
 	{
 		sku: '7BAND',
 		title: 'Bandeau bikini top',
-		description: 'Lorem Ipsum',
+		description:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		category: 'tops',
 		price: 38,
 		color: 'Black',

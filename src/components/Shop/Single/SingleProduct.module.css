@@ -4,15 +4,76 @@
 
 .goBack {
 	cursor: pointer;
+	display: block;
+	text-align: center;
+	background-color: var(--grey-color);
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	align-items: center;
+	padding: auto;
+	font-size: 2rem;
+	font-weight: 200;
 }
 
 .detailsContainer {
 	display: flex;
 	flex-direction: row;
+	width: 100%;
+	margin: 2rem auto;
+	position: relative;
 }
-.leftColumn {
-	background-color: red;
-}
+.leftColumn,
 .rightColumn {
-	background-color: green;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+}
+
+.leftColumn {
+	/* background-color: red; */
+	flex: 0 0 55%;
+}
+.image {
+	max-width: 300px;
+	margin: 2rem auto;
+	position: fixed;
+	left: 15%;
+}
+
+.rightColumn {
+	/* background-color: green; */
+	flex: 0 0 45%;
+}
+.rightColumn * {
+	text-align: left;
+}
+.rightColumn h3,
+.price {
+	font-weight: 400;
+}
+.rightColumn p {
+	width: 100%;
+	text-align: justify;
+	font-size: 0.9rem;
+}
+.rightColumn ul {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	margin: 0;
+	padding: 0;
+}
+.rightColumn ul li {
+	list-style: none;
+	padding: 0 0.3rem;
+}
+.rightColumn ul li:first-child {
+	padding-left: 0;
+}
+.rightColumn ul li:last-child {
+	padding-right: 0;
+}
+.addToCart {
+	text-align: center;
 }

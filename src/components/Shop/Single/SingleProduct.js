@@ -1,7 +1,8 @@
 import { useParams, useHistory } from 'react-router-dom';
-import lodash, { cloneDeep } from 'lodash';
+import lodash from 'lodash';
 
 import styles from './SingleProduct.module.css';
+import Button from '../../UI/Buttons/Button/Button';
 
 import BANDEAU from '../../../dummy_products/top-bandeau';
 
@@ -13,22 +14,55 @@ const SingleProduct = _ => {
 		BANDEAU.filter(product => product.sku === id)[0]
 	);
 
+	const price = new Intl.NumberFormat('de-DE', {
+		style: 'currency',
+		currency: 'EUR',
+		maximumFractionDigits: 0,
+	}).format(product.price);
+
 	const goBack = _ => {
 		history.goBack();
 	};
 	return (
 		<main>
 			<div className={styles.topSectionContainer}>
-				<span className={styles.goBack} type='button' onClick={goBack}>
-					{'<'} Go Back
-				</span>
+				<span>Shop/Tops</span>
 			</div>
-			<h1>{product.title}</h1>
+
 			<div className={styles.detailsContainer}>
 				<div className={styles.leftColumn}>
-					<span>ID: {id}</span>
+					{' '}
+					<span className={styles.goBack} type='button' onClick={goBack}>
+						{'<'}
+					</span>
+					<img className={styles.image} src={product.image} alt='Product' />
 				</div>
-				<div className={styles.rightColumn}></div>
+				<div className={styles.rightColumn}>
+					<h3>{product.title}</h3>
+					<span>Ref.: {product.sku}</span>
+					<h2 className={styles.price}>{price}</h2>
+					<h4>Colors</h4>
+					<ul>
+						<li>White</li>
+						<li>White</li>
+						<li>White</li>
+						<li>White</li>
+						<li>White</li>
+					</ul>
+					<h4>Sizes</h4>
+					<ul>
+						<li>XS</li>
+						<li>S</li>
+						<li>M</li>
+						<li>L</li>
+						<li>XL</li>
+						<li>XXL</li>
+					</ul>
+					<p>{product.description}</p>
+					<Button inversed additionalClass={styles.addToCart}>
+						Add to cart
+					</Button>
+				</div>
 			</div>
 		</main>
 	);
