@@ -1,26 +1,18 @@
+import { useState } from 'react';
+
+import ColorItem from './ColorItem/ColorItem';
+
 import styles from './ColorsList.module.css';
 import ATTRIBUTES from '../../../dummy_products/attributes';
-import checkIcon from '../../../assets/icons/check.svg';
 
-const ColorsList = _ => {
-	console.log(ATTRIBUTES);
+const ColorsList = props => {
+	const [activeColor, setActiveColor] = useState(props.activeColor);
 
 	const colors = ATTRIBUTES[0].options.map(color => (
-		<li className={styles.li} key={color.sku} title={color.value}>
-			<img
-				src={color.swatchURL}
-				alt={color.value}
-				className={styles.colorSwatchImg}
-			/>
-
-			<div className={styles.overlay}>
-				<span>
-					<img className={styles.checkIcon} src={checkIcon} alt='Check' />
-				</span>
-			</div>
-		</li>
+		<ColorItem color={color} />
 	));
-	return <ul>{colors}</ul>;
+
+	return <form className={styles.colorAttributes}>{colors}</form>;
 };
 
 export default ColorsList;

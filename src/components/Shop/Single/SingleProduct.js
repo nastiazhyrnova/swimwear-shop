@@ -33,7 +33,6 @@ const SingleProduct = _ => {
 
 			<div className={styles.detailsContainer}>
 				<div className={styles.leftColumn}>
-					{' '}
 					<span className={styles.goBack} type='button' onClick={goBack}>
 						{'<'}
 					</span>
@@ -44,7 +43,7 @@ const SingleProduct = _ => {
 					<span>Ref.: {product.sku}</span>
 					<h2 className={styles.price}>{price}</h2>
 					<h4>Colors</h4>
-					<ColorsList />
+					<ColorsList activeColor={product.color} />
 					<h4>Sizes</h4>
 					<ul>
 						<li>XS</li>
