@@ -1,32 +1,33 @@
-import { useRef } from 'react';
-
 import styles from './ColorItem.module.css';
 import checkIcon from '../../../../assets/icons/check.svg';
 
 const ColorItem = props => {
-	const checkedColor = useRef();
-	console.log(checkedColor.current);
+	const overlayStyles = [styles.overlay];
+
+	if (props.checked) {
+		overlayStyles.push(styles.checked);
+	}
 
 	return (
 		<label
 			className={styles.colorSwatch}
-			key={props.color.sku}
 			title={props.color.value}
-			for={props.color.sku}
-			ref={checkedColor}>
+			htmlFor={props.color.sku}
+			onClick={_ => props.onClick(props.color.sku)}>
 			<input
 				type='radio'
 				id={props.color.sku}
 				name={props.color.value}
 				value={props.color.value}
 				className={styles.input}
+				checked={props.checked}
 			/>
 			<img
 				src={props.color.swatchURL}
 				alt={props.color.value}
 				className={styles.colorSwatchImg}
 			/>
-			<div className={styles.overlay}>
+			<div className={overlayStyles.join(' ')}>
 				<span>
 					<img className={styles.checkIcon} src={checkIcon} alt='Check' />
 				</span>

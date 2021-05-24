@@ -6,13 +6,23 @@ import styles from './ColorsList.module.css';
 import ATTRIBUTES from '../../../dummy_products/attributes';
 
 const ColorsList = props => {
-	const [activeColor, setActiveColor] = useState(props.activeColor);
+	const colors = ATTRIBUTES[0].options.map(color => {
+		let checked = false;
+		if (props.selectedColor === color.sku) {
+			checked = true;
+		}
 
-	const colors = ATTRIBUTES[0].options.map(color => (
-		<ColorItem color={color} />
-	));
+		return (
+			<ColorItem
+				color={color}
+				key={color.sku}
+				checked={checked}
+				onClick={colorSku => props.changeSelectedColor(colorSku)}
+			/>
+		);
+	});
 
-	return <form className={styles.colorAttributes}>{colors}</form>;
+	return <div className={styles.colorAttributes}>{colors}</div>;
 };
 
 export default ColorsList;

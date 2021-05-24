@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import lodash from 'lodash';
 
+import useScrollToTop from '../../../hooks/use-scroll-to-top';
 import styles from './SingleProduct.module.css';
 
 import Button from '../../UI/Buttons/Button/Button';
@@ -9,12 +11,18 @@ import ColorsList from '../ColorsList/ColorsList';
 import BANDEAU from '../../../dummy_products/top-bandeau';
 
 const SingleProduct = _ => {
+	useScrollToTop();
+
 	const history = useHistory();
 	const { id } = useParams();
 
 	const product = lodash.cloneDeep(
 		BANDEAU.filter(product => product.sku === id)[0]
 	);
+
+	const [selectedColor, setSelectedColor] = useState(product.colorSku);
+
+	const changeSelectedColor = color => setSelectedColor(color);
 
 	const price = new Intl.NumberFormat('de-DE', {
 		style: 'currency',
@@ -25,6 +33,7 @@ const SingleProduct = _ => {
 	const goBack = _ => {
 		history.goBack();
 	};
+
 	return (
 		<main>
 			<div className={styles.topSectionContainer}>
@@ -43,7 +52,10 @@ const SingleProduct = _ => {
 					<span>Ref.: {product.sku}</span>
 					<h2 className={styles.price}>{price}</h2>
 					<h4>Colors</h4>
-					<ColorsList activeColor={product.color} />
+					<ColorsList
+						selectedColor={selectedColor}
+						changeSelectedColor={changeSelectedColor}
+					/>
 					<h4>Sizes</h4>
 					<ul>
 						<li>XS</li>
