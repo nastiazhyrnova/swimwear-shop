@@ -34,6 +34,10 @@ const SingleProduct = _ => {
 		history.goBack();
 	};
 
+	const productColorVariation = product.options.colors.find(
+		color => color.sku === selectedColor
+	);
+
 	return (
 		<main>
 			<div className={styles.topSectionContainer}>
@@ -45,7 +49,11 @@ const SingleProduct = _ => {
 					<span className={styles.goBack} type='button' onClick={goBack}>
 						{'<'}
 					</span>
-					<img className={styles.image} src={product.image} alt='Product' />
+					<img
+						className={styles.image}
+						src={productColorVariation.image}
+						alt='Product'
+					/>
 				</div>
 				<div className={styles.rightColumn}>
 					<h3>{product.title}</h3>
