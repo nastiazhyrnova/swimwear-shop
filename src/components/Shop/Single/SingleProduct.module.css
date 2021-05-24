@@ -61,18 +61,14 @@
 	display: flex;
 	flex-direction: row;
 	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 0.8rem;
 	margin: 0;
 	padding: 0;
 }
 .rightColumn ul li {
 	list-style: none;
-	padding: 0 0.3rem;
-}
-.rightColumn ul li:first-child {
-	padding-left: 0;
-}
-.rightColumn ul li:last-child {
-	padding-right: 0;
+	cursor: pointer;
 }
 .addToCart {
 	text-align: center;

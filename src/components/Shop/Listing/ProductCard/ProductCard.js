@@ -8,7 +8,7 @@ import Button from '../../../UI/Buttons/Button/Button';
 const ProductItem = props => {
 	const history = useHistory();
 	const openProductDetails = _ => {
-		history.push(`/product/${props.product.sku}`);
+		history.push(`/shop/${props.product.sku}`);
 		//TODO - add routing to the single product
 	};
 

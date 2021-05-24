@@ -2,7 +2,9 @@ import { useParams, useHistory } from 'react-router-dom';
 import lodash from 'lodash';
 
 import styles from './SingleProduct.module.css';
+
 import Button from '../../UI/Buttons/Button/Button';
+import ColorsList from '../ColorsList/ColorsList';
 
 import BANDEAU from '../../../dummy_products/top-bandeau';
 
@@ -42,13 +44,7 @@ const SingleProduct = _ => {
 					<span>Ref.: {product.sku}</span>
 					<h2 className={styles.price}>{price}</h2>
 					<h4>Colors</h4>
-					<ul>
-						<li>White</li>
-						<li>White</li>
-						<li>White</li>
-						<li>White</li>
-						<li>White</li>
-					</ul>
+					<ColorsList />
 					<h4>Sizes</h4>
 					<ul>
 						<li>XS</li>

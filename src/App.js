@@ -24,6 +24,9 @@ const App = props => {
 				<Route path='/shop' exact>
 					<Shop />
 				</Route>
+				<Route path='/shop/:id' exact>
+					<SingleProduct />
+				</Route>
 				<Route path='/create-yours' exact>
 					<CreateYours />
 				</Route>
@@ -32,9 +35,6 @@ const App = props => {
 				</Route>
 				<Route path='/contact' exact>
 					<Contact />
-				</Route>
-				<Route path='/product/:id' exact>
-					<SingleProduct />
 				</Route>
 				<Route path='/delivery-and-returns' exact>
 					<DeliveryAndReturns />
