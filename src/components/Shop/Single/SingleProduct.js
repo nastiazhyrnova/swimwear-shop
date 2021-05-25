@@ -4,6 +4,7 @@ import lodash from 'lodash';
 
 import useScrollToTop from '../../../hooks/use-scroll-to-top';
 import styles from './SingleProduct.module.css';
+import formatPrice from '../../../utilities/formatPrice';
 
 import Button from '../../UI/Buttons/Button/Button';
 import ColorsList from '../ColorsList/ColorsList';
@@ -24,24 +25,16 @@ const SingleProduct = _ => {
 
 	const changeSelectedColor = color => setSelectedColor(color);
 
-	const price = new Intl.NumberFormat('de-DE', {
-		style: 'currency',
-		currency: 'EUR',
-		maximumFractionDigits: 0,
-	}).format(product.price);
-
-	const goBack = _ => {
-		history.goBack();
-	};
-
-	const productColorVariation = product.options.colors.find(
+	const currentProductColorVariation = product.options.colors.find(
 		color => color.sku === selectedColor
 	);
 
+	const goBack = _ => history.goBack();
 	return (
 		<main>
-			<div className={styles.topSectionContainer}>
-				<span>Shop/Tops</span>
+			<div className={styles.breadcrumbsContainer}>
+				<span className={styles.breadcrumbs}>Shop/{product.category}</span>
+				{/* TODO add link to the category */}
 			</div>
 
 			<div className={styles.detailsContainer}>
@@ -51,7 +44,7 @@ const SingleProduct = _ => {
 					</span>
 					<img
 						className={styles.image}
-						src={productColorVariation.image}
+						src={currentProductColorVariation.image}
 						alt='Product'
 					/>
 				</div>
@@ -61,7 +54,7 @@ const SingleProduct = _ => {
 						Ref.: {product.sku}
 						{selectedColor}
 					</span>
-					<h2 className={styles.price}>{price}</h2>
+					<h2 className={styles.price}>{formatPrice(product.price)}</h2>
 					<h4>Colors</h4>
 					<ColorsList
 						selectedColor={selectedColor}
@@ -77,9 +70,16 @@ const SingleProduct = _ => {
 						<li>XXL</li>
 					</ul>
 					<p>{product.description}</p>
-					<Button inversed additionalClass={styles.addToCart}>
-						Add to cart
-					</Button>
+					<div className={styles.addToCartContainer}>
+						<div className={styles.counterContainer}>
+							<button>-</button>
+							<span>1</span>
+							<button>+</button>
+						</div>
+						<Button inversed additionalClass={styles.addToCartButton}>
+							Add to cart
+						</Button>
+					</div>
 				</div>
 			</div>
 		</main>

@@ -1,12 +1,15 @@
-.topSectionContainer {
+.breadcrumbsContainer {
 	text-align: left;
+}
+.breadcrumbs {
+	text-transform: capitalize;
 }
 
 .goBack {
 	cursor: pointer;
 	display: block;
 	text-align: center;
-	background-color: var(--grey-color);
+	background-color: var(--light-grey-color);
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
@@ -70,6 +73,39 @@
 	list-style: none;
 	cursor: pointer;
 }
-.addToCart {
+.addToCartContainer {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 1rem;
+}
+.counterContainer {
+	/* background-color: green; */
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	align-items: center;
+}
+.counterContainer button {
+	height: 100%;
+	border: 1px solid var(--light-grey-color);
+	width: 25px;
 	text-align: center;
+	font-weight: 400;
+	/* background-color: var(--light-grey-color); */
+	background-color: var(--light-color);
+	cursor: pointer;
+}
+.counterContainer button:hover {
+	background-color: var(--middle-grey-color);
+	/* color: var(--light-color); */
+}
+.counterContainer span {
+	min-width: 35px;
+	text-align: center;
+	font-size: 0.8rem;
+}
+.addToCartButton {
+	text-align: center;
+	max-width: 50%;
 }
