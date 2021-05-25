@@ -13,11 +13,9 @@ const ProductListing = props => {
 	const products = lodash.cloneDeep(DUMMY_PRODUCTS);
 	const filteredProducts = products.filter(product => {
 		if (props.featured && !product.featured) {
-			console.log('featured filter');
 			return false;
 		}
 		if (props.category && product.category !== props.category) {
-			console.log('category filter');
 			return false;
 		}
 		if (props.onSale && !product.sale.onSale) {

@@ -6,6 +6,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 	position: sticky;
 	top: 0;
 	background-color: white;
@@ -26,14 +27,19 @@
 	font-weight: 600;
 }
 
-/* ! TODO fix responsive! */
-/* @media (max-width: 1025px) {
+/* tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
 	.header {
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: column;
+		padding: 1rem;
 	}
-} */
+}
+/*phone landscape*/
+@media (min-width: 568px) and (max-width: 768px) {
+	.header {
+		padding: 1rem;
+	}
+}
+/*phone*/
 @media (max-width: 567px) {
 	.header {
 		padding: 0.7rem;

@@ -17,9 +17,6 @@
 	padding: 0.5rem 0 0.5rem;
 	cursor: pointer;
 }
-.nav li a {
-	font-weight: 400;
-}
 .nav li:hover::after,
 .active::after {
 	content: '';
@@ -29,10 +26,25 @@
 	bottom: 0;
 	border: 1px solid var(--accent-color);
 }
-@media (max-width: 750px) {
+/* tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+	.nav li {
+		margin: 0 1rem;
+	}
+}
+
+/*phone landscape*/
+@media (min-width: 568px) and (max-width: 768px) {
+	.nav li {
+		margin: 0 0.5rem;
+		font-size: 0.8rem;
+	}
+}
+
+/*phone*/
+@media (max-width: 567px) {
 	.nav ul {
-		display: flex;
-		flex-wrap: wrap;
+		/*for mobile sidebar menu*/
 		flex-direction: column;
 	}
 }

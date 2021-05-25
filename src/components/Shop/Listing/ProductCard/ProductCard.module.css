@@ -1,13 +1,15 @@
 .product {
 	text-align: center;
 	margin: 2rem 1rem;
-	max-width: 250px;
-	min-width: 200px;
+	width: 250px;
 	height: 370px;
 	cursor: pointer;
 	align-self: center;
 	justify-self: center;
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 .product:hover .button {
 	background-color: var(--accent-color);
@@ -54,20 +56,31 @@
 	width: 100%;
 	text-transform: none;
 }
-@media (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
 	.product {
-		margin: 2rem 0.2rem;
+		margin: 2rem auto;
+		width: 200px;
 	}
 }
-@media (max-width: 768px) {
+@media (min-width: 568px) and (max-width: 768px) {
 	.product {
-		max-width: 300px;
-		min-width: 200px;
+		max-width: 250px;
 		height: 500px;
-		margin: 0;
+		margin: 1rem auto;
 	}
 	.imgContainer {
 		width: 250px;
 		height: 300px;
+	}
+}
+@media (max-width: 567px) {
+	.product {
+		margin: 0.5rem auto;
+		max-width: 400px;
+		max-height: 400px;
+	}
+	.imgContainer {
+		max-width: 280px;
+		max-height: 250px;
 	}
 }

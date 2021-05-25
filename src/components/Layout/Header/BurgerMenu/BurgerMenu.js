@@ -20,7 +20,7 @@ const BurgerMenu = () => {
 	const sidebarMenu = (
 		<Sidebar left closeFunc={closeSidebar}>
 			<SideBarCard title='Menu'>
-				<MainNavItems />
+				<MainNavItems closeSidebar={closeSidebar} />
 			</SideBarCard>
 		</Sidebar>
 	);
