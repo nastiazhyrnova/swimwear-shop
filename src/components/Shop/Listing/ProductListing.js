@@ -1,7 +1,7 @@
 import lodash from 'lodash';
 
 import styles from './ProductListing.module.css';
-import BANDEAU from '../../../dummy_products/top-bandeau';
+import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
 
 import ProductCard from './ProductCard/ProductCard';
 
@@ -10,7 +10,7 @@ const ProductListing = props => {
 	//TODO - add fetch from the database
 
 	//Filter products by filters passed in props:
-	const products = lodash.cloneDeep(BANDEAU);
+	const products = lodash.cloneDeep(DUMMY_PRODUCTS);
 	const filteredProducts = products.filter(product => {
 		if (props.featured && !product.featured) {
 			console.log('featured filter');

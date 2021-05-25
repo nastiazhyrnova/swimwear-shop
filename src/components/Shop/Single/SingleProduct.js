@@ -8,7 +8,7 @@ import styles from './SingleProduct.module.css';
 import Button from '../../UI/Buttons/Button/Button';
 import ColorsList from '../ColorsList/ColorsList';
 
-import BANDEAU from '../../../dummy_products/top-bandeau';
+import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
 
 const SingleProduct = _ => {
 	useScrollToTop();
@@ -17,10 +17,10 @@ const SingleProduct = _ => {
 	const { id } = useParams();
 
 	const product = lodash.cloneDeep(
-		BANDEAU.filter(product => product.sku === id)[0]
+		DUMMY_PRODUCTS.filter(product => product.sku === id)[0]
 	);
 
-	const [selectedColor, setSelectedColor] = useState(product.colorSku);
+	const [selectedColor, setSelectedColor] = useState(product.defaultColor);
 
 	const changeSelectedColor = color => setSelectedColor(color);
 
@@ -57,7 +57,10 @@ const SingleProduct = _ => {
 				</div>
 				<div className={styles.rightColumn}>
 					<h3>{product.title}</h3>
-					<span>Ref.: {product.sku}</span>
+					<span>
+						Ref.: {product.sku}
+						{selectedColor}
+					</span>
 					<h2 className={styles.price}>{price}</h2>
 					<h4>Colors</h4>
 					<ColorsList

@@ -16,7 +16,7 @@ const ProductItem = props => {
 		<div className={styles.product} onClick={openProductDetails}>
 			<Label product={props.product} />
 			<div className={styles.imgContainer}>
-				<img src={props.product.image} alt='img' />
+				<img src={props.product.defaultImage} alt='img' />
 			</div>
 			<div className={styles.productDetails}>
 				<span className={styles.productTitle}>{props.product.title}</span>
