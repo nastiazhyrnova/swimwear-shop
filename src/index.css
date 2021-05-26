@@ -14,7 +14,10 @@
 	transition: 0.3s all ease-out;
 	text-align: center;
 }
-
+html {
+	max-width: 1980px;
+	margin: 0 auto;
+}
 body {
 	margin: 0;
 }

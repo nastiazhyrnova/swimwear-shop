@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import lodash from 'lodash';
 
+import singleProductReducer from './singleProductReducer';
 import useScrollToTop from '../../../hooks/use-scroll-to-top';
-import styles from './SingleProduct.module.css';
 import formatPrice from '../../../utilities/formatPrice';
+import styles from './SingleProduct.module.css';
 
 import Button from '../../UI/Buttons/Button/Button';
 import ColorsList from '../ColorsList/ColorsList';
@@ -21,25 +22,32 @@ const SingleProduct = _ => {
 		DUMMY_PRODUCTS.filter(product => product.sku === id)[0]
 	);
 
-	const [selectedColor, setSelectedColor] = useState(product.defaultColor);
+	// TODO: add product itself or sku
+	const initialState = {
+		color: product.defaultColor,
+		size: null,
+		quantity: null,
+	};
 
-	const changeSelectedColor = color => setSelectedColor(color);
+	const [state, dispatch] = useReducer(singleProductReducer, initialState);
 
 	const currentProductColorVariation = product.options.colors.find(
-		color => color.sku === selectedColor
+		color => color.sku === state.color
 	);
 
-	const goBack = _ => history.goBack();
 	return (
 		<main>
 			<div className={styles.breadcrumbsContainer}>
 				<span className={styles.breadcrumbs}>Shop/{product.category}</span>
-				{/* TODO add link to the category */}
+				{/* TODO: add link to the category */}
 			</div>
 
 			<div className={styles.detailsContainer}>
 				<div className={styles.leftColumn}>
-					<span className={styles.goBack} type='button' onClick={goBack}>
+					<span
+						className={styles.goBack}
+						type='button'
+						onClick={_ => history.goBack()}>
 						{'<'}
 					</span>
 					<img
@@ -52,13 +60,15 @@ const SingleProduct = _ => {
 					<h3>{product.title}</h3>
 					<span>
 						Ref.: {product.sku}
-						{selectedColor}
+						{state.color}
 					</span>
 					<h2 className={styles.price}>{formatPrice(product.price)}</h2>
 					<h4>Colors</h4>
 					<ColorsList
-						selectedColor={selectedColor}
-						changeSelectedColor={changeSelectedColor}
+						selectedColor={state.color}
+						changeSelectedColor={color =>
+							dispatch({ type: 'SET_COLOR', color: color })
+						}
 					/>
 					<h4>Sizes</h4>
 					<ul>
