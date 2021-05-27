@@ -5,9 +5,9 @@ const singleProductReducer = (state, action) => {
 		case 'SET_SIZE':
 			return { ...state, size: action.size };
 		case 'ADD_ITEM':
-			return { ...state, quantity: state.quantity + action.counter };
+			return { ...state, quantity: state.quantity + 1 };
 		case 'REMOVE_ITEM':
-			return { ...state, quantity: state.quantity - action.counter };
+			return { ...state, quantity: state.quantity - 1 };
 		default:
 			throw new Error('smth went wrong with the singleProductReducer');
 	}

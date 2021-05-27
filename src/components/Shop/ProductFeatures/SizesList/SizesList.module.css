@@ -1,0 +1,13 @@
+.sizesList {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	gap: 0rem;
+	margin: 0;
+	padding: 0;
+}
+
+.checked {
+	background-color: red;
+}

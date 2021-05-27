@@ -24,7 +24,11 @@ const App = props => {
 				<Route path='/shop' exact>
 					<Shop />
 				</Route>
-				<Route path='/shop/:id' exact>
+				<Route path='/shop/:category' exact>
+					{/* TODO: add component for the category */}
+					<div>Category Listing</div>
+				</Route>
+				<Route path='/shop/:category/:id' exact>
 					<SingleProduct />
 				</Route>
 				<Route path='/create-yours' exact>

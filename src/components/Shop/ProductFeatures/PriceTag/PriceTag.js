@@ -1,5 +1,5 @@
 import styles from './PriceTag.module.css';
-import formatPrice from '../../../../../utilities/formatPrice';
+import formatPrice from '../../../../utilities/formatPrice';
 
 const PriceTag = props => {
 	const salePrice =

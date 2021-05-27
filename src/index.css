@@ -40,3 +40,6 @@ p {
 .centered {
 	text-align: center;
 }
+button:disabled {
+	opacity: 0.5;
+}

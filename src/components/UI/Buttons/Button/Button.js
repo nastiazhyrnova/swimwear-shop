@@ -13,7 +13,8 @@ const Button = props => {
 		<button
 			className={mergedStyles}
 			onClick={props.onClick}
-			title={props.children}>
+			title={props.children}
+			disabled={props.disabled}>
 			{props.children}
 		</button>
 	);

@@ -1,5 +1,5 @@
-import { useReducer } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useReducer, useRef, useCallback } from 'react';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import lodash from 'lodash';
 
 import singleProductReducer from './singleProductReducer';
@@ -8,48 +8,55 @@ import formatPrice from '../../../utilities/formatPrice';
 import styles from './SingleProduct.module.css';
 
 import Button from '../../UI/Buttons/Button/Button';
-import ColorsList from '../ColorsList/ColorsList';
+import ColorsList from '../ProductFeatures/ColorsList/ColorsList';
+import SizesList from '../ProductFeatures/SizesList/SizesList';
+import PriceTag from '../ProductFeatures/PriceTag/PriceTag';
+import ProductListing from '../Listing/ProductListing';
 
 import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
 
 const SingleProduct = _ => {
-	useScrollToTop();
-
+	// useScrollToTop();
 	const history = useHistory();
 	const { id } = useParams();
+	const productQuantityRef = useRef(1);
 
 	const product = lodash.cloneDeep(
 		DUMMY_PRODUCTS.filter(product => product.sku === id)[0]
 	);
 
-	// TODO: add product itself or sku
-	const initialState = {
+	const [state, dispatch] = useReducer(singleProductReducer, {
+		sku: product.sku,
 		color: product.defaultColor,
 		size: null,
-		quantity: null,
-	};
-
-	const [state, dispatch] = useReducer(singleProductReducer, initialState);
+		quantity: 1,
+	});
 
 	const currentProductColorVariation = product.options.colors.find(
 		color => color.sku === state.color
 	);
 
+	const addToCart = _ => {
+		console.log(state);
+	};
+
 	return (
 		<main>
 			<div className={styles.breadcrumbsContainer}>
-				<span className={styles.breadcrumbs}>Shop/{product.category}</span>
-				{/* TODO: add link to the category */}
+				<span className={styles.breadcrumbs}>
+					Shop/
+					<Link to={`/shop/${product.category}`}>{product.category}</Link>
+				</span>
+				<span
+					className={styles.goBack}
+					type='button'
+					onClick={_ => history.goBack()}>
+					{'<'}
+				</span>
 			</div>
 
 			<div className={styles.detailsContainer}>
 				<div className={styles.leftColumn}>
-					<span
-						className={styles.goBack}
-						type='button'
-						onClick={_ => history.goBack()}>
-						{'<'}
-					</span>
 					<img
 						className={styles.image}
 						src={currentProductColorVariation.image}
@@ -58,11 +65,13 @@ const SingleProduct = _ => {
 				</div>
 				<div className={styles.rightColumn}>
 					<h3>{product.title}</h3>
-					<span>
+					<p>
 						Ref.: {product.sku}
 						{state.color}
-					</span>
-					<h2 className={styles.price}>{formatPrice(product.price)}</h2>
+					</p>
+					<h2 className={styles.price}>
+						<PriceTag product={product} />
+					</h2>
 					<h4>Colors</h4>
 					<ColorsList
 						selectedColor={state.color}
@@ -71,27 +80,36 @@ const SingleProduct = _ => {
 						}
 					/>
 					<h4>Sizes</h4>
-					<ul>
-						<li>XS</li>
-						<li>S</li>
-						<li>M</li>
-						<li>L</li>
-						<li>XL</li>
-						<li>XXL</li>
-					</ul>
+					<SizesList
+						selectedSize={state.size}
+						changeSelectedSize={size =>
+							dispatch({ type: 'SET_SIZE', size: size })
+						}
+					/>
+
 					<p>{product.description}</p>
 					<div className={styles.addToCartContainer}>
 						<div className={styles.counterContainer}>
-							<button>-</button>
-							<span>1</span>
-							<button>+</button>
+							<button
+								onClick={_ => dispatch({ type: 'REMOVE_ITEM' })}
+								disabled={state.quantity === 1 ? true : false}>
+								-
+							</button>
+							<span>{state.quantity}</span>
+							<button onClick={_ => dispatch({ type: 'ADD_ITEM' })}>+</button>
 						</div>
-						<Button inversed additionalClass={styles.addToCartButton}>
+						<Button
+							inversed
+							additionalClass={styles.addToCartButton}
+							disabled={!state.size}
+							onClick={addToCart}>
 							Add to cart
 						</Button>
 					</div>
 				</div>
 			</div>
+			<h2 className={styles.h2}>Related products</h2>
+			<ProductListing max={3} category={product.category} />
 		</main>
 	);
 };

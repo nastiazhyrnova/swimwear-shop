@@ -1,5 +1,5 @@
 import styles from './ColorItem.module.css';
-import checkIcon from '../../../../assets/icons/check.svg';
+import checkIcon from '../../../../../assets/icons/check.svg';
 
 const ColorItem = props => {
 	const overlayStyles = [styles.overlay];

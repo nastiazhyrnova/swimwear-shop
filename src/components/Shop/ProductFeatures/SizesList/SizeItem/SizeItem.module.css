@@ -1,0 +1,19 @@
+.sizeItem {
+	cursor: pointer;
+	padding: 4px;
+	margin: 0;
+	text-align: center;
+	width: 40px;
+}
+.sizeItem:hover,
+.checked {
+	box-shadow: 0px 0px 13px 2px rgba(26, 26, 26, 0.1);
+	background-color: var(--accent-color);
+	color: var(--light-color);
+}
+
+.input {
+	pointer-events: none;
+	position: fixed;
+	opacity: 0;
+}

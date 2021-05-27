@@ -1,10 +1,10 @@
 import lodash from 'lodash';
 
 import styles from './ProductListing.module.css';
-import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
 
 import ProductCard from './ProductCard/ProductCard';
 
+import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
 //Filters to accept via props: No of products - 'quantity' (number), 'featured' (boolean), 'category' (string), 'onSale' (boolean)
 const ProductListing = props => {
 	//TODO - add fetch from the database
