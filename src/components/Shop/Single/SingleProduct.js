@@ -11,12 +11,13 @@ import Button from '../../UI/Buttons/Button/Button';
 import ColorsList from '../ProductFeatures/ColorsList/ColorsList';
 import SizesList from '../ProductFeatures/SizesList/SizesList';
 import PriceTag from '../ProductFeatures/PriceTag/PriceTag';
+import Label from '../ProductFeatures/Label/Label';
 import ProductListing from '../Listing/ProductListing';
 
 import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
 
 const SingleProduct = _ => {
-	// useScrollToTop();
+	useScrollToTop();
 	const history = useHistory();
 	const { id } = useParams();
 	const productQuantityRef = useRef(1);
@@ -57,11 +58,14 @@ const SingleProduct = _ => {
 
 			<div className={styles.detailsContainer}>
 				<div className={styles.leftColumn}>
-					<img
-						className={styles.image}
-						src={currentProductColorVariation.image}
-						alt='Product'
-					/>
+					<div className={styles.imgContainer}>
+						<Label product={product} />
+						<img
+							className={styles.image}
+							src={currentProductColorVariation.image}
+							alt={product.title}
+						/>
+					</div>
 				</div>
 				<div className={styles.rightColumn}>
 					<h3>{product.title}</h3>

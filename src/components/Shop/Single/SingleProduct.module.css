@@ -22,6 +22,7 @@
 .detailsContainer {
 	display: flex;
 	flex-direction: row;
+	/* gap: 2rem; */
 	width: 100%;
 	margin: 2rem auto;
 	position: relative;
@@ -35,6 +36,15 @@
 
 .leftColumn {
 	flex: 0 0 55%;
+}
+.imgContainer {
+	/* background-color: lawngreen; */
+	min-width: 70%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	position: relative;
+	margin: 0 auto;
 }
 .image {
 	max-width: 300px;
@@ -123,6 +133,7 @@
 	.leftColumn {
 		flex: 0 0 40%;
 	}
+
 	.image {
 		max-width: 250px;
 		margin: 2rem auto;
@@ -138,12 +149,21 @@
 	.detailsContainer {
 		flex-direction: column;
 	}
+	.leftColumn {
+		width: 100%;
+	}
 }
 
 /*phone*/
 @media (max-width: 567px) {
 	.detailsContainer {
 		flex-direction: column;
+	}
+	.leftColumn {
+		width: 100%;
+	}
+	.imgContainer {
+		width: 90%;
 	}
 	.image {
 		width: 250px;
