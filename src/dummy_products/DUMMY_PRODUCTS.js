@@ -197,8 +197,8 @@ const DUMMY_PRODUCTS = [
 		bestseller: true,
 		stock: 100,
 		sale: {
-			onSale: false,
-			discount: 0,
+			onSale: true,
+			discount: 10,
 		},
 		options: {
 			colors: [
@@ -452,7 +452,7 @@ const DUMMY_PRODUCTS = [
 		defaultColor: 'tur',
 		defaultImage: vShapeImage.turquoise,
 		featured: false,
-		bestseller: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -538,7 +538,7 @@ const DUMMY_PRODUCTS = [
 		defaultColor: 'tur',
 		defaultImage: classicBottomImage.turquoise,
 		featured: true,
-		bestseller: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -624,11 +624,11 @@ const DUMMY_PRODUCTS = [
 		defaultColor: 'tur',
 		defaultImage: highBottomImage.turquoise,
 		featured: true,
-		bestseller: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
-			onSale: false,
-			discount: 0,
+			onSale: true,
+			discount: 10,
 		},
 		options: {
 			colors: [
@@ -710,7 +710,7 @@ const DUMMY_PRODUCTS = [
 		defaultColor: 'tur',
 		defaultImage: ribbonsBottomImage.turquoise,
 		featured: true,
-		bestseller: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -796,7 +796,7 @@ const DUMMY_PRODUCTS = [
 		defaultColor: 'tur',
 		defaultImage: sideRubbersBottomImage.turquoise,
 		featured: true,
-		bestseller: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -882,7 +882,7 @@ const DUMMY_PRODUCTS = [
 		defaultColor: 'tur',
 		defaultImage: slimRibbonsBottomImage.turquoise,
 		featured: true,
-		bestseller: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,
@@ -968,7 +968,7 @@ const DUMMY_PRODUCTS = [
 		defaultColor: 'tur',
 		defaultImage: thongBottomImage.turquoise,
 		featured: true,
-		bestseller: true,
+		bestseller: false,
 		stock: 100,
 		sale: {
 			onSale: false,

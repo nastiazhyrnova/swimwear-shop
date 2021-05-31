@@ -15,6 +15,7 @@ import Label from '../ProductFeatures/Label/Label';
 import ProductListing from '../Listing/ProductListing';
 
 import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
+import ProductItem from '../Listing/ProductCard/ProductCard';
 
 const SingleProduct = _ => {
 	useScrollToTop();
@@ -44,16 +45,17 @@ const SingleProduct = _ => {
 	return (
 		<main>
 			<div className={styles.breadcrumbsContainer}>
-				<span className={styles.breadcrumbs}>
-					Shop/
-					<Link to={`/shop/${product.category}`}>{product.category}</Link>
-				</span>
 				<span
 					className={styles.goBack}
 					type='button'
+					title='Go back'
 					onClick={_ => history.goBack()}>
 					{'<'}
 				</span>
+				<p className={styles.breadcrumbs}>
+					<Link to={`/shop/`}>Shop</Link>/
+					<Link to={`/shop/${product.category}`}>{product.category}</Link>
+				</p>
 			</div>
 
 			<div className={styles.detailsContainer}>
@@ -68,7 +70,7 @@ const SingleProduct = _ => {
 					</div>
 				</div>
 				<div className={styles.rightColumn}>
-					<h3>{product.title}</h3>
+					<h1>{product.title}</h1>
 					<p>
 						Ref.: {product.sku}
 						{state.color}
@@ -113,7 +115,11 @@ const SingleProduct = _ => {
 				</div>
 			</div>
 			<h2 className={styles.h2}>Related products</h2>
-			<ProductListing max={3} category={product.category} />
+			<ProductListing
+				max={3}
+				category={product.category}
+				exclude={product.sku}
+			/>
 		</main>
 	);
 };

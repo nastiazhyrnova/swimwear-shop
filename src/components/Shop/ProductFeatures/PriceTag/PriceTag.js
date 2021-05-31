@@ -1,10 +1,12 @@
 import styles from './PriceTag.module.css';
+import calculateSalePrice from '../../../../utilities/calculateSalePrice';
 import formatPrice from '../../../../utilities/formatPrice';
 
 const PriceTag = props => {
-	const salePrice =
-		props.product.price -
-		props.product.price * (props.product.sale.discount / 100);
+	const salePrice = calculateSalePrice(
+		props.product.price,
+		props.product.sale.discount
+	);
 
 	return (
 		<>

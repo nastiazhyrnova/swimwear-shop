@@ -1,10 +1,21 @@
 .breadcrumbsContainer {
 	text-align: left;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	position: relative;
 }
 .breadcrumbs {
+	position: relative;
 	text-transform: capitalize;
+	margin: 0;
+	padding: 0;
+	color: var(--middle-grey-color);
 }
-
+.breadcrumbs a {
+	color: var(--middle-grey-color);
+}
 .goBack {
 	cursor: pointer;
 	display: block;
@@ -17,6 +28,9 @@
 	padding: auto;
 	font-size: 2rem;
 	font-weight: 200;
+	position: absolute;
+	left: 0;
+	top: 0;
 }
 
 .detailsContainer {
@@ -57,9 +71,16 @@
 .rightColumn * {
 	text-align: left;
 }
-.rightColumn h3,
+.rightColumn h1,
 .price {
 	font-weight: 400;
+}
+.rightColumn h1 {
+	font-size: 1.2rem;
+	letter-spacing: normal;
+	text-transform: none;
+	margin: 1rem 0;
+	padding: 0;
 }
 .rightColumn p {
 	width: 100%;

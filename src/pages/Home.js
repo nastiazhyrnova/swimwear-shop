@@ -14,7 +14,7 @@ const Home = _ => {
 		<>
 			<Slider />
 			<h1 className='centered'>Featured Models</h1>
-			<ProductListing max={6} featured />
+			<ProductListing max={6} sort={{ by: 'price', asc: false }} />
 			<Button inversed onClick={goToShop}>
 				See all products
 			</Button>
