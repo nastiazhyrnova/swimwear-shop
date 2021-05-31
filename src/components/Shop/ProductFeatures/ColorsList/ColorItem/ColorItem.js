@@ -12,8 +12,7 @@ const ColorItem = props => {
 		<label
 			className={styles.colorSwatch}
 			title={props.color.value}
-			htmlFor={props.color.sku}
-			onClick={_ => props.onClick(props.color.sku)}>
+			htmlFor={props.color.sku}>
 			<input
 				type='radio'
 				id={props.color.sku}
@@ -21,6 +20,7 @@ const ColorItem = props => {
 				value={props.color.value}
 				className={styles.input}
 				checked={props.checked}
+				onChange={_ => props.onChange(props.color.sku)}
 			/>
 			<img
 				src={props.color.swatchURL}

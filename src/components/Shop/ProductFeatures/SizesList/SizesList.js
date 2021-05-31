@@ -21,7 +21,7 @@ const Sizes = props => {
 				size={size}
 				key={size}
 				checked={checked}
-				onClick={size => chooseSize(size)}
+				onChange={size => chooseSize(size)}
 			/>
 		);
 	});

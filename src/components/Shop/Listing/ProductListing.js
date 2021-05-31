@@ -36,7 +36,7 @@ const ProductListing = props => {
 		return true;
 	});
 
-	//Sort filtered results
+	//Sort filtered results (random by default)
 	let sortedProducts;
 	if (props.sort) {
 		sortedProducts = sortProducts(

@@ -15,7 +15,7 @@ const ColorsList = props => {
 				color={color}
 				key={color.sku}
 				checked={checked}
-				onClick={defaultColor => props.changeSelectedColor(defaultColor)}
+				onChange={defaultColor => props.changeSelectedColor(defaultColor)}
 			/>
 		);
 	});

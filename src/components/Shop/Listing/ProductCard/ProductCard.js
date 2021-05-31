@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom';
+import useScrollToTop from '../../../../hooks/use-scroll-to-top';
 import styles from './ProductCard.module.css';
 
 import Label from '../../ProductFeatures/Label/Label';

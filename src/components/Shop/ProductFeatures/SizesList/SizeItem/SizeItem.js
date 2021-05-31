@@ -11,8 +11,7 @@ const SizeItem = props => {
 		<label
 			className={sizeItemStyles.join(' ')}
 			title={props.size}
-			htmlFor={props.size}
-			onClick={_ => props.onClick(props.size)}>
+			htmlFor={props.size}>
 			<input
 				type='radio'
 				id={props.size}
@@ -20,6 +19,7 @@ const SizeItem = props => {
 				value={props.size}
 				className={styles.input}
 				checked={props.checked}
+				onChange={_ => props.onChange(props.size)}
 			/>
 			{props.size}
 		</label>

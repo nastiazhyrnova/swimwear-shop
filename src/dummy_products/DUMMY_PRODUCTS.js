@@ -21,7 +21,7 @@ const DUMMY_PRODUCTS = [
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		defaultColor: 'tur',
 		defaultImage: bandeauImage.turquoise,
-		featured: true,
+		featured: false,
 		bestseller: true,
 		stock: 100,
 		sale: {
@@ -193,7 +193,7 @@ const DUMMY_PRODUCTS = [
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		defaultColor: 'tur',
 		defaultImage: ringImage.turquoise,
-		featured: false,
+		featured: true,
 		bestseller: true,
 		stock: 100,
 		sale: {
@@ -279,7 +279,7 @@ const DUMMY_PRODUCTS = [
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		defaultColor: 'tur',
 		defaultImage: topImage.turquoise,
-		featured: false,
+		featured: true,
 		bestseller: false,
 		stock: 100,
 		sale: {
@@ -537,7 +537,7 @@ const DUMMY_PRODUCTS = [
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		defaultColor: 'tur',
 		defaultImage: classicBottomImage.turquoise,
-		featured: true,
+		featured: false,
 		bestseller: false,
 		stock: 100,
 		sale: {
@@ -709,7 +709,7 @@ const DUMMY_PRODUCTS = [
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
 		defaultColor: 'tur',
 		defaultImage: ribbonsBottomImage.turquoise,
-		featured: true,
+		featured: false,
 		bestseller: false,
 		stock: 100,
 		sale: {
