@@ -4,9 +4,9 @@ import lodash from 'lodash';
 
 import singleProductReducer from './singleProductReducer';
 import useScrollToTop from '../../../hooks/use-scroll-to-top';
-import formatPrice from '../../../utilities/formatPrice';
 import styles from './SingleProduct.module.css';
 
+import Loader from './../../../components/UI/Loader/Loader';
 import Button from '../../UI/Buttons/Button/Button';
 import ColorsList from '../ProductFeatures/ColorsList/ColorsList';
 import SizesList from '../ProductFeatures/SizesList/SizesList';
