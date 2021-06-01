@@ -1,7 +1,10 @@
+import { useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import styles from './Loader.module.css';
 
 const Loader = () => {
+	const loading = useSelector(state => state.loading);
+
 	const loader = (
 		<div className={styles.background}>
 			<div className={styles.skChase}>
@@ -16,7 +19,8 @@ const Loader = () => {
 	);
 	return (
 		<>
-			{ReactDOM.createPortal(loader, document.getElementById('backdrop-root'))}
+			{loading &&
+				ReactDOM.createPortal(loader, document.getElementById('backdrop-root'))}
 		</>
 	);
 };

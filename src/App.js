@@ -14,9 +14,12 @@ import LegalAdvice from './pages/Legal/LegalAdvice';
 import Page404 from './pages/404';
 import SingleProduct from './components/Shop/Single/SingleProduct';
 
+import Loader from './components/UI/Loader/Loader';
+
 const App = props => {
 	return (
 		<Layout>
+			<Loader />
 			<Switch>
 				<Route path='/' exact>
 					<Home />
