@@ -5,6 +5,7 @@ import sortProducts from '../../../utilities/sortProducts';
 import ProductCard from './ProductCard/ProductCard';
 
 import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
+import React from 'react';
 
 //Filters to accept via props: No of products - 'quantity' (number), 'featured' (boolean), 'category' (string), 'onSale' (boolean), 'exclude'(string with product sku), 'sort' (object): {by: ['price', 'popular', ''], asc: boolean. (default - random)}
 
@@ -60,4 +61,4 @@ const ProductListing = props => {
 	return <div className={styles.productGrid}>{outputProducts}</div>;
 };
 
-export default ProductListing;
+export default React.memo(ProductListing);

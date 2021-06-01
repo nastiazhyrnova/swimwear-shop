@@ -1,7 +1,12 @@
 const singleProductReducer = (state, action) => {
 	switch (action.type) {
-		case 'SET_SKU':
-			return { ...state, sku: action.sku };
+		case 'SET_PRODUCT':
+			return {
+				sku: action.product.sku,
+				color: action.product.defaultColor,
+				size: null,
+				quantity: 1,
+			};
 		case 'SET_COLOR':
 			return { ...state, color: action.color };
 		case 'SET_SIZE':

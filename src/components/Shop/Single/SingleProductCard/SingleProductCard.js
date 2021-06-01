@@ -5,6 +5,7 @@ import ColorsList from '../../ProductFeatures/ColorsList/ColorsList';
 import SizesList from '../../ProductFeatures/SizesList/SizesList';
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
 import Label from '../../ProductFeatures/Label/Label';
+import React from 'react';
 
 const SingleProductCard = props => {
 	return (

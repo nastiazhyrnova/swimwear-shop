@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer, useMemo } from 'react';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import lodash from 'lodash';
 
@@ -14,8 +14,10 @@ const SingleProduct = _ => {
 	const history = useHistory();
 	const { id } = useParams();
 
-	const product = lodash.cloneDeep(
-		DUMMY_PRODUCTS.filter(product => product.sku === id)[0]
+	const product = useMemo(
+		_ =>
+			lodash.cloneDeep(DUMMY_PRODUCTS.filter(product => product.sku === id)[0]),
+		[id]
 	);
 
 	const [state, dispatch] = useReducer(singleProductReducer, {
@@ -26,9 +28,9 @@ const SingleProduct = _ => {
 	});
 
 	useEffect(() => {
-		dispatch({ type: 'SET_SKU', sku: id });
+		dispatch({ type: 'SET_PRODUCT', product: product });
 		window.scrollTo(0, 0);
-	}, [id]);
+	}, [id, product]);
 
 	const currentProductColorVariation = product.options.colors.find(
 		color => color.sku === state.color
@@ -37,7 +39,6 @@ const SingleProduct = _ => {
 	const addToCart = _ => {
 		console.log(state);
 	};
-
 	return (
 		<main>
 			<div className={styles.breadcrumbsContainer}>
