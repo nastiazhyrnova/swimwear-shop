@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import styles from './ShopNavItems.module.css';
 import cartIcon from '../../../assets/icons/shopping-cart.svg';
@@ -10,36 +11,37 @@ import HiddenButton from '../../UI/Buttons/HiddenButton/HiddenButton';
 import Sidebar from '../../UI/Sidebar/Sidebar';
 
 const ShopNavItems = _ => {
-	const [showCart, setShowCart] = useState(false);
-	const [showUserAccount, setShowUserAccount] = useState(false);
+	const [showCartSidebar, setShowCartSidebar] = useState(false);
+	const [showUserAccountSidebar, setShowUserAccountSidebar] = useState(false);
+	const cartStore = useSelector(state => state.cart);
 
 	//Cart Sidebar
-	const openCart = _ => {
-		setShowCart(true);
-		setShowUserAccount(false);
+	const openCartSidebar = _ => {
+		setShowCartSidebar(true);
+		setShowUserAccountSidebar(false);
 	};
-	const closeCart = _ => {
-		setShowCart(false);
-		setShowUserAccount(false);
+	const closeCartSidebar = _ => {
+		setShowCartSidebar(false);
+		setShowUserAccountSidebar(false);
 	};
 
-	const cart = (
-		<Sidebar right open={openCart} closeFunc={closeCart}>
+	const cartSidebar = (
+		<Sidebar right open={openCartSidebar} closeFunc={closeCartSidebar}>
 			<Cart />
 		</Sidebar>
 	);
 
 	// User Account Sidebar
 	const openUserAccount = _ => {
-		setShowUserAccount(true);
-		setShowCart(false);
+		setShowUserAccountSidebar(true);
+		setShowCartSidebar(false);
 	};
 	const closeUserAccount = _ => {
-		setShowUserAccount(false);
-		setShowCart(false);
+		setShowUserAccountSidebar(false);
+		setShowCartSidebar(false);
 	};
 
-	const userAccount = (
+	const userAccountSidebar = (
 		<Sidebar right closeFunc={closeUserAccount}>
 			<UserAccount />
 		</Sidebar>
@@ -47,11 +49,11 @@ const ShopNavItems = _ => {
 
 	return (
 		<div className={styles.shopNav}>
-			{showCart && cart}
-			{showUserAccount && userAccount}
-			<HiddenButton label='Shopping Cart' onClick={openCart}>
+			{showCartSidebar && cartSidebar}
+			{showUserAccountSidebar && userAccountSidebar}
+			<HiddenButton label='Shopping Cart' onClick={openCartSidebar}>
 				<img className={styles.icon} src={cartIcon} alt='Shopping Cart' />
-				<span className={styles.circle}>5</span>
+				<span className={styles.circle}>{cartStore.length}</span>
 			</HiddenButton>
 			<HiddenButton label='User Account' onClick={openUserAccount}>
 				<img className={styles.icon} src={userIcon} alt='User Account' />

@@ -43,7 +43,6 @@ const SingleProductCard = props => {
 						props.dispatch({ type: 'SET_SIZE', size: size })
 					}
 				/>
-
 				<p>{props.product.description}</p>
 				<div className={styles.addToCartContainer}>
 					<div className={styles.counterContainer}>
