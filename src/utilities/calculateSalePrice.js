@@ -1,4 +1,4 @@
 const calculateSalePrice = (price, discount) =>
-	price - price * (discount / 100);
+	Math.round(price - price * (discount / 100));
 
 export default calculateSalePrice;

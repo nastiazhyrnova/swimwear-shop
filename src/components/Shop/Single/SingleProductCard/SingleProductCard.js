@@ -5,7 +5,7 @@ import ColorsList from '../../ProductFeatures/ColorsList/ColorsList';
 import SizesList from '../../ProductFeatures/SizesList/SizesList';
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
 import Label from '../../ProductFeatures/Label/Label';
-import React from 'react';
+import Counter from '../../ProductFeatures/Counter/Counter';
 
 const SingleProductCard = props => {
 	return (
@@ -45,17 +45,11 @@ const SingleProductCard = props => {
 				/>
 				<p>{props.product.description}</p>
 				<div className={styles.addToCartContainer}>
-					<div className={styles.counterContainer}>
-						<button
-							onClick={_ => props.dispatch({ type: 'REMOVE_ITEM' })}
-							disabled={props.state.quantity === 1 ? true : false}>
-							-
-						</button>
-						<span>{props.state.quantity}</span>
-						<button onClick={_ => props.dispatch({ type: 'ADD_ITEM' })}>
-							+
-						</button>
-					</div>
+					<Counter
+						onAdd={_ => props.dispatch({ type: 'ADD_ITEM' })}
+						onRemove={_ => props.dispatch({ type: 'REMOVE_ITEM' })}
+						currentQuantity={props.state.quantity}
+					/>
 					<Button
 						inversed
 						additionalClass={styles.addToCartButton}

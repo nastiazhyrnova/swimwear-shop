@@ -1,0 +1,32 @@
+.cartItem {
+	display: grid;
+	grid-template-columns: 5fr 2fr;
+	gap: 15px;
+	width: 100%;
+	align-items: center;
+	margin: 0.8rem 0;
+}
+.infoContainer p {
+	margin: 0.2rem 0;
+}
+.title {
+	font-size: 0.8rem;
+	font-weight: 500;
+}
+.ref {
+	font-size: 0.5rem;
+}
+.productVariations {
+	display: flex;
+	gap: 0.6rem;
+}
+.productVariations p {
+	font-size: 0.6rem;
+}
+.quantity span,
+.quantity button {
+	font-size: 0.8rem;
+}
+.price {
+	font-size: 0.9rem;
+}

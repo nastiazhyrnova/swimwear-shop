@@ -64,12 +64,11 @@ const SingleProduct = _ => {
 	);
 
 	//add to cart function through redux store
-
-	//! Different reducers and slices-how to choose dispatch??
 	const cartDispatch = useDispatch();
 	const addToCartHandler = _ => {
-		console.log(state);
-		cartDispatch(cartActions.addToCart({ product: state }));
+		cartDispatch(
+			cartActions.addToCart({ productDetails: state, quantity: state.quantity })
+		);
 	};
 	return (
 		<main>
