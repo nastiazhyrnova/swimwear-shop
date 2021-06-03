@@ -19,7 +19,7 @@ const CartItem = props => {
 	);
 
 	const currentColor = ATTRIBUTES[0].options.find(colorSwatch => {
-		return colorSwatch.sku === props.product.color;
+		return colorSwatch.code === props.product.color;
 	});
 
 	return (
@@ -28,7 +28,7 @@ const CartItem = props => {
 				<p className={styles.title}>{fullProductInfo.title}</p>
 				<p className={styles.ref}>Ref.: {props.product.sku}</p>
 				<div className={styles.productVariations}>
-					<p className={styles.color}>Color: {currentColor.value}</p>
+					<p className={styles.color}>Color: {currentColor.title}</p>
 					<p className={styles.size}>Size: {props.product.size}</p>
 				</div>
 				<div className={styles.quantity}>

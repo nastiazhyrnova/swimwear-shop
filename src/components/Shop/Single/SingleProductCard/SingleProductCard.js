@@ -1,4 +1,5 @@
 import styles from './SingleProductCard.module.css';
+import productImages from '../../../../assets/products/productImages';
 
 import Button from '../../../UI/Buttons/Button/Button';
 import ColorsList from '../../ProductFeatures/ColorsList/ColorsList';
@@ -8,6 +9,11 @@ import Label from '../../ProductFeatures/Label/Label';
 import Counter from '../../ProductFeatures/Counter/Counter';
 
 const SingleProductCard = props => {
+	const productImage =
+		productImages[`${props.product.category}`][`${props.product.sku}`][
+			`${props.currentColor.code}`
+		];
+
 	return (
 		<div className={styles.detailsContainer}>
 			<div className={styles.leftColumn}>
@@ -15,17 +21,14 @@ const SingleProductCard = props => {
 					<Label product={props.product} />
 					<img
 						className={styles.image}
-						src={props.currentProductColorVariation.image}
+						src={productImage}
 						alt={props.product.title}
 					/>
 				</div>
 			</div>
 			<div className={styles.rightColumn}>
 				<h1>{props.product.title}</h1>
-				<p>
-					Ref.: {props.product.sku}
-					{props.state.color}
-				</p>
+				<p>Ref.: {props.product.sku}</p>
 				<h2 className={styles.price}>
 					<PriceTag product={props.product} />
 				</h2>

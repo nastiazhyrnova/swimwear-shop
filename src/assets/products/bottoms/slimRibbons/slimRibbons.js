@@ -1,4 +1,4 @@
-const colorSwatches = {
+const slimRibbonsBottomImage = {
 	blackCircles: require('./black-circles.png').default,
 	blackFlowers: require('./black-flowers.png').default,
 	black: require('./black.png').default,
@@ -14,4 +14,4 @@ const colorSwatches = {
 	yellow: require('./yellow.png').default,
 };
 
-export default colorSwatches;
+export default slimRibbonsBottomImage;

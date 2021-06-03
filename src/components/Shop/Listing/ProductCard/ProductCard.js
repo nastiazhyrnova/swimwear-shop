@@ -1,10 +1,12 @@
 import { useHistory } from 'react-router-dom';
-import useScrollToTop from '../../../../hooks/use-scroll-to-top';
 import styles from './ProductCard.module.css';
+import productImages from '../../../../assets/products/productImages';
 
 import Label from '../../ProductFeatures/Label/Label';
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
 import Button from '../../../UI/Buttons/Button/Button';
+
+import ATTRIBUTES from '../../../../dummy_products/attributes';
 
 const ProductItem = props => {
 	const history = useHistory();
@@ -12,16 +14,21 @@ const ProductItem = props => {
 		history.push(`/shop/${props.product.category}/${props.product.sku}`);
 	};
 
+	const productImage =
+		productImages[`${props.product.category}`][`${props.product.sku}`][
+			`${props.product.defaultColor}`
+		];
+
 	return (
 		<div className={styles.product} onClick={openProductDetails}>
 			<Label product={props.product} />
 			<div className={styles.imgContainer}>
-				<img src={props.product.defaultImage} alt='img' />
+				<img src={productImage} alt={props.product.title} />
 			</div>
 			<div className={styles.productDetails}>
 				<span className={styles.productTitle}>{props.product.title}</span>
 				<span className={styles.productColors}>
-					{props.product.options.colors.length} colors
+					{ATTRIBUTES[0].options.length} colors
 				</span>
 			</div>
 			<PriceTag product={props.product} />

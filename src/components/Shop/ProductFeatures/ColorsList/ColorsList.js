@@ -6,7 +6,7 @@ import ATTRIBUTES from '../../../../dummy_products/attributes';
 const ColorsList = props => {
 	const colors = ATTRIBUTES[0].options.map(color => {
 		let checked = false;
-		if (props.selectedColor === color.sku) {
+		if (props.selectedColor === color.code) {
 			checked = true;
 		}
 

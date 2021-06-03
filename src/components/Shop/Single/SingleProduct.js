@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useParams, useHistory } from 'react-router-dom';
-import lodash, { add } from 'lodash';
+import lodash from 'lodash';
 
 import styles from './SingleProduct.module.css';
 import { cartActions } from '../../../store/cartSlice';
@@ -10,6 +10,7 @@ import ProductListing from '../Listing/ProductListing';
 import SingleProductCard from './SingleProductCard/SingleProductCard';
 
 import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
+import ATTRIBUTES from '../../../dummy_products/attributes';
 
 const singleProductReducer = (state, action) => {
 	switch (action.type) {
@@ -59,8 +60,8 @@ const SingleProduct = _ => {
 	}, [id, product]);
 
 	//TODO: can be improved:
-	const currentProductColorVariation = product.options.colors.find(
-		color => color.sku === state.color
+	const currentColor = ATTRIBUTES[0].options.find(
+		color => color.code === state.color
 	);
 
 	//add to cart function through redux store
@@ -95,7 +96,7 @@ const SingleProduct = _ => {
 			</div>
 			<SingleProductCard
 				product={product}
-				currentProductColorVariation={currentProductColorVariation}
+				currentColor={currentColor}
 				state={state}
 				dispatch={dispatch}
 				addToCart={addToCartHandler}

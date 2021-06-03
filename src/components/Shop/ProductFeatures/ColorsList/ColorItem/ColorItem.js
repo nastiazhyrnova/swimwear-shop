@@ -1,9 +1,14 @@
 import styles from './ColorItem.module.css';
 import checkIcon from '../../../../../assets/icons/check.svg';
 
-const ColorItem = props => {
-	const overlayStyles = [styles.overlay];
+import colorSwatches from '../../../../../assets/products/color-swatches/color-swatches';
 
+const ColorItem = props => {
+	//get current colorSwatch image
+	const swatchImage = colorSwatches[`${props.color.code}`];
+
+	//marked as checked
+	const overlayStyles = [styles.overlay];
 	if (props.checked) {
 		overlayStyles.push(styles.checked);
 	}
@@ -11,20 +16,20 @@ const ColorItem = props => {
 	return (
 		<label
 			className={styles.colorSwatch}
-			title={props.color.value}
-			htmlFor={props.color.sku}>
+			title={props.color.title}
+			htmlFor={props.color.code}>
 			<input
 				type='radio'
-				id={props.color.sku}
-				name={props.color.value}
-				value={props.color.value}
+				id={props.color.code}
+				name={props.color.title}
+				value={props.color.title}
 				className={styles.input}
 				checked={props.checked}
-				onChange={_ => props.onChange(props.color.sku)}
+				onChange={_ => props.onChange(props.color.code)}
 			/>
 			<img
-				src={props.color.swatchURL}
-				alt={props.color.value}
+				src={swatchImage}
+				alt={props.color.title}
 				className={styles.colorSwatchImg}
 			/>
 			<div className={overlayStyles.join(' ')}>
