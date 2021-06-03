@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../../../../store/cartSlice';
 import styles from './CartItem.module.css';
 
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
@@ -7,6 +9,11 @@ import DUMMY_PRODUCTS from '../../../../dummy_products/DUMMY_PRODUCTS';
 import ATTRIBUTES from '../../../../dummy_products/attributes';
 
 const CartItem = props => {
+	const dispatch = useDispatch();
+
+	const jsonFile = JSON.stringify(DUMMY_PRODUCTS);
+	console.log(jsonFile);
+
 	const fullProductInfo = DUMMY_PRODUCTS.find(
 		product => product.sku === props.product.sku
 	);
@@ -24,21 +31,26 @@ const CartItem = props => {
 					<p className={styles.color}>Color: {currentColor.value}</p>
 					<p className={styles.size}>Size: {props.product.size}</p>
 				</div>
-				<p className={styles.quantity}>
+				<div className={styles.quantity}>
 					<Counter
 						currentQuantity={props.product.quantity}
 						onAdd={_ => {
-							console.log('add item ');
+							dispatch(
+								cartActions.addToCart({
+									productDetails: props.product,
+									quantity: 1,
+								})
+							);
 						}}
 						onRemove={_ => {
 							console.log('remove item');
 						}}
 					/>
-				</p>
+				</div>
 			</div>
 
 			<p className={styles.price}>
-				<PriceTag product={fullProductInfo} />
+				<PriceTag product={fullProductInfo} quantity={props.product.quantity} />
 			</p>
 		</li>
 	);

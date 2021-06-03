@@ -1,0 +1,1022 @@
+[
+  {
+    "sku": "1band",
+    "category": "tops",
+    "title": "Bandeau bikini top",
+    "price": 38,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.e575f317.png",
+    "featured": false,
+    "bestseller": true,
+    "stock": 100,
+    "sale": {
+      "onSale": true,
+      "discount": 22
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.b2b6490d.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.a04b9b3b.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.80932b31.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.7afdeb54.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.8aef64e9.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.907be556.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.f308a7a4.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.e575f317.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.b2a227fa.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.5751d3c7.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.02b6e127.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.006c2097.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.0bf9622e.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "2cups",
+    "category": "tops",
+    "title": "Classic bikini top",
+    "price": 35,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.f79b87ee.png",
+    "featured": false,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": false,
+      "discount": 0
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.b7dd0ef0.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.d2ed7474.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.84f66c84.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.005bba3a.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.557509a5.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.e5c38380.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.b5e747d7.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.f79b87ee.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.eed398c7.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.f471b931.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.44008acc.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.77106199.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.1432f481.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "3ring",
+    "category": "tops",
+    "title": "Top with wooden ring",
+    "price": 42,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.7f1b2e69.png",
+    "featured": true,
+    "bestseller": true,
+    "stock": 100,
+    "sale": {
+      "onSale": true,
+      "discount": 10
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.64ebca94.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.7a283e7a.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.83815cb9.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.d46eac3b.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.5b5b54ca.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.5c6e96ed.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.5bf40d97.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.7f1b2e69.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.30dfc51d.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.7d5fef11.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.04a3b85c.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.268341bd.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.95392abd.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "4top",
+    "category": "tops",
+    "title": "Crop top with a mesh",
+    "price": 43,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.fea49bd4.png",
+    "featured": true,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": false,
+      "discount": 0
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.846d098c.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.80a8a721.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.bf74da0d.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.ca7988cc.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.84a345b1.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.25693b14.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.a4bb71b9.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.fea49bd4.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.a7e3719c.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.5100cbc2.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.6a9a3e89.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.3ae25ce4.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.b4817667.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "5triangle",
+    "category": "tops",
+    "title": "Classic triangle top",
+    "price": 33,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.f872c751.png",
+    "featured": false,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": false,
+      "discount": 0
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.4413ae2d.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.e094338c.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.f50e03e8.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.028cd64a.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.109104aa.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.5c87e09c.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.44cef780.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.f872c751.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.2d6f9a90.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.373b47b6.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.c8117c90.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.c41e75af.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.f9b02171.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "6vshape",
+    "category": "tops",
+    "title": "Modern v-shape top",
+    "price": 39,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.3774319b.png",
+    "featured": false,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": false,
+      "discount": 0
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.cebc5844.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.e2f62abc.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.47a276ee.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.71e07591.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.8d074465.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.d3cabcb3.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.8a7727ac.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.3774319b.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.d4223f83.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.c8734770.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.fb7a3d3a.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.5122f3a0.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.32987c8a.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "7classicb",
+    "category": "bottoms",
+    "title": "Classic bikini bottom",
+    "price": 25,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.881b03c4.png",
+    "featured": false,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": false,
+      "discount": 0
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.1c46fc56.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.d88a5340.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.702207cc.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.1e89e93a.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.481d331a.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.10c06eee.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.0492468f.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.881b03c4.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.85242bec.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.6e6c3589.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.cd7ec7e5.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.623860dc.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.fa4fa4c6.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "8highb",
+    "category": "bottoms",
+    "title": "High bikini bottom",
+    "price": 28,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.6e237523.png",
+    "featured": true,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": true,
+      "discount": 10
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.e130e522.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.25ba53bf.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.d1b2b188.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.68cd0cb3.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.43658a64.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.f36c5e20.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.479870aa.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.6e237523.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.19c21532.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.a156dde1.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.c466d948.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.3f7a96b9.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.c87e0263.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "9ribbonsb",
+    "category": "bottoms",
+    "title": "Bikini bottom with ribbons",
+    "price": 24,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.4d506623.png",
+    "featured": false,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": false,
+      "discount": 0
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.bbc14da5.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.cc9d8948.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.8ae022bb.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.c20ea74e.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.862169b6.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.277ef691.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.877d43d2.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.4d506623.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.0c97c8e9.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.56f756e1.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.19ce5567.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.40574d2e.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.ba137c33.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "10siderubb",
+    "category": "bottoms",
+    "title": "Bikini bottom with triple side connection",
+    "price": 26,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.92e29043.png",
+    "featured": true,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": false,
+      "discount": 0
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.aabee261.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.386f433d.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.ebab2bae.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.a6126e3c.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.41e3d7ec.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.261ea436.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.10c0d3ef.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.92e29043.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.616eb469.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.26d021e7.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.27713d3b.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.74f3af56.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.cf1efe4e.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "11slimribb",
+    "category": "bottoms",
+    "title": "Classic bikini with slim ribbons on the sides",
+    "price": 24,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.59d0c96d.png",
+    "featured": true,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": false,
+      "discount": 0
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.80621fcb.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.2f8595c1.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.703dc265.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.4837a204.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.fb8e2250.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.daeb4144.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.a1b123cc.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.59d0c96d.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.fdfb6d75.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.ddbfd78c.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.3c8bfafa.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.ee4c4a27.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.60b8c7a3.png"
+        }
+      ]
+    }
+  },
+  {
+    "sku": "12thongb",
+    "category": "bottoms",
+    "title": "Thong bikini bottom",
+    "price": 23,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique nibh erat, in lacinia erat lacinia quis. Nam vitae lobortis urna, non tristique quam. Vivamus lectus est, consequat vel gravida at, tempor at massa. Suspendisse a scelerisque odio. Praesent ut felis quis ipsum vestibulum congue congue dictum erat. Mauris blandit elit vitae odio placerat sagittis. Sed feugiat mattis justo ac bibendum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+    "defaultColor": "tur",
+    "defaultImage": "/static/media/Turquoise.26f3d41b.png",
+    "featured": true,
+    "bestseller": false,
+    "stock": 100,
+    "sale": {
+      "onSale": false,
+      "discount": 0
+    },
+    "options": {
+      "colors": [
+        {
+          "sku": "bla",
+          "value": "Black",
+          "image": "/static/media/Black.e5ac4ed1.png"
+        },
+        {
+          "sku": "blac",
+          "value": "Black circles",
+          "image": "/static/media/black-circles.138f4883.png"
+        },
+        {
+          "sku": "blaf",
+          "value": "Black flowers",
+          "image": "/static/media/Black-flowers.6a7c942e.png"
+        },
+        {
+          "sku": "blu",
+          "value": "Blue",
+          "image": "/static/media/blue.f6075ac8.png"
+        },
+        {
+          "sku": "bluo",
+          "value": "Blue Ocean",
+          "image": "/static/media/blue-ocean.5c34848b.png"
+        },
+        {
+          "sku": "oraw",
+          "value": "Orange Watercolor",
+          "image": "/static/media/orange-watercolor.7ef93fa0.png"
+        },
+        {
+          "sku": "red",
+          "value": "Red",
+          "image": "/static/media/Red.577e7af8.png"
+        },
+        {
+          "sku": "tur",
+          "value": "Turquoise",
+          "image": "/static/media/Turquoise.26f3d41b.png"
+        },
+        {
+          "sku": "turs",
+          "value": "Turquoise Stripes",
+          "image": "/static/media/Turquoise-stripe.8bb59cc6.png"
+        },
+        {
+          "sku": "whi",
+          "value": "White",
+          "image": "/static/media/White.1a8473ae.png"
+        },
+        {
+          "sku": "whid",
+          "value": "White Dots",
+          "image": "/static/media/White-dalmatine.4f467269.png"
+        },
+        {
+          "sku": "whios",
+          "value": "White Orange Splash",
+          "image": "/static/media/White-orange-splash.fda64b13.png"
+        },
+        {
+          "sku": "yel",
+          "value": "Yellow",
+          "image": "/static/media/yellow.1de1ed13.png"
+        }
+      ]
+    }
+  }
+]

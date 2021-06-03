@@ -15,13 +15,11 @@ const addToCartAction = (state, action) => {
 		}
 	});
 
-	console.log(existingItemIndex);
-
-	if (!existingItemIndex) {
+	if (existingItemIndex === null) {
 		return state.push(action.payload.productDetails);
 	} else {
-		console.log('product exists in the cart');
-		state[existingItemIndex].quantity = +action.payload.quantity;
+		state[existingItemIndex].quantity =
+			state[existingItemIndex].quantity + action.payload.quantity;
 		return state;
 	}
 };

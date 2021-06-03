@@ -66,8 +66,16 @@ const SingleProduct = _ => {
 	//add to cart function through redux store
 	const cartDispatch = useDispatch();
 	const addToCartHandler = _ => {
+		console.log({
+			sku: state.sku,
+			color: state.color,
+			size: state.size,
+		});
 		cartDispatch(
-			cartActions.addToCart({ productDetails: state, quantity: state.quantity })
+			cartActions.addToCart({
+				productDetails: state,
+				quantity: state.quantity,
+			})
 		);
 	};
 	return (

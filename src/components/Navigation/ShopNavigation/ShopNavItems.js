@@ -47,13 +47,21 @@ const ShopNavItems = _ => {
 		</Sidebar>
 	);
 
+	let cartTotalQuantity = cartStore.length;
+
+	if (cartStore.length > 0) {
+		cartTotalQuantity = cartStore
+			.map(cartItem => cartItem.quantity)
+			.reduce((accumulator, currentValue) => accumulator + currentValue);
+	}
+
 	return (
 		<div className={styles.shopNav}>
 			{showCartSidebar && cartSidebar}
 			{showUserAccountSidebar && userAccountSidebar}
 			<HiddenButton label='Shopping Cart' onClick={openCartSidebar}>
 				<img className={styles.icon} src={cartIcon} alt='Shopping Cart' />
-				<span className={styles.circle}>{cartStore.length}</span>
+				<span className={styles.circle}>{cartTotalQuantity}</span>
 			</HiddenButton>
 			<HiddenButton label='User Account' onClick={openUserAccount}>
 				<img className={styles.icon} src={userIcon} alt='User Account' />

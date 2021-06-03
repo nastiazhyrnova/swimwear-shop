@@ -8,7 +8,6 @@ const CartItems = () => {
 	const cartItems = cart.map(cartItem => (
 		<CartItem product={cartItem} key={cartItem.sku} />
 	));
-	console.log(cartItems);
 	return (
 		<>
 			<ul className={styles.cartItems}>{cartItems}</ul>
