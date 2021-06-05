@@ -6,7 +6,10 @@ const CartItems = () => {
 	const cart = useSelector(state => state.cart);
 
 	const cartItems = cart.map(cartItem => (
-		<CartItem product={cartItem} key={cartItem.sku} />
+		<CartItem
+			product={cartItem}
+			key={`${cartItem.sku}${cartItem.color}${cartItem.size}`}
+		/>
 	));
 	return (
 		<>

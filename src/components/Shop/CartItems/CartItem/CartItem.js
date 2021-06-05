@@ -11,8 +11,8 @@ import ATTRIBUTES from '../../../../dummy_products/attributes';
 const CartItem = props => {
 	const dispatch = useDispatch();
 
-	const jsonFile = JSON.stringify(DUMMY_PRODUCTS);
-	console.log(jsonFile);
+	// const jsonFile = JSON.stringify(ATTRIBUTES);
+	// console.log(jsonFile);
 
 	const fullProductInfo = DUMMY_PRODUCTS.find(
 		product => product.sku === props.product.sku
@@ -43,7 +43,12 @@ const CartItem = props => {
 							);
 						}}
 						onRemove={_ => {
-							console.log('remove item');
+							dispatch(
+								cartActions.removeFromCart({
+									productDetails: props.product,
+									quantity: 1,
+								})
+							);
 						}}
 					/>
 				</div>

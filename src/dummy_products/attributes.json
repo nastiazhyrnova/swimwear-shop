@@ -1,0 +1,64 @@
+{
+  "color": {
+    "black": {
+      "code": "black",
+      "title": "Black"
+    },
+    "blackCircles": {
+      "code": "blackCircles",
+      "title": "Black circles"
+    },
+    "blackFlowers": {
+      "code": "blackFlowers",
+      "title": "Black flowers"
+    },
+    "blue": {
+      "code": "blue",
+      "title": "Blue"
+    },
+    "blueOcean": {
+      "code": "blueOcean",
+      "title": "Blue Ocean"
+    },
+    "orangeWatercolor": {
+      "code": "orangeWatercolor",
+      "title": "Orange Watercolor"
+    },
+    "red": {
+      "code": "red",
+      "title": "Red"
+    },
+    "turquoise": {
+      "code": "turquoise",
+      "title": "Turquoise"
+    },
+    "turquoiseStripes": {
+      "code": "turquoiseStripes",
+      "title": "Turquoise Stripes"
+    },
+    "white": {
+      "code": "white",
+      "title": "White"
+    },
+    "whiteDots": {
+      "code": "whiteDots",
+      "title": "White Dots"
+    },
+    "whiteOrangeSplash": {
+      "code": "whiteOrangeSplash",
+      "title": "White Orange Splash"
+    },
+    "yellow": {
+      "code": "yellow",
+      "title": "Yellow"
+    }
+  },
+  "size": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+  ]
+}

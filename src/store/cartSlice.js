@@ -24,6 +24,10 @@ const addToCartAction = (state, action) => {
 	}
 };
 
+const removeFromCartAction = (state, action) => {
+	// const itemToRemove = state.filter()
+};
+
 const cartSlice = createSlice({
 	name: 'cart',
 	initialState: [],

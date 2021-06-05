@@ -13,7 +13,7 @@ const ColorsList = props => {
 		return (
 			<ColorItem
 				color={color}
-				key={color.sku}
+				key={color.code}
 				checked={checked}
 				onChange={defaultColor => props.changeSelectedColor(defaultColor)}
 			/>
