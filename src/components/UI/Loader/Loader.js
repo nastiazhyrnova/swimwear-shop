@@ -20,7 +20,7 @@ const Loader = () => {
 	return (
 		<>
 			{loading &&
-				ReactDOM.createPortal(loader, document.getElementById('backdrop-root'))}
+				ReactDOM.createPortal(loader, document.getElementById('modal-root'))}
 		</>
 	);
 };

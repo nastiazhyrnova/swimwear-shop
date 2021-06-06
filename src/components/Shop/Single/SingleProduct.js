@@ -4,7 +4,7 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import lodash from 'lodash';
 
 import styles from './SingleProduct.module.css';
-import { cartActions } from '../../../store/cartSlice';
+import { cartActions } from '../../../store/cart/cartSlice';
 
 import ProductListing from '../Listing/ProductListing';
 import SingleProductCard from './SingleProductCard/SingleProductCard';
@@ -61,31 +61,23 @@ const SingleProduct = _ => {
 		quantity: 1,
 	});
 
-	//load another product if changed
+	//Render another product if changed
 	useEffect(() => {
-		if (productsStore.products.length !== 0) {
+		if (productDetails) {
 			dispatch({ type: 'SET_PRODUCT', product: productDetails });
 			window.scrollTo(0, 0);
 		}
-	}, [id, productDetails, productsStore.products]);
+	}, [id, productDetails]);
 
 	const addToCartHandler = _ => {
-		console.log({
-			sku: state.sku,
-			color: state.color,
-			size: state.size,
-		});
 		cartDispatch(
 			cartActions.addToCart({
-				productDetails: state,
+				product: state,
 				quantity: state.quantity,
 			})
 		);
 	};
 
-	// const currentColor = productsStore.attributes.color.find(
-	// 	color => color.code === state.color
-	// );
 	let output = 'No product was found';
 
 	if (productDetails) {

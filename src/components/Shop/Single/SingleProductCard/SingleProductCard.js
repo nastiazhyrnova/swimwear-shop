@@ -9,7 +9,7 @@ import Label from '../../ProductFeatures/Label/Label';
 import Counter from '../../ProductFeatures/Counter/Counter';
 
 const SingleProductCard = props => {
-	let output = <p>No product data</p>;
+	let output = <h1>No product data</h1>;
 
 	if (props.product) {
 		const productImage =

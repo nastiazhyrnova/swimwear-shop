@@ -8,7 +8,7 @@ import Backdrop from '../Backdrop/Backdrop';
 //props - 'left' (default), or 'right'- boolean
 const Sidebar = props => {
 	const sidebar = (
-		<>
+		<aside>
 			<div className={props.right ? styles.sidebarRight : styles.sidebarLeft}>
 				<span
 					className={
@@ -19,7 +19,7 @@ const Sidebar = props => {
 				{props.children}
 			</div>
 			<Backdrop onClick={props.closeFunc} />
-		</>
+		</aside>
 	);
 
 	return (

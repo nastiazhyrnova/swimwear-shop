@@ -1,4 +1,4 @@
-import { loadingActions } from './loadingSlice';
+import { loadingActions } from '../loading/loadingSlice';
 import { productsActions } from './productsSlice';
 
 export const setProductsAction = _ => {

@@ -3,16 +3,15 @@ import { useDispatch } from 'react-redux';
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
 import Counter from '../../ProductFeatures/Counter/Counter';
 
-import { cartActions } from '../../../../store/cartSlice';
+import { cartActions } from '../../../../store/cart/cartSlice';
 import styles from './CartItem.module.css';
+import binIcon from '../../../../assets/icons/bin.svg';
+
 import DUMMY_PRODUCTS from '../../../../dummy_products/DUMMY_PRODUCTS';
 import ATTRIBUTES from '../../../../dummy_products/attributes';
 
 const CartItem = props => {
 	const dispatch = useDispatch();
-
-	// const jsonFile = JSON.stringify(ATTRIBUTES);
-	// console.log(jsonFile);
 
 	const fullProductInfo = DUMMY_PRODUCTS.find(
 		product => product.sku === props.product.sku
@@ -37,15 +36,15 @@ const CartItem = props => {
 						onAdd={_ => {
 							dispatch(
 								cartActions.addToCart({
-									productDetails: props.product,
+									product: props.product,
 									quantity: 1,
 								})
 							);
 						}}
 						onRemove={_ => {
 							dispatch(
-								cartActions.removeFromCart({
-									productDetails: props.product,
+								cartActions.reduceQuantity({
+									product: props.product,
 									quantity: 1,
 								})
 							);
@@ -57,6 +56,17 @@ const CartItem = props => {
 			<p className={styles.price}>
 				<PriceTag product={fullProductInfo} quantity={props.product.quantity} />
 			</p>
+
+			<div className={styles.delete}>
+				<img
+					src={binIcon}
+					alt='Remove product(s)'
+					title='Remove product(s)'
+					onClick={_ => {
+						dispatch(cartActions.removeFromCart({ product: props.product }));
+					}}
+				/>
+			</div>
 		</li>
 	);
 };

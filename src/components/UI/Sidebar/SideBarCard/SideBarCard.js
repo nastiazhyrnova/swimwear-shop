@@ -6,7 +6,7 @@ const SideBarCard = props => {
 		<div className={styles.card}>
 			<h4>{props.title}</h4>
 			{props.children}
-			<img src={logo} alt='Logo' />
+			<img src={logo} alt='Logo' className={styles.logo} />
 		</div>
 	);
 };
