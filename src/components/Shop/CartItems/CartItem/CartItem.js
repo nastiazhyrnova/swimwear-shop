@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
-import { cartActions } from '../../../../store/cartSlice';
-import styles from './CartItem.module.css';
 
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
 import Counter from '../../ProductFeatures/Counter/Counter';
 
+import { cartActions } from '../../../../store/cartSlice';
+import styles from './CartItem.module.css';
 import DUMMY_PRODUCTS from '../../../../dummy_products/DUMMY_PRODUCTS';
 import ATTRIBUTES from '../../../../dummy_products/attributes';
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useReducer, useMemo } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import lodash from 'lodash';
 
@@ -8,9 +8,6 @@ import { cartActions } from '../../../store/cartSlice';
 
 import ProductListing from '../Listing/ProductListing';
 import SingleProductCard from './SingleProductCard/SingleProductCard';
-
-import DUMMY_PRODUCTS from '../../../dummy_products/DUMMY_PRODUCTS';
-import ATTRIBUTES from '../../../dummy_products/attributes';
 
 const singleProductReducer = (state, action) => {
 	switch (action.type) {
@@ -36,36 +33,42 @@ const singleProductReducer = (state, action) => {
 
 const SingleProduct = _ => {
 	const history = useHistory();
+	const cartDispatch = useDispatch();
 
-	//get product details according to the passed params
+	//get corresponding product by passed id
 	const { id } = useParams();
-	const product = useMemo(
-		_ =>
-			lodash.cloneDeep(DUMMY_PRODUCTS.filter(product => product.sku === id)[0]),
-		[id]
+	const productsStore = useSelector(state => state.products);
+
+	let productDetails = null;
+	productDetails = useMemo(
+		_ => {
+			if (productsStore.products.length !== 0) {
+				return lodash.cloneDeep(
+					productsStore.products.filter(productItem => {
+						return productItem.sku === id;
+					})
+				)[0];
+			}
+		},
+		[productsStore.products, id]
 	);
 
-	//set local state of the chosen product
+	//set local single product state
 	const [state, dispatch] = useReducer(singleProductReducer, {
 		sku: id,
-		color: product.defaultColor,
+		color: null,
 		size: null,
 		quantity: 1,
 	});
 
 	//load another product if changed
 	useEffect(() => {
-		dispatch({ type: 'SET_PRODUCT', product: product });
-		window.scrollTo(0, 0);
-	}, [id, product]);
+		if (productsStore.products.length !== 0) {
+			dispatch({ type: 'SET_PRODUCT', product: productDetails });
+			window.scrollTo(0, 0);
+		}
+	}, [id, productDetails, productsStore.products]);
 
-	//TODO: can be improved:
-	const currentColor = ATTRIBUTES[0].options.find(
-		color => color.code === state.color
-	);
-
-	//add to cart function through redux store
-	const cartDispatch = useDispatch();
 	const addToCartHandler = _ => {
 		console.log({
 			sku: state.sku,
@@ -79,36 +82,48 @@ const SingleProduct = _ => {
 			})
 		);
 	};
-	return (
-		<main>
-			<div className={styles.breadcrumbsContainer}>
-				<span
-					className={styles.goBack}
-					type='button'
-					title='Go back'
-					onClick={_ => history.goBack()}>
-					{'<'}
-				</span>
-				<p className={styles.breadcrumbs}>
-					<Link to={`/shop/`}>Shop</Link>/
-					<Link to={`/shop/${product.category}`}>{product.category}</Link>
-				</p>
-			</div>
-			<SingleProductCard
-				product={product}
-				currentColor={currentColor}
-				state={state}
-				dispatch={dispatch}
-				addToCart={addToCartHandler}
-			/>
-			<h2 className={styles.h2}>Related products</h2>
-			<ProductListing
-				max={3}
-				category={product.category}
-				exclude={product.sku}
-			/>
-		</main>
-	);
+
+	// const currentColor = productsStore.attributes.color.find(
+	// 	color => color.code === state.color
+	// );
+	let output = 'No product was found';
+
+	if (productDetails) {
+		output = (
+			<>
+				<div className={styles.breadcrumbsContainer}>
+					<span
+						className={styles.goBack}
+						type='button'
+						title='Go back'
+						onClick={_ => history.goBack()}>
+						{'<'}
+					</span>
+					<p className={styles.breadcrumbs}>
+						<Link to={`/shop/`}>Shop</Link>/
+						<Link to={`/shop/${productDetails.category}`}>
+							{productDetails.category}
+						</Link>
+					</p>
+				</div>
+				<SingleProductCard
+					product={productDetails}
+					color={state.color}
+					state={state}
+					dispatch={dispatch}
+					addToCart={addToCartHandler}
+				/>
+				<h2 className={styles.h2}>Related products</h2>
+				<ProductListing
+					max={3}
+					category={productDetails.category}
+					exclude={id}
+				/>
+			</>
+		);
+	}
+
+	return <main> {output}</main>;
 };
 
 export default SingleProduct;

@@ -10,12 +10,13 @@ import sortProducts from '../../../utilities/sortProducts';
 //Filters to accept via props: No of products - 'quantity' (number), 'featured' (boolean), 'category' (string), 'onSale' (boolean), 'exclude'(string with product sku), 'sort' (object): {by: ['price', 'popular', ''], asc: boolean. (default - random)}
 
 const ProductListing = props => {
-	const productsSlice = useSelector(state => state.products);
+	const productsStore = useSelector(state => state.products);
 	let outputProducts = 'No products found';
 
-	if (productsSlice.products.length !== 0) {
+	//if products were fetched
+	if (productsStore.products.length !== 0) {
 		//Filter products by filters passed in props:
-		const filteredProducts = productsSlice.products.filter(product => {
+		const filteredProducts = productsStore.products.filter(product => {
 			//don't show if excluded
 			if (props.exclude && props.exclude === product.sku) {
 				return false;

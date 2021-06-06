@@ -5,13 +5,21 @@ const productsSlice = createSlice({
 	initialState: {
 		products: [],
 		attributes: {
-			colors: [],
-			sizes: [],
+			color: [],
+			size: [],
 		},
 	},
 	reducers: {
-		setProducts(state, action) {
+		setProducts: (state, action) => {
 			state.products = action.payload.products;
+		},
+		setColors: (state, action) => {
+			const colors = action.payload.color;
+			state.attributes.color = colors;
+		},
+		setSizes: (state, action) => {
+			const sizes = action.payload.size;
+			state.attributes.size = sizes;
 		},
 	},
 });
