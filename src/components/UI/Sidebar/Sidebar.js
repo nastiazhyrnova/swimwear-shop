@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 import Backdrop from '../Backdrop/Backdrop';
 
@@ -14,10 +15,10 @@ const Sidebar = props => {
 						props.right ? `${styles.cross} ${styles.crossRight}` : styles.cross
 					}
 					title='Close'
-					onClick={props.closeFunc}></span>
+					onClick={props.close}></span>
 				{props.children}
 			</div>
-			<Backdrop onClick={props.closeFunc} />
+			<Backdrop onClick={props.close} />
 		</aside>
 	);
 
@@ -26,6 +27,12 @@ const Sidebar = props => {
 			{ReactDOM.createPortal(sidebar, document.getElementById('sidebar-root'))}
 		</>
 	);
+};
+
+Sidebar.propTypes = {
+	left: PropTypes.bool,
+	right: PropTypes.bool,
+	close: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

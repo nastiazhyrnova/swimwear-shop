@@ -24,7 +24,7 @@ const ShopNavItems = _ => {
 		dispatch(sidebarActions.openSidebar({ sidebar: 'cart' }));
 	};
 	const cartSidebar = (
-		<Sidebar right open={openCartSidebar} closeFunc={closeAnySidebar}>
+		<Sidebar right close={closeAnySidebar}>
 			<Cart />
 		</Sidebar>
 	);
@@ -34,7 +34,7 @@ const ShopNavItems = _ => {
 		dispatch(sidebarActions.openSidebar({ sidebar: 'userAccount' }));
 	};
 	const userAccountSidebar = (
-		<Sidebar right closeFunc={closeAnySidebar}>
+		<Sidebar right close={closeAnySidebar}>
 			<UserAccount />
 		</Sidebar>
 	);

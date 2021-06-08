@@ -1,43 +1,53 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import styles from './ProductCard.module.css';
-import productImages from '../../../../assets/products/productImages';
+import getRandomArrayItem from '../../../../utilities/getRandomArrayItem';
 
 import Label from '../../ProductFeatures/Label/Label';
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
 import Button from '../../../UI/Buttons/Button/Button';
 
+import styles from './ProductCard.module.css';
+import productImages from '../../../../assets/products/productImages';
+
 const ProductItem = props => {
 	const productsStore = useSelector(state => state.products);
-
 	const history = useHistory();
-	const openProductDetails = _ => {
-		history.push(`/shop/${props.product.category}/${props.product.sku}`);
-	};
+	let output = 'No product found';
 
-	const productImage =
-		productImages[`${props.product.category}`][`${props.product.sku}`][
-			`${props.product.defaultColor}`
-		];
+	if (
+		productsStore.products.length !== 0 &&
+		productsStore.attributes.color.length !== 0
+	) {
+		const randomColor = getRandomArrayItem(productsStore.attributes.color).code;
+		const productImage =
+			productImages[`${props.product.category}`][`${props.product.sku}`][
+				`${randomColor}`
+			];
+		const openProductDetails = _ => {
+			history.push(`/shop/${props.product.category}/${props.product.sku}`);
+		};
 
-	return (
-		<div className={styles.product} onClick={openProductDetails}>
-			<Label product={props.product} />
-			<div className={styles.imgContainer}>
-				<img src={productImage} alt={props.product.title} />
-			</div>
-			<div className={styles.productDetails}>
-				<span className={styles.productTitle}>{props.product.title}</span>
-				<span className={styles.productColors}>
-					{productsStore.attributes.color.length} colors
-				</span>
-			</div>
-			<PriceTag product={props.product} />
-			<Button additionalClass={styles.button} onClick={openProductDetails}>
-				See Details
-			</Button>
-		</div>
-	);
+		output = (
+			<article className={styles.product} onClick={openProductDetails}>
+				<Label product={props.product} />
+				<div className={styles.imgContainer}>
+					<img src={productImage} alt={props.product.title} />
+				</div>
+				<div className={styles.productDetails}>
+					<span className={styles.productTitle}>{props.product.title}</span>
+					<span className={styles.productColors}>
+						{productsStore.attributes.color.length} colors
+					</span>
+				</div>
+				<PriceTag product={props.product} />
+				<Button additionalClass={styles.button} onClick={openProductDetails}>
+					See Details
+				</Button>
+			</article>
+		);
+	}
+
+	return <>{output}</>;
 };
 
 export default ProductItem;

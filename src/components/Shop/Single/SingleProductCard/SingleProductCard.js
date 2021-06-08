@@ -1,6 +1,3 @@
-import styles from './SingleProductCard.module.css';
-import productImages from '../../../../assets/products/productImages';
-
 import Button from '../../../UI/Buttons/Button/Button';
 import ColorsList from '../../ProductFeatures/ColorsList/ColorsList';
 import SizesList from '../../ProductFeatures/SizesList/SizesList';
@@ -8,17 +5,20 @@ import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
 import Label from '../../ProductFeatures/Label/Label';
 import Counter from '../../ProductFeatures/Counter/Counter';
 
+import styles from './SingleProductCard.module.css';
+import productImages from '../../../../assets/products/productImages';
+
 const SingleProductCard = props => {
 	let output = <h1>No product data</h1>;
 
 	if (props.product) {
 		const productImage =
 			productImages[`${props.product.category}`][`${props.product.sku}`][
-				`${props.color}`
+				`${props.state.color}`
 			];
 
 		output = (
-			<div className={styles.detailsContainer}>
+			<article className={styles.detailsContainer}>
 				<div className={styles.leftColumn}>
 					<div className={styles.imgContainer}>
 						<Label product={props.product} />
@@ -39,21 +39,21 @@ const SingleProductCard = props => {
 					<ColorsList
 						selectedColor={props.state.color}
 						changeSelectedColor={color =>
-							props.dispatch({ type: 'SET_COLOR', color: color })
+							props.dispatchLocalState({ type: 'SET_COLOR', color: color })
 						}
 					/>
 					<h4>Sizes</h4>
 					<SizesList
 						selectedSize={props.state.size}
 						changeSelectedSize={size =>
-							props.dispatch({ type: 'SET_SIZE', size: size })
+							props.dispatchLocalState({ type: 'SET_SIZE', size: size })
 						}
 					/>
 					<p>{props.product.description}</p>
 					<div className={styles.addToCartContainer}>
 						<Counter
-							onAdd={_ => props.dispatch({ type: 'ADD_ITEM' })}
-							onRemove={_ => props.dispatch({ type: 'REMOVE_ITEM' })}
+							onAdd={_ => props.dispatchLocalState({ type: 'ADD_ITEM' })}
+							onRemove={_ => props.dispatchLocalState({ type: 'REMOVE_ITEM' })}
 							currentQuantity={props.state.quantity}
 						/>
 						<Button
@@ -65,7 +65,7 @@ const SingleProductCard = props => {
 						</Button>
 					</div>
 				</div>
-			</div>
+			</article>
 		);
 	}
 

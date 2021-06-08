@@ -8,7 +8,7 @@ import Sidebar from '../../../UI/Sidebar/Sidebar';
 import SideBarCard from '../../../UI/Sidebar/SideBarCard/SideBarCard';
 import MainNavItems from '../../../Navigation/MainNavigation/MainNavItems';
 
-const BurgerMenu = () => {
+const BurgerMenu = _ => {
 	const dispatch = useDispatch();
 	const sidebarStore = useSelector(state => state.sidebar);
 
@@ -20,7 +20,7 @@ const BurgerMenu = () => {
 	};
 
 	const sidebarMenu = (
-		<Sidebar left closeFunc={closeSidebar}>
+		<Sidebar left close={closeSidebar}>
 			<SideBarCard title='Menu'>
 				<MainNavItems closeSidebar={closeSidebar} />
 			</SideBarCard>

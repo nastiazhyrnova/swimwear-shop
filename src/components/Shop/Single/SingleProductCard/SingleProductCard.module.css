@@ -1,7 +1,6 @@
 .detailsContainer {
 	display: flex;
 	flex-direction: row;
-	/* gap: 2rem; */
 	width: 100%;
 	margin: 2rem auto;
 	position: relative;
@@ -17,7 +16,6 @@
 	flex: 0 0 55%;
 }
 .imgContainer {
-	/* background-color: lawngreen; */
 	min-width: 70%;
 	height: 100%;
 	display: flex;
@@ -33,12 +31,15 @@
 .rightColumn {
 	flex: 0 0 45%;
 }
-.rightColumn * {
+.rightColumn div,
+.rightColumn h2 span,
+.rightColumn h4 {
 	text-align: left;
 }
 .rightColumn h1,
 .price {
 	font-weight: 400;
+	text-align: left;
 }
 .rightColumn h1 {
 	font-size: 1.2rem;

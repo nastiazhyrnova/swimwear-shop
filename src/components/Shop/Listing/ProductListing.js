@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import arrayShuffle from 'array-shuffle';
+import PropTypes from 'prop-types';
 
 import ProductCard from './ProductCard/ProductCard';
 
@@ -63,6 +64,18 @@ const ProductListing = props => {
 	}
 
 	return <div className={styles.productGrid}>{outputProducts}</div>;
+};
+
+ProductListing.propTypes = {
+	category: PropTypes.string,
+	max: PropTypes.number,
+	exclude: PropTypes.bool,
+	featured: PropTypes.bool,
+	onSale: PropTypes.bool,
+	sort: PropTypes.shape({
+		by: PropTypes.string.isRequired, //Options: 'price', 'popular', 'onSale' - to be added
+		asc: PropTypes.bool,
+	}),
 };
 
 export default React.memo(ProductListing);
