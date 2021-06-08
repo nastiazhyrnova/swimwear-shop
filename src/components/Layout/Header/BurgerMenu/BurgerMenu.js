@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { sidebarActions } from '../../../../store/sidebar/sidebarSlice';
 
 import styles from './BurgerMenu.module.css';
 
@@ -8,13 +9,14 @@ import SideBarCard from '../../../UI/Sidebar/SideBarCard/SideBarCard';
 import MainNavItems from '../../../Navigation/MainNavigation/MainNavItems';
 
 const BurgerMenu = () => {
-	const [showSidebar, setShowSidebar] = useState(false);
+	const dispatch = useDispatch();
+	const sidebarStore = useSelector(state => state.sidebar);
 
 	const openSidebar = _ => {
-		setShowSidebar(true);
+		dispatch(sidebarActions.openSidebar({ sidebar: 'mobileMenu' }));
 	};
 	const closeSidebar = _ => {
-		setShowSidebar(false);
+		dispatch(sidebarActions.closeSidebar());
 	};
 
 	const sidebarMenu = (
@@ -28,7 +30,7 @@ const BurgerMenu = () => {
 	return (
 		<>
 			<BurgerButton onClick={openSidebar} />
-			{showSidebar && sidebarMenu}
+			{sidebarStore.mobileMenu.show && sidebarMenu}
 		</>
 	);
 };

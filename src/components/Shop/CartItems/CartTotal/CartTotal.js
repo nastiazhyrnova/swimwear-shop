@@ -28,9 +28,6 @@ const CartTotal = props => {
 					productInfo.price,
 					productInfo.sale.discount
 				);
-				console.log(
-					calculateSalePrice(productInfo.price, productInfo.sale.discount)
-				);
 			}
 			return cartItem.quantity * discountedPrice;
 		})

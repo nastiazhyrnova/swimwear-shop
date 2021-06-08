@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { cartActions } from '../../../../store/cart/cartSlice';
 
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
 import Counter from '../../ProductFeatures/Counter/Counter';
 
-import { cartActions } from '../../../../store/cart/cartSlice';
 import styles from './CartItem.module.css';
 import binIcon from '../../../../assets/icons/bin.svg';
 

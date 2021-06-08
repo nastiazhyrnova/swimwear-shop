@@ -1,9 +1,8 @@
 import ReactDOM from 'react-dom';
-import { useState } from 'react';
-
-import styles from './Sidebar.module.css';
 
 import Backdrop from '../Backdrop/Backdrop';
+
+import styles from './Sidebar.module.css';
 
 //props - 'left' (default), or 'right'- boolean
 const Sidebar = props => {

@@ -2,12 +2,13 @@ import React, { useEffect, useReducer, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useHistory } from 'react-router-dom';
 import lodash from 'lodash';
-
-import styles from './SingleProduct.module.css';
 import { cartActions } from '../../../store/cart/cartSlice';
+import { sidebarActions } from '../../../store/sidebar/sidebarSlice';
 
 import ProductListing from '../Listing/ProductListing';
 import SingleProductCard from './SingleProductCard/SingleProductCard';
+
+import styles from './SingleProduct.module.css';
 
 const singleProductReducer = (state, action) => {
 	switch (action.type) {
@@ -33,7 +34,7 @@ const singleProductReducer = (state, action) => {
 
 const SingleProduct = _ => {
 	const history = useHistory();
-	const cartDispatch = useDispatch();
+	const storeDispatch = useDispatch();
 
 	//get corresponding product by passed id
 	const { id } = useParams();
@@ -70,12 +71,13 @@ const SingleProduct = _ => {
 	}, [id, productDetails]);
 
 	const addToCartHandler = _ => {
-		cartDispatch(
+		storeDispatch(
 			cartActions.addToCart({
 				product: state,
 				quantity: state.quantity,
 			})
 		);
+		storeDispatch(sidebarActions.openSidebar({ sidebar: 'cart' }));
 	};
 
 	let output = 'No product was found';
