@@ -1,0 +1,26 @@
+.totalContainer {
+	margin-bottom: 1.5rem;
+}
+
+.totalContainer * {
+	text-align: right;
+	font-size: 0.9rem;
+}
+.totalContainer hr {
+	height: 1px;
+	background-color: var(--middle-grey-color);
+	border: none;
+}
+.totalContainer p {
+	margin: 0.3rem 0;
+}
+p.total {
+	font-size: 1rem;
+	margin-top: 1rem;
+}
+.strong {
+	font-weight: 500;
+}
+.vat {
+	font-size: 0.65rem;
+}

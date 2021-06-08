@@ -1,7 +1,7 @@
 import styles from './Button.module.css';
 
 const Button = props => {
-	//receives props: onClick and additionalClass in case is necessary
+	//receives props: onClick and additionalClass in case is necessary, inversed
 
 	let mergedStyles = `${props.additionalClass} ${styles.button}`;
 

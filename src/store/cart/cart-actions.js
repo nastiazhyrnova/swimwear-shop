@@ -36,6 +36,5 @@ export const reduceItemQuantityAction = (state, action) => {
 
 export const removeFromCartAction = (state, action) => {
 	const existingItemIndex = getItemIndex(state, action.payload.product);
-	console.log(state.splice(existingItemIndex, 1));
 	return state.splice(existingItemIndex, 1);
 };
