@@ -1,6 +1,8 @@
-.productGrid {
+.listingContainer {
 	max-width: 70%;
 	margin: 2rem auto;
+}
+.productGrid {
 	text-align: center;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);

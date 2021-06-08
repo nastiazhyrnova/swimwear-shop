@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './Button.module.css';
 
 const Button = props => {
@@ -18,6 +19,13 @@ const Button = props => {
 			{props.children}
 		</button>
 	);
+};
+
+Button.propTypes = {
+	onClick: PropTypes.func.isRequired,
+	additionalClass: PropTypes.string,
+	disabled: PropTypes.bool,
+	inversed: PropTypes.bool,
 };
 
 export default Button;

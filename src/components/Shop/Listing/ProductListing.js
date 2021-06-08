@@ -4,11 +4,10 @@ import arrayShuffle from 'array-shuffle';
 import PropTypes from 'prop-types';
 
 import ProductCard from './ProductCard/ProductCard';
+import Filters from './Filters/Filters';
 
 import styles from './ProductListing.module.css';
 import sortProducts from '../../../utilities/sortProducts';
-
-//Filters to accept via props: No of products - 'quantity' (number), 'featured' (boolean), 'category' (string), 'onSale' (boolean), 'exclude'(string with product sku), 'sort' (object): {by: ['price', 'popular', ''], asc: boolean. (default - random)}
 
 const ProductListing = props => {
 	const productsStore = useSelector(state => state.products);
@@ -16,32 +15,27 @@ const ProductListing = props => {
 
 	//if products were fetched
 	if (productsStore.products.length !== 0) {
-		//Filter products by filters passed in props:
+		//FILTER
 		const filteredProducts = productsStore.products.filter(product => {
-			//don't show if excluded
 			if (props.exclude && props.exclude === product.sku) {
 				return false;
 			}
-			//don't show if no stock
 			if (product.stock <= 0) {
 				return false;
 			}
-			//featured filter
 			if (props.featured && !product.featured) {
 				return false;
 			}
-			//category filter
 			if (props.category && product.category !== props.category) {
 				return false;
 			}
-			//onSale filter
 			if (props.onSale && !product.sale.onSale) {
 				return false;
 			}
 			return true;
 		});
 
-		//Sort filtered results (random by default)
+		//SORT (random by default)
 		let sortedProducts;
 		if (props.sort) {
 			sortedProducts = sortProducts(
@@ -63,10 +57,16 @@ const ProductListing = props => {
 		});
 	}
 
-	return <div className={styles.productGrid}>{outputProducts}</div>;
+	return (
+		<div className={styles.listingContainer}>
+			{props.showFilters && <Filters />}
+			<div className={styles.productGrid}>{outputProducts}</div>
+		</div>
+	);
 };
 
 ProductListing.propTypes = {
+	showFilters: PropTypes.bool,
 	category: PropTypes.string,
 	max: PropTypes.number,
 	exclude: PropTypes.bool,
