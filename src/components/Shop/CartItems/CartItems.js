@@ -26,7 +26,9 @@ const CartItems = () => {
 		<>
 			<ul className={styles.cartItems}>{cartItems}</ul>
 			<CartTotal />
-			<Button additionalClass={styles.checkoutButton}>Complete order</Button>
+			<Button additionalClass={styles.checkoutButton} onClick={_ => {}}>
+				Complete order
+			</Button>
 		</>
 	);
 

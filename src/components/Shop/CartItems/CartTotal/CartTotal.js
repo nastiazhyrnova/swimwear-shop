@@ -55,7 +55,7 @@ const CartTotal = props => {
 						{' '}
 						{formatPrice(discountedTotal)}{' '}
 					</strong>
-					<p className={styles.vat}>Taxes included</p>
+					<span className={styles.vat}>Taxes included</span>
 				</p>
 			</div>
 		</>

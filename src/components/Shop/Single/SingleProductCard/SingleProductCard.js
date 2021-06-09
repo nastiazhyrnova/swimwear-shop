@@ -37,6 +37,7 @@ const SingleProductCard = props => {
 					</h2>
 					<h4>Colors</h4>
 					<ColorsList
+						type='radio'
 						selectedColor={props.state.color}
 						changeSelectedColor={color =>
 							props.dispatchLocalState({ type: 'SET_COLOR', color: color })
@@ -44,6 +45,7 @@ const SingleProductCard = props => {
 					/>
 					<h4>Sizes</h4>
 					<SizesList
+						type='radio'
 						selectedSize={props.state.size}
 						changeSelectedSize={size =>
 							props.dispatchLocalState({ type: 'SET_SIZE', size: size })

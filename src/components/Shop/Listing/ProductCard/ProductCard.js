@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import getRandomArrayItem from '../../../../utilities/getRandomArrayItem';
 
 import Label from '../../ProductFeatures/Label/Label';
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
@@ -18,10 +17,9 @@ const ProductItem = props => {
 		productsStore.products.length !== 0 &&
 		productsStore.attributes.color.length !== 0
 	) {
-		const randomColor = getRandomArrayItem(productsStore.attributes.color).code;
 		const productImage =
 			productImages[`${props.product.category}`][`${props.product.sku}`][
-				`${randomColor}`
+				`${props.product.defaultColor}`
 			];
 		const openProductDetails = _ => {
 			history.push(`/shop/${props.product.category}/${props.product.sku}`);

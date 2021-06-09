@@ -1,26 +1,41 @@
+import { useSelector } from 'react-redux';
+
 import ColorItem from './ColorItem/ColorItem';
 
+import PropTypes from 'prop-types';
 import styles from './ColorsList.module.css';
-import ATTRIBUTES from '../../../../dummy_products/attributes';
 
 const ColorsList = props => {
-	const colors = ATTRIBUTES[0].options.map(color => {
-		let checked = false;
-		if (props.selectedColor === color.code) {
-			checked = true;
-		}
+	const productsStore = useSelector(state => state.products);
 
-		return (
-			<ColorItem
-				color={color}
-				key={color.code}
-				checked={checked}
-				onChange={defaultColor => props.changeSelectedColor(defaultColor)}
-			/>
-		);
-	});
+	let output = 'No color options found';
 
-	return <div className={styles.colorAttributes}>{colors}</div>;
+	if (productsStore.attributes.color.length !== 0) {
+		output = productsStore.attributes.color.map(color => {
+			let checked = false;
+			if (props.selectedColor === color.code) {
+				checked = true;
+			}
+
+			return (
+				<ColorItem
+					color={color}
+					key={color.code}
+					checked={checked}
+					onChange={defaultColor => props.changeSelectedColor(defaultColor)}
+					type={props.type}
+				/>
+			);
+		});
+	}
+
+	return <div className={styles.colorAttributes}>{output}</div>;
+};
+
+ColorsList.propTypes = {
+	type: PropTypes.string.isRequired,
+	changeSelectedColor: PropTypes.func.isRequired,
+	selectedColor: PropTypes.string,
 };
 
 export default ColorsList;

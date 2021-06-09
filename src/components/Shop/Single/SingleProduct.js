@@ -4,7 +4,6 @@ import { Link, useParams, useHistory } from 'react-router-dom';
 import lodash from 'lodash';
 import { cartActions } from '../../../store/cart/cartSlice';
 import { sidebarActions } from '../../../store/sidebar/sidebarSlice';
-import getRandomArrayItem from '../../../utilities/getRandomArrayItem';
 
 import ProductListing from '../Listing/ProductListing';
 import SingleProductCard from './SingleProductCard/SingleProductCard';
@@ -16,7 +15,7 @@ const singleProductReducer = (state, action) => {
 		case 'SET_PRODUCT':
 			return {
 				sku: action.product.sku,
-				color: action.randomColor,
+				color: action.product.defaultColor,
 				size: null,
 				quantity: 1,
 			};
@@ -65,18 +64,14 @@ const SingleProduct = _ => {
 
 	//Render another product if changed
 	useEffect(() => {
-		if (productDetails && productsStore.attributes.color.length !== 0) {
-			const randomColor = getRandomArrayItem(
-				productsStore.attributes.color
-			).code;
+		if (productDetails) {
 			dispatch({
 				type: 'SET_PRODUCT',
 				product: productDetails,
-				randomColor: randomColor,
 			});
 			window.scrollTo(0, 0);
 		}
-	}, [id, productDetails, productsStore.attributes.color]);
+	}, [id, productDetails]);
 
 	const addToCartHandler = _ => {
 		storeDispatch(

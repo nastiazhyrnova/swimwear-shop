@@ -1,5 +1,7 @@
 import calculateSalePrice from './calculateSalePrice';
 
+//TODO: add sorting by discount
+
 const sortProducts = (products, asc = true, by) => {
 	if (asc === true) {
 		switch (true) {

@@ -1,6 +1,7 @@
 import styles from './ColorItem.module.css';
 import checkIcon from '../../../../../assets/icons/check.svg';
 
+import PropTypes from 'prop-types';
 import colorSwatches from '../../../../../assets/products/color-swatches/color-swatches';
 
 const ColorItem = props => {
@@ -19,7 +20,7 @@ const ColorItem = props => {
 			title={props.color.title}
 			htmlFor={props.color.code}>
 			<input
-				type='radio'
+				type={props.type}
 				id={props.color.code}
 				name={props.color.title}
 				value={props.color.title}
@@ -39,6 +40,13 @@ const ColorItem = props => {
 			</div>
 		</label>
 	);
+};
+
+ColorItem.propTypes = {
+	onChange: PropTypes.func.isRequired,
+	color: PropTypes.object.isRequired,
+	type: PropTypes.string.isRequired,
+	checked: PropTypes.bool,
 };
 
 export default ColorItem;

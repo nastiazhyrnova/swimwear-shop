@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './SizeItem.module.css';
 
 const SizeItem = props => {
@@ -13,7 +14,7 @@ const SizeItem = props => {
 			title={props.size}
 			htmlFor={props.size}>
 			<input
-				type='radio'
+				type={props.type}
 				id={props.size}
 				name={props.size}
 				value={props.size}
@@ -24,6 +25,12 @@ const SizeItem = props => {
 			{props.size}
 		</label>
 	);
+};
+
+SizeItem.propTypes = {
+	type: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	size: PropTypes.string.isRequired,
 };
 
 export default SizeItem;

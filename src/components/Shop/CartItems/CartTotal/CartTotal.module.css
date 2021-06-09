@@ -23,4 +23,5 @@ p.total {
 }
 .vat {
 	font-size: 0.65rem;
+	display: block;
 }

@@ -1,32 +1,46 @@
-import styles from './SizesList.module.css';
+import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import SizeItem from './SizeItem/SizeItem';
 
-import ATTRIBUTES from '../../../../dummy_products/attributes';
+import styles from './SizesList.module.css';
 
 const Sizes = props => {
+	const productsStore = useSelector(state => state.products);
+
 	const chooseSize = size => {
 		props.changeSelectedSize(size);
 	};
 
-	const sizes = ATTRIBUTES[1].options.map(size => {
-		let checked = false;
+	let output = 'No sizes variations found';
 
-		if (props.selectedSize === size) {
-			checked = true;
-		}
+	if (productsStore.attributes.size.length !== 0) {
+		output = productsStore.attributes.size.map(size => {
+			let checked = false;
 
-		return (
-			<SizeItem
-				size={size}
-				key={size}
-				checked={checked}
-				onChange={size => chooseSize(size)}
-			/>
-		);
-	});
+			if (props.selectedSize === size) {
+				checked = true;
+			}
 
-	return <div className={styles.sizesList}>{sizes}</div>;
+			return (
+				<SizeItem
+					size={size}
+					key={size}
+					checked={checked}
+					onChange={size => chooseSize(size)}
+					type={props.type}
+				/>
+			);
+		});
+	}
+
+	return <div className={styles.sizesList}>{output}</div>;
+};
+
+Sizes.propTypes = {
+	type: PropTypes.string.isRequired,
+	changeSelectedSize: PropTypes.func.isRequired,
+	selectedSize: PropTypes.string,
 };
 
 export default Sizes;

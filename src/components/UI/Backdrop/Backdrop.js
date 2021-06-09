@@ -1,10 +1,11 @@
 import ReactDOM from 'react-dom';
 
+import PropTypes from 'prop-types';
 import styles from './Backdrop.module.css';
 
 const Backdrop = props => {
 	const backdrop = (
-		<div className={styles.backdrop} onClick={props.onClick}></div>
+		<div className={styles.backdrop} onClick={props.close}></div>
 	);
 
 	return (
@@ -15,6 +16,10 @@ const Backdrop = props => {
 			)}
 		</>
 	);
+};
+
+Backdrop.propTypes = {
+	close: PropTypes.func,
 };
 
 export default Backdrop;

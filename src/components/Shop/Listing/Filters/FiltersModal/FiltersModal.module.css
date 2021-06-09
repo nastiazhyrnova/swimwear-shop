@@ -1,0 +1,23 @@
+.filtersModalContainer {
+	display: flex;
+	flex-direction: row;
+	gap: 12.5%;
+	justify-content: space-between;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+.filterColumn {
+	text-align: left;
+	width: 25%;
+}
+
+.filtersModalContainer h4 {
+	text-transform: uppercase;
+	font-weight: 400;
+	position: relative;
+	padding-bottom: 0.4rem;
+	border-bottom: 1.5px solid lightgray;
+	width: fit-content;
+	margin: 0 0 2rem;
+	text-align: left;
+}

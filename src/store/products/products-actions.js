@@ -1,6 +1,8 @@
 import { loadingActions } from '../loading/loadingSlice';
 import { productsActions } from './productsSlice';
 
+import getRandomArrayItem from '../../utilities/getRandomArrayItem';
+
 export const setProductsAction = _ => {
 	return async dispatch => {
 		const fetchData = async category => {
@@ -18,15 +20,20 @@ export const setProductsAction = _ => {
 			dispatch(loadingActions.startLoading());
 			const productsData = await fetchData('products');
 			const productsArray = Object.values(productsData);
+			const attributesData = await fetchData('attributes');
+			const colorsArray = Object.values(attributesData.color);
+			//set random default colors
+			productsArray.forEach(product => {
+				product.defaultColor = getRandomArrayItem(colorsArray).code;
+			});
 			dispatch(
 				productsActions.setProducts({
 					products: productsArray,
 				})
 			);
-			const attributesData = await fetchData('attributes');
 			dispatch(
 				productsActions.setColors({
-					color: Object.values(attributesData.color),
+					color: colorsArray,
 				})
 			);
 			dispatch(
