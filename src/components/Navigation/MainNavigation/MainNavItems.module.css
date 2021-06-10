@@ -24,7 +24,8 @@
 	left: 25%;
 	right: 25%;
 	bottom: 0;
-	border: 1px solid var(--accent-color);
+	height: 1.5px;
+	background-color: var(--accent-color);
 }
 /* tablet */
 @media (min-width: 769px) and (max-width: 1024px) {
