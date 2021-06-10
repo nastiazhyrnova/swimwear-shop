@@ -7,12 +7,11 @@ import styles from './SizesList.module.css';
 
 const Sizes = props => {
 	const productsStore = useSelector(state => state.products);
+	let output = 'No sizes variations found';
 
 	const chooseSize = size => {
 		props.changeSelectedSize(size);
 	};
-
-	let output = 'No sizes variations found';
 
 	if (productsStore.attributes.size.length !== 0) {
 		output = productsStore.attributes.size.map(size => {
@@ -34,13 +33,20 @@ const Sizes = props => {
 		});
 	}
 
-	return <div className={styles.sizesList}>{output}</div>;
+	const sizeListStyles = [styles.sizesList];
+	if (props.column) {
+		sizeListStyles.push(styles.column);
+		console.log(sizeListStyles.join(' '));
+	}
+
+	return <div className={sizeListStyles.join(' ')}>{output}</div>;
 };
 
 Sizes.propTypes = {
 	type: PropTypes.string.isRequired,
 	changeSelectedSize: PropTypes.func.isRequired,
 	selectedSize: PropTypes.string,
+	column: PropTypes.bool,
 };
 
 export default Sizes;

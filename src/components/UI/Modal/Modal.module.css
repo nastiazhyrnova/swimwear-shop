@@ -4,7 +4,7 @@
 	left: 10%;
 	top: 25%;
 	width: 80%;
-	height: 50%;
+	height: auto;
 	background-color: var(--light-color);
 	padding: 3rem 4rem;
 	margin: 0 auto;
@@ -36,4 +36,32 @@
 }
 .cross:after {
 	transform: rotate(-45deg);
+}
+
+/* tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+	.modalContainer {
+		left: 5%;
+		top: 15%;
+		width: 90%;
+		height: auto;
+	}
+}
+
+/*phone landscape*/
+@media (max-width: 768px) {
+	.modalContainer {
+		overflow: auto;
+		left: 5%;
+		top: 10%;
+		width: 90%;
+		height: 80%;
+	}
+}
+
+/*phone*/
+@media (max-width: 567px) {
+	.modalContainer {
+		padding: 2rem;
+	}
 }

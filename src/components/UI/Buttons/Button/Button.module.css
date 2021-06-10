@@ -1,5 +1,6 @@
 .button,
-.inversed {
+.inversed,
+.grey {
 	text-transform: uppercase;
 	padding: 0.5rem 1rem;
 	font-size: 1rem;
@@ -22,5 +23,15 @@
 .inversed:hover:enabled {
 	background-color: var(--light-color);
 	color: var(--accent-color);
+	cursor: pointer;
+}
+.grey {
+	background-color: var(--light-color);
+	border: 2px solid var(--dark-grey-color);
+	color: var(--dark-grey-color);
+}
+.grey:hover:enabled {
+	background-color: var(--dark-grey-color);
+	color: var(--light-color);
 	cursor: pointer;
 }

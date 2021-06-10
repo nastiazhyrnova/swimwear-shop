@@ -6,7 +6,9 @@ const Button = props => {
 
 	let mergedStyles = `${props.additionalClass} ${styles.button}`;
 
-	if (props.inversed) {
+	if (props.grey) {
+		mergedStyles = `${props.additionalClass} ${styles.grey}`;
+	} else if (props.inversed) {
 		mergedStyles = `${props.additionalClass} ${styles.inversed}`;
 	}
 
@@ -26,6 +28,7 @@ Button.propTypes = {
 	additionalClass: PropTypes.string,
 	disabled: PropTypes.bool,
 	inversed: PropTypes.bool,
+	grey: PropTypes.bool,
 };
 
 export default Button;
