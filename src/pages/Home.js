@@ -1,10 +1,12 @@
 import { useHistory } from 'react-router-dom';
+import useScrollToTop from '../hooks/use-scroll-to-top';
 
 import Slider from '../components/Slider/Slider';
 import ProductListing from '../components/Shop/Listing/ProductListing';
 import Button from '../components/UI/Buttons/Button/Button';
 
 const Home = _ => {
+	useScrollToTop();
 	const history = useHistory();
 	const goToShop = _ => {
 		history.push('/shop');

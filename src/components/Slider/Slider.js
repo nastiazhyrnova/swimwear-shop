@@ -18,6 +18,14 @@ const Slider = _ => {
 		<section className={styles.slider}>
 			<div className={styles.sliderContainer}>
 				<div className={styles.leftColumn}>
+					<div className={styles.titleContainer}>
+						<span className={styles.sliderTitle}>
+							Create a CUSTOM bikini set
+						</span>
+						<span className={styles.sliderSubtitle}>
+							hand made especially for <strong>you</strong>
+						</span>
+					</div>
 					<Button additionalClass={styles.cta} onClick={openCreateYours}>
 						Create Yours
 					</Button>
@@ -28,14 +36,6 @@ const Slider = _ => {
 						src={homePhoto}
 						alt='Girl in a bikini lying at the beach'
 					/>
-					<div className={styles.titleContainer}>
-						<span className={styles.sliderTitle}>
-							Create a CUSTOM bikini set
-						</span>
-						<span className={styles.sliderSubtitle}>
-							hand made especially for <strong>you</strong>
-						</span>
-					</div>
 
 					{/* <span className={sliderTitleWhite}>Create a CUSTOM bikini set</span>
 					<span className={sliderSubtitleWhite}>

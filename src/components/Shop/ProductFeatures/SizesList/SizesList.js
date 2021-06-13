@@ -36,7 +36,6 @@ const Sizes = props => {
 	const sizeListStyles = [styles.sizesList];
 	if (props.column) {
 		sizeListStyles.push(styles.column);
-		console.log(sizeListStyles.join(' '));
 	}
 
 	return <div className={sizeListStyles.join(' ')}>{output}</div>;
