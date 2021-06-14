@@ -34,7 +34,7 @@
 	width: fit-content;
 	padding: 0.5rem 0.5rem;
 }
-.category:hover,
+
 .category.checked {
 	background-color: var(--accent-color);
 	color: white;

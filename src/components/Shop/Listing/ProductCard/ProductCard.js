@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import Label from '../../ProductFeatures/Label/Label';
 import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
@@ -8,7 +9,7 @@ import Button from '../../../UI/Buttons/Button/Button';
 import styles from './ProductCard.module.css';
 import productImages from '../../../../assets/products/productImages';
 
-const ProductItem = props => {
+const ProductCard = props => {
 	const productsStore = useSelector(state => state.products);
 	const history = useHistory();
 	let output = 'No product found';
@@ -48,4 +49,6 @@ const ProductItem = props => {
 	return <>{output}</>;
 };
 
-export default ProductItem;
+ProductCard.propTypes = {};
+
+export default ProductCard;

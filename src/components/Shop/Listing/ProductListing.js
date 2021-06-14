@@ -131,6 +131,7 @@ ProductListing.propTypes = {
 		by: PropTypes.string.isRequired, //Options: 'price', 'popular', to be added: 'onSale
 		asc: PropTypes.bool,
 	}),
+	colorFilter: PropTypes.string,
 };
 
 export default React.memo(ProductListing);

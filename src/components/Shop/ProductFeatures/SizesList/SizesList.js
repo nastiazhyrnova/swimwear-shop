@@ -19,6 +19,8 @@ const Sizes = props => {
 
 			if (props.selectedSize === size) {
 				checked = true;
+			} else if (props.selectedSize.includes(size)) {
+				checked = true;
 			}
 
 			return (
@@ -44,7 +46,6 @@ const Sizes = props => {
 Sizes.propTypes = {
 	type: PropTypes.string.isRequired,
 	changeSelectedSize: PropTypes.func.isRequired,
-	selectedSize: PropTypes.string,
 	column: PropTypes.bool,
 };
 
