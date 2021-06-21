@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 import FiltersModal from './FiltersModal/FiltersModal';
 
 import { modalActions } from '../../../../store/modal/modalSlice';
+import { shopSortActions } from '../../../../store/shopSort/shopSortSlice';
 import styles from './Filters.module.css';
 import filterIcon from '../../../../assets/icons/filter.svg';
 
 const Filters = props => {
-	const sortingRef = useRef();
 	const modalStore = useSelector(state => state.modal);
 	const dispatch = useDispatch();
+	const sortingRef = useRef();
 
 	const setSortValue = _ => {
 		let by = null;
@@ -29,7 +30,7 @@ const Filters = props => {
 			by = 'onSale';
 			asc = true;
 		}
-		props.sort({ by, asc });
+		dispatch(shopSortActions.setSorting({ by: by, asc: asc }));
 	};
 
 	const openFiltersModal = _ => {
@@ -42,7 +43,7 @@ const Filters = props => {
 	return (
 		<>
 			{modalStore.shopFilters.show && (
-				<FiltersModal close={closeFiltersModal} filterShop={props.filter} />
+				<FiltersModal close={closeFiltersModal} />
 			)}
 			<div className={styles.mainContainer}>
 				<div className={styles.filterContainter}>
@@ -66,8 +67,6 @@ const Filters = props => {
 						<option value='priceasc'>Price: ascending</option>
 						<option value='pricedesc'>Price: descending</option>
 						<option value='popular'>Most popular</option>
-						{/* TODO: add discount sorting */}
-						{/* <option value='onSale'>Discount</option> */}
 					</select>
 				</div>
 				<div></div>
@@ -76,9 +75,6 @@ const Filters = props => {
 	);
 };
 
-Filters.propTypes = {
-	sort: PropTypes.func,
-	filter: PropTypes.func,
-};
+Filters.propTypes = {};
 
 export default Filters;

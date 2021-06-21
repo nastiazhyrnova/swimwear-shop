@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import Modal from '../../../../UI/Modal/Modal';
@@ -8,31 +9,47 @@ import SizesList from '../../../../Shop/ProductFeatures/SizesList/SizesList';
 import { shopFiltersActions } from '../../../../../store/shopFilters/shopFiltersSlice';
 import { modalActions } from '../../../../../store/modal/modalSlice';
 import styles from './FiltersModal.module.css';
+import { filter } from 'lodash';
 
 const FiltersModal = props => {
 	const productsStore = useSelector(state => state.products);
 	const shopFiltersStore = useSelector(state => state.shopFilters);
 
+	const [filters, setFilters] = useState({
+		category: null,
+		color: null,
+		sizes: [],
+	});
+
 	const dispatch = useDispatch();
 
 	const filterByColorHandler = color => {
-		dispatch(shopFiltersActions.filterByColor({ color: color }));
+		setFilters(prevState => ({ ...prevState, color: color }));
 	};
 
 	const filterByCategoryHandler = category => {
-		dispatch(shopFiltersActions.filterByCategory({ category: category }));
+		setFilters(prevState => ({ ...prevState, category: category }));
 	};
 	const filterBySizesHandler = size => {
-		dispatch(shopFiltersActions.filterBySizes({ size: size }));
+		setFilters(prevState => ({
+			...prevState,
+			sizes: prevState.sizes.push(size),
+		}));
 	};
 
 	const applyFilters = _ => {
-		props.filterShop();
+		dispatch(
+			shopFiltersActions.filterByCategory({ category: filters.category })
+		);
+		dispatch(shopFiltersActions.filterByColor({ color: filters.color }));
+		dispatch(shopFiltersActions.filterBySizes({ sizes: filters.sizes }));
+
 		dispatch(modalActions.closeModal({ modal: 'shopFilters' }));
 	};
 
 	const resetFilters = _ => {
 		dispatch(shopFiltersActions.resetFilters());
+		dispatch(modalActions.closeModal({ modal: 'shopFilters' }));
 	};
 
 	let categories;

@@ -1,14 +1,21 @@
-import useScrollToTop from '../hooks/use-scroll-to-top';
+import { useSelector } from 'react-redux';
 
 import ProductListing from '../components/Shop/Listing/ProductListing';
+import Filters from '../components/Shop/Listing/Filters/Filters';
 
 const Shop = _ => {
-	useScrollToTop();
-	//TODO: scrollToTop Doesn't work
+	const shopFiltersStore = useSelector(state => state.shopFilters);
+	const shopSortStore = useSelector(state => state.shopSort);
+
 	return (
 		<>
 			<h1>Shop</h1>
-			<ProductListing showFilters />
+			<Filters />
+			<ProductListing
+				sort={shopSortStore}
+				category={shopFiltersStore.category}
+				colorFilter={shopFiltersStore.color}
+			/>
 		</>
 	);
 };
