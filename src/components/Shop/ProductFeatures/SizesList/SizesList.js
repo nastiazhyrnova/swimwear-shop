@@ -17,9 +17,9 @@ const Sizes = props => {
 		output = productsStore.attributes.size.map(size => {
 			let checked = false;
 
-			if (props.selectedSize === size) {
+			if (props.selectedSize && props.selectedSize === size) {
 				checked = true;
-			} else if (props.selectedSize.includes(size)) {
+			} else if (props.selectedSize && props.selectedSize.includes(size)) {
 				checked = true;
 			}
 

@@ -27,7 +27,7 @@ const FiltersModal = props => {
 	};
 
 	const applyFilters = _ => {
-		console.log(applyFilters);
+		props.filterShop();
 		dispatch(modalActions.closeModal({ modal: 'shopFilters' }));
 	};
 

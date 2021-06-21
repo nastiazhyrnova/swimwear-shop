@@ -8,22 +8,24 @@ import styles from './Sidebar.module.css';
 //props - 'left' (default), or 'right'- boolean
 const Sidebar = props => {
 	const sidebar = (
-		<div className={props.right ? styles.sidebarRight : styles.sidebarLeft}>
-			<span
-				className={
-					props.right ? `${styles.cross} ${styles.crossRight}` : styles.cross
-				}
-				title='Close'
-				onClick={props.close}></span>
-			{props.children}
-		</div>
+		<aside>
+			<div className={props.right ? styles.sidebarRight : styles.sidebarLeft}>
+				<span
+					className={
+						props.right ? `${styles.cross} ${styles.crossRight}` : styles.cross
+					}
+					title='Close'
+					onClick={props.close}></span>
+				{props.children}
+			</div>
+		</aside>
 	);
 
 	return (
-		<aside>
+		<>
 			{ReactDOM.createPortal(sidebar, document.getElementById('sidebar-root'))}
 			<Backdrop close={props.close} />
-		</aside>
+		</>
 	);
 };
 

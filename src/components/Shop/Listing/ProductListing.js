@@ -11,6 +11,7 @@ import sortProducts from '../../../utilities/sortProducts';
 
 const ProductListing = props => {
 	const productsStore = useSelector(state => state.products);
+	const shopFiltersStore = useSelector(state => state.shopFilters);
 
 	const [filters, setFilters] = useState({
 		featured: false,
@@ -23,6 +24,7 @@ const ProductListing = props => {
 			sort: false,
 			value: null,
 		},
+		color: null,
 	});
 
 	const [sorting, setSorting] = useState({
@@ -36,6 +38,21 @@ const ProductListing = props => {
 	useEffect(
 		_ => {
 			if (productsStore.products.length !== 0) {
+				if (props.filterColor) {
+					setFilters({
+						featured: !!props.featured,
+						onSale: !!props.onSale,
+						exclude: {
+							exclude: !!props.exclude,
+							sku: props.exclude,
+						},
+						category: {
+							filter: !!props.category,
+							value: props.category,
+						},
+						color: props.filterColor,
+					});
+				}
 				setFilters({
 					featured: !!props.featured,
 					onSale: !!props.onSale,
@@ -44,9 +61,10 @@ const ProductListing = props => {
 						sku: props.exclude,
 					},
 					category: {
-						sort: !!props.category,
+						filter: !!props.category,
 						value: props.category,
 					},
+					color: null,
 				});
 			}
 		},
@@ -56,6 +74,7 @@ const ProductListing = props => {
 			props.featured,
 			props.onSale,
 			props.category,
+			props.filterColor,
 		]
 	);
 
@@ -71,7 +90,10 @@ const ProductListing = props => {
 			if (filters.featured && !product.featured) {
 				return false;
 			}
-			if (filters.category.sort && filters.category.value !== props.category) {
+			if (
+				filters.category.filter &&
+				filters.category.value !== product.category
+			) {
 				return false;
 			}
 			if (filters.onSale && !product.sale.onSale) {
@@ -99,7 +121,13 @@ const ProductListing = props => {
 		}
 
 		outputProducts = sortedProducts.map(product => {
-			return <ProductCard product={product} key={product.sku} />;
+			return (
+				<ProductCard
+					filterColor={props.filterColor}
+					product={product}
+					key={product.sku}
+				/>
+			);
 		});
 	}
 
@@ -107,12 +135,25 @@ const ProductListing = props => {
 		setSorting({ by: by, asc: asc });
 	};
 
+	const filterShopHandler = _ => {
+		setFilters(prevState => {
+			return {
+				...prevState,
+				color: shopFiltersStore.color,
+				category: {
+					filter: true,
+					value: shopFiltersStore.category,
+				},
+			};
+		});
+	};
+
 	return (
 		<div className={styles.listingContainer}>
 			{props.showFilters && (
 				<Filters
 					sort={({ by, asc }) => getSortingCriteria({ by, asc })}
-					filter={_ => {}}
+					filter={filterShopHandler}
 				/>
 			)}
 			<div className={styles.productGrid}>{outputProducts}</div>

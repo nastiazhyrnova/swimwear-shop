@@ -39,13 +39,10 @@ const Filters = props => {
 		dispatch(modalActions.closeModal({ modal: 'shopFilters' }));
 	};
 
-	//TODO: create a modal with filters
-	//TODO: pass filtering criteria
-
 	return (
 		<>
 			{modalStore.shopFilters.show && (
-				<FiltersModal close={closeFiltersModal} />
+				<FiltersModal close={closeFiltersModal} filterShop={props.filter} />
 			)}
 			<div className={styles.mainContainer}>
 				<div className={styles.filterContainter}>

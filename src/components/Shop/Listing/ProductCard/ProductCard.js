@@ -49,6 +49,9 @@ const ProductCard = props => {
 	return <>{output}</>;
 };
 
-ProductCard.propTypes = {};
+ProductCard.propTypes = {
+	product: PropTypes.object.isRequired,
+	key: PropTypes.string.isRequired,
+};
 
 export default ProductCard;
