@@ -39,7 +39,7 @@ const ProductListing = props => {
 
 		//SORT
 		let sortedProducts;
-		if (props.sort.by) {
+		if (props.sort) {
 			sortedProducts = sortProducts(
 				filteredProducts,
 				props.sort.asc,
@@ -87,7 +87,7 @@ ProductListing.propTypes = {
 	featured: PropTypes.bool,
 	onSale: PropTypes.bool,
 	sort: PropTypes.shape({
-		by: PropTypes.string.isRequired, //Options: 'price', 'popular', to be added: 'onSale
+		by: PropTypes.string, //Options: 'price', 'popular', to be added: 'onSale
 		asc: PropTypes.bool,
 	}),
 };

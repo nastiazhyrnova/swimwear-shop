@@ -9,7 +9,6 @@ import SizesList from '../../../../Shop/ProductFeatures/SizesList/SizesList';
 import { shopFiltersActions } from '../../../../../store/shopFilters/shopFiltersSlice';
 import { modalActions } from '../../../../../store/modal/modalSlice';
 import styles from './FiltersModal.module.css';
-import { filter } from 'lodash';
 
 const FiltersModal = props => {
 	const productsStore = useSelector(state => state.products);
@@ -24,17 +23,26 @@ const FiltersModal = props => {
 	const dispatch = useDispatch();
 
 	const filterByColorHandler = color => {
-		setFilters(prevState => ({ ...prevState, color: color }));
+		if (!filters.color || filters.color !== color) {
+			setFilters(prevState => ({ ...prevState, color: color }));
+		} else {
+			setFilters(prevState => ({ ...prevState, color: null }));
+		}
 	};
 
 	const filterByCategoryHandler = category => {
-		setFilters(prevState => ({ ...prevState, category: category }));
+		if (!filters.category || filters.category !== category) {
+			setFilters(prevState => ({ ...prevState, category: category }));
+		} else {
+			setFilters(prevState => ({ ...prevState, category: null }));
+		}
 	};
+
 	const filterBySizesHandler = size => {
-		setFilters(prevState => ({
-			...prevState,
-			sizes: prevState.sizes.push(size),
-		}));
+		// setFilters(prevState => ({
+		// 	...prevState,
+		// 	// sizes: prevState.sizes.push(size),
+		// }));
 	};
 
 	const applyFilters = _ => {
@@ -60,7 +68,7 @@ const FiltersModal = props => {
 		const uniqueCategories = [...new Set(allCategories)];
 		categories = uniqueCategories.map(category => {
 			const categoryStyles = [styles.category];
-			if (category === shopFiltersStore.category) {
+			if (category === filters.category) {
 				categoryStyles.push(styles.checked);
 			}
 			return (
@@ -80,9 +88,10 @@ const FiltersModal = props => {
 				<div className={styles.filtersContainer}>
 					<div className={styles.filterColumn}>
 						<h4>Color</h4>
+						{/* TODO: color doesn't uncheck */}
 						<ColorList
 							type='radio'
-							selectedColor={shopFiltersStore.color}
+							selectedColor={filters.color}
 							changeSelectedColor={color => filterByColorHandler(color)}
 						/>
 					</div>
