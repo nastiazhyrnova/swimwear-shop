@@ -5,8 +5,6 @@ import cartSlice from './cart/cartSlice';
 import productsSlice from './products/productsSlice';
 import sidebarSlice from './sidebar/sidebarSlice';
 import modalSlice from './modal/modalSlice';
-import shopFiltersSlice from './shopFilters/shopFiltersSlice';
-import shopSortSlice from './shopSort/shopSortSlice';
 
 const store = configureStore({
 	reducer: {
@@ -15,8 +13,6 @@ const store = configureStore({
 		products: productsSlice.reducer,
 		sidebar: sidebarSlice.reducer,
 		modal: modalSlice.reducer,
-		shopFilters: shopFiltersSlice.reducer,
-		shopSort: shopSortSlice.reducer,
 	},
 });
 

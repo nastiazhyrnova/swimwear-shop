@@ -18,12 +18,18 @@ const ProductCard = props => {
 		productsStore.products.length !== 0 &&
 		productsStore.attributes.color.length !== 0
 	) {
+		if (props.filterColor) {
+		}
 		const productImage =
 			productImages[`${props.product.category}`][`${props.product.sku}`][
-				`${props.product.defaultColor}`
+				`${props.filterColor ? props.filterColor : props.product.defaultColor}`
 			];
 		const openProductDetails = _ => {
-			history.push(`/shop/${props.product.category}/${props.product.sku}`);
+			history.push(
+				`/shop/${props.product.category}/${props.product.sku}${
+					props.filterColor && `?filterColor=${props.filterColor}`
+				}`
+			);
 		};
 
 		output = (
@@ -51,6 +57,7 @@ const ProductCard = props => {
 
 ProductCard.propTypes = {
 	product: PropTypes.object.isRequired,
+	filterColor: PropTypes.string,
 };
 
 export default ProductCard;

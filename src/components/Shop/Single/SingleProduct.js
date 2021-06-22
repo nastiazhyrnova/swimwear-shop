@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams, useHistory } from 'react-router-dom';
+import { Link, useParams, useHistory, useLocation } from 'react-router-dom';
 import lodash from 'lodash';
 import { cartActions } from '../../../store/cart/cartSlice';
 import { sidebarActions } from '../../../store/sidebar/sidebarSlice';
@@ -35,6 +35,13 @@ const singleProductReducer = (state, action) => {
 const SingleProduct = _ => {
 	const history = useHistory();
 	const storeDispatch = useDispatch();
+	const query = new URLSearchParams(useLocation().search);
+	let entries;
+	for (let param of query.entries()) {
+		entries = param;
+	}
+	const filterColor = entries[1];
+	console.log(filterColor);
 
 	//get corresponding product by passed id
 	const { id } = useParams();
@@ -50,9 +57,13 @@ const SingleProduct = _ => {
 					})
 				)[0];
 			}
+			console.log('useMemo');
 		},
 		[productsStore.products, id]
 	);
+	if (filterColor && productDetails) {
+		productDetails.defaultColor = filterColor;
+	}
 
 	//set local single product state
 	const [state, dispatch] = useReducer(singleProductReducer, {

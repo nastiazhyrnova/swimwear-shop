@@ -28,7 +28,6 @@ const ProductListing = props => {
 				return false;
 			}
 			if (props.category && props.category !== product.category) {
-				console.log('products sorting by category');
 				return false;
 			}
 			if (props.onSale && !product.sale.onSale) {

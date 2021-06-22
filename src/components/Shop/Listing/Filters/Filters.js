@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import FiltersModal from './FiltersModal/FiltersModal';
 
 import { modalActions } from '../../../../store/modal/modalSlice';
-import { shopSortActions } from '../../../../store/shopSort/shopSortSlice';
+
 import styles from './Filters.module.css';
 import filterIcon from '../../../../assets/icons/filter.svg';
 
@@ -30,7 +30,7 @@ const Filters = props => {
 			by = 'onSale';
 			asc = true;
 		}
-		dispatch(shopSortActions.setSorting({ by: by, asc: asc }));
+		props.sortBy({ by: by, asc: asc });
 	};
 
 	const openFiltersModal = _ => {
@@ -43,7 +43,14 @@ const Filters = props => {
 	return (
 		<>
 			{modalStore.shopFilters.show && (
-				<FiltersModal close={closeFiltersModal} />
+				<FiltersModal
+					close={closeFiltersModal}
+					filters={props.filters}
+					filterByColor={props.filterByColor}
+					filterByCategory={props.filterByCategory}
+					filterBySize={props.filterBySize}
+					resetFilters={props.resetFilters}
+				/>
 			)}
 			<div className={styles.mainContainer}>
 				<div className={styles.filterContainter}>
@@ -75,6 +82,13 @@ const Filters = props => {
 	);
 };
 
-Filters.propTypes = {};
+Filters.propTypes = {
+	sortBy: PropTypes.func.isRequired,
+	filters: PropTypes.object,
+	filterByColor: PropTypes.func,
+	filterByCategory: PropTypes.func,
+	filterBySize: PropTypes.func,
+	resetFilters: PropTypes.func,
+};
 
 export default Filters;
