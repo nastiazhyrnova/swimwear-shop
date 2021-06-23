@@ -1,0 +1,12 @@
+.steps {
+	display: flex;
+	justify-content: space-around;
+	list-style: decimal inside none;
+	margin: 0 auto;
+	padding: 0;
+}
+.steps li {
+	margin: 0;
+	padding: 0;
+	color: var(--accent-color);
+}

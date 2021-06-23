@@ -1,0 +1,32 @@
+.productContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+.colors,
+.images,
+.sizes {
+	text-align: center;
+	margin: 0 auto;
+}
+.colors {
+	flex: 1 1 0;
+}
+.images {
+	flex: 5 10 0;
+	margin: auto;
+}
+.images img {
+	width: 200px;
+	vertical-align: middle;
+}
+.leftArrow,
+.rightArrow {
+	height: 50px;
+}
+.rightArrow {
+	transform: rotate(180deg);
+}
+.sizes {
+	flex: 1 1 0;
+}

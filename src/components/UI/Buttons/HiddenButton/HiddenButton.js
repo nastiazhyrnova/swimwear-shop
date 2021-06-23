@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './HiddenButton.module.css';
 
 const HiddenButton = props => {
@@ -10,6 +11,10 @@ const HiddenButton = props => {
 			{props.children}
 		</button>
 	);
+};
+HiddenButton.propTypes = {
+	label: PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
 };
 
 export default HiddenButton;

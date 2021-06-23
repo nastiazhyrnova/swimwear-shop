@@ -45,4 +45,5 @@ const Shop = _ => {
 
 export default Shop;
 
+// TODO: add scroll to top
 // *IDEA: use query params to save the search for location property
