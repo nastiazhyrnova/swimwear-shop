@@ -4,7 +4,6 @@ const CreateYours = _ => {
 	return (
 		<>
 			<h1>Create your bikini</h1>
-
 			<Constructor />
 		</>
 	);

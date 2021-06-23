@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import ConstructorItem from './ConstructorItem/ConstructorItem';
@@ -7,24 +8,47 @@ import styles from './Constructor.module.css';
 const Constructor = _ => {
 	const productsStore = useSelector(state => state.products);
 	let output = 'No products found';
+	let topProducts = [];
+	let bottomProducts = [];
 
 	if (productsStore.products.length > 0) {
-		const productTop = productsStore.products[10];
-		const productBottom = productsStore.products[0];
+		topProducts = productsStore.products.filter(
+			product => product.category === 'tops'
+		);
+		bottomProducts = productsStore.products.filter(
+			product => product.category === 'bottoms'
+		);
+	}
+
+	const showPrevious = (category, currentSku) => {
+		console.log('Prev');
+	}; //TODO
+	const showNext = (category, currentSku) => {
+		console.log('Next');
+	}; //TODO
+
+	if (productsStore.products.length > 0) {
+		const productTop = topProducts[0];
+		const productBottom = bottomProducts[0];
 		output = (
 			<>
 				<div>
-					<ConstructorItem product={productTop} />
+					<ConstructorItem
+						product={productTop}
+						showPrevious={showPrevious}
+						showNext={showNext}
+					/>
 				</div>
 				<div className={styles.productContainer}>
-					<ConstructorItem product={productBottom} />
+					<ConstructorItem
+						product={productBottom}
+						showPrevious={showPrevious}
+						showNext={showNext}
+					/>
 				</div>
 			</>
 		);
 	}
-
-	const showPrevious = (category, currentSku) => {};
-	const showNext = (category, currentSku) => {};
 
 	return (
 		<main>

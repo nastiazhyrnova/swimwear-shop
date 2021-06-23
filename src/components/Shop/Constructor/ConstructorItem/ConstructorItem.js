@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import SizesList from '../../ProductFeatures/SizesList/SizesList';
 import ColorsList from '../../ProductFeatures/ColorsList/ColorsList';
 import HiddenButton from '../../../UI/Buttons/HiddenButton/HiddenButton';
@@ -16,11 +18,15 @@ const ConstructorItem = props => {
 		<div>
 			<div className={styles.productContainer}>
 				<div className={styles.colors}>
-					<ColorsList />
+					<ColorsList type='radio' />
 				</div>
 				<div className={styles.images}>
 					<div>
-						<HiddenButton label='Previous' onClick={_ => {}}>
+						<HiddenButton
+							label='Previous'
+							onClick={_ =>
+								props.showPrevious(props.product.category, props.product.sku)
+							}>
 							<img
 								src={arrowIcon}
 								alt='Previous'
@@ -28,17 +34,27 @@ const ConstructorItem = props => {
 							/>
 						</HiddenButton>
 						<img src={image} alt={props.product.title} />
-						<HiddenButton label='Next' onClick={_ => {}}>
+						<HiddenButton
+							label='Next'
+							onClick={_ =>
+								props.showNext(props.product.category, props.product.sku)
+							}>
 							<img src={arrowIcon} alt='Next' className={styles.rightArrow} />
 						</HiddenButton>
 					</div>
 				</div>
 				<div className={styles.sizes}>
-					<SizesList />
+					<SizesList type='radio' />
 				</div>
 			</div>
 		</div>
 	);
+};
+
+ConstructorItem.propTypes = {
+	product: PropTypes.object.isRequired,
+	showPrevious: PropTypes.func,
+	showNext: PropTypes.func,
 };
 
 export default ConstructorItem;
