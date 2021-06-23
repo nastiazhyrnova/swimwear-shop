@@ -35,13 +35,6 @@ const singleProductReducer = (state, action) => {
 const SingleProduct = _ => {
 	const history = useHistory();
 	const storeDispatch = useDispatch();
-	const query = new URLSearchParams(useLocation().search);
-	let entries;
-	for (let param of query.entries()) {
-		entries = param;
-	}
-	const filterColor = entries[1];
-	console.log(filterColor);
 
 	//get corresponding product by passed id
 	const { id } = useParams();
@@ -57,11 +50,19 @@ const SingleProduct = _ => {
 					})
 				)[0];
 			}
-			console.log('useMemo');
 		},
 		[productsStore.products, id]
 	);
-	if (filterColor && productDetails) {
+
+	//check passed params for color to filter
+	const query = new URLSearchParams(useLocation().search);
+	let filterColor = null;
+	let entries;
+	for (let param of query.entries()) {
+		entries = param;
+	}
+	if (entries !== undefined && productDetails) {
+		filterColor = entries[1];
 		productDetails.defaultColor = filterColor;
 	}
 

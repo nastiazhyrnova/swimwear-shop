@@ -21,35 +21,18 @@ const Shop = _ => {
 		});
 	};
 
-	const filterByColor = color => {
-		console.log('filterByColor [Shop]');
-		setFilters(prevState => ({ ...prevState, color: color }));
-	};
-	const filterByCategory = category => {
-		setFilters(prevState => ({ ...prevState, category: category }));
-	};
-
-	const filterBySize = _ => {}; // TODO
-
-	const resetFilters = _ => {
+	const filterBy = ({ color, sizes, category }) => {
 		setFilters({
-			color: null,
-			category: null,
-			sizes: [],
+			color: color,
+			category: category,
+			sizes: sizes,
 		});
 	};
 
 	return (
 		<>
 			<h1>Shop</h1>
-			<Filters
-				sortBy={sortBy}
-				filters={filters}
-				filterByColor={filterByColor}
-				filterByCategory={filterByCategory}
-				filterBySize={filterBySize}
-				resetFilters={resetFilters}
-			/>
+			<Filters sortBy={sortBy} filters={filters} filterBy={filterBy} />
 			<ProductListing
 				sort={sorting}
 				category={filters.category}

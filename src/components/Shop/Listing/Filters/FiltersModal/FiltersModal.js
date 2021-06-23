@@ -38,15 +38,30 @@ const FiltersModal = props => {
 		}
 	};
 
-	const filterBySizesHandler = size => {
-		console.log('filterBySize local function in Modal component');
-		// TODO
+	const filterBySizeHandler = size => {
+		if (!!chosenFilters.sizes.find(existingSize => existingSize === size)) {
+			setChosenFilters(prevState => {
+				const newSizes = chosenFilters.sizes.filter(
+					existingSize => existingSize !== size
+				);
+				return { ...prevState, sizes: newSizes };
+			});
+		} else {
+			setChosenFilters(prevState => {
+				return {
+					...prevState,
+					sizes: prevState.sizes.concat(size),
+				};
+			});
+		}
 	};
 
 	const applyFilters = _ => {
-		props.filterByCategory(chosenFilters.category);
-		props.filterByColor(chosenFilters.color);
-		props.filterBySize(chosenFilters.sizes);
+		props.filterBy({
+			color: chosenFilters.color,
+			category: chosenFilters.category,
+			sizes: chosenFilters.sizes,
+		});
 		dispatch(modalActions.closeModal({ modal: 'shopFilters' }));
 	};
 
@@ -56,7 +71,11 @@ const FiltersModal = props => {
 			color: null,
 			sizes: [],
 		});
-		props.resetChosenFilters();
+		props.filterBy({
+			color: null,
+			category: null,
+			sizes: [],
+		});
 		dispatch(modalActions.closeModal({ modal: 'shopFilters' }));
 	};
 
@@ -106,7 +125,7 @@ const FiltersModal = props => {
 						<SizesList
 							type='checkbox'
 							selectedSize={chosenFilters.sizes}
-							changeSelectedSize={size => filterBySizesHandler(size)}
+							changeSelectedSize={size => filterBySizeHandler(size)}
 						/>
 					</div>
 				</div>
@@ -126,10 +145,7 @@ const FiltersModal = props => {
 
 FiltersModal.propTypes = {
 	filters: PropTypes.object,
-	filterByColor: PropTypes.func,
-	filterByCategory: PropTypes.func,
-	filterBySize: PropTypes.func,
-	resetFilters: PropTypes.func,
+	filterBy: PropTypes.func,
 };
 
 export default FiltersModal;

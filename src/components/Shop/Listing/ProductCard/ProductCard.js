@@ -25,11 +25,13 @@ const ProductCard = props => {
 				`${props.filterColor ? props.filterColor : props.product.defaultColor}`
 			];
 		const openProductDetails = _ => {
-			history.push(
-				`/shop/${props.product.category}/${props.product.sku}${
-					props.filterColor && `?filterColor=${props.filterColor}`
-				}`
-			);
+			if (props.filterColor) {
+				history.push(
+					`/shop/${props.product.category}/${props.product.sku}?filterColor=${props.filterColor}`
+				);
+			} else {
+				history.push(`/shop/${props.product.category}/${props.product.sku}`);
+			}
 		};
 
 		output = (

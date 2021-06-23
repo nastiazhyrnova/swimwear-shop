@@ -46,10 +46,7 @@ const Filters = props => {
 				<FiltersModal
 					close={closeFiltersModal}
 					filters={props.filters}
-					filterByColor={props.filterByColor}
-					filterByCategory={props.filterByCategory}
-					filterBySize={props.filterBySize}
-					resetFilters={props.resetFilters}
+					filterBy={props.filterBy}
 				/>
 			)}
 			<div className={styles.mainContainer}>
@@ -85,10 +82,7 @@ const Filters = props => {
 Filters.propTypes = {
 	sortBy: PropTypes.func.isRequired,
 	filters: PropTypes.object,
-	filterByColor: PropTypes.func,
-	filterByCategory: PropTypes.func,
-	filterBySize: PropTypes.func,
-	resetFilters: PropTypes.func,
+	filterBy: PropTypes.func,
 };
 
 export default Filters;

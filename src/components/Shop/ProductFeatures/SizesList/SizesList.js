@@ -13,13 +13,22 @@ const Sizes = props => {
 		props.changeSelectedSize(size);
 	};
 
+	//check if the item is checked
 	if (productsStore.attributes.size.length !== 0) {
 		output = productsStore.attributes.size.map(size => {
 			let checked = false;
 
-			if (props.selectedSize && props.selectedSize === size) {
-				checked = true;
-			} else if (props.selectedSize && props.selectedSize.includes(size)) {
+			//if props.selectedSize is a radio button (e.g. selected Size is a string)
+			if (props.selectedSize && typeof props.selectedSize === 'string') {
+				if (props.selectedSize === size) {
+					checked = true;
+				}
+			}
+			//if props.selectedSize is a checkbox (e.g. selected Size is an array)
+			else if (
+				Array.isArray(props.selectedSize) &&
+				!!props.selectedSize.find(existingSize => existingSize === size)
+			) {
 				checked = true;
 			}
 
