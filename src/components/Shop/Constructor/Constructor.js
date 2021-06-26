@@ -1,5 +1,6 @@
-import { useMemo } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import ConstructorItem from './ConstructorItem/ConstructorItem';
 
@@ -20,24 +21,55 @@ const Constructor = _ => {
 		);
 	}
 
-	const showPrevious = (category, currentSku) => {
-		console.log('Prev');
+	const [currentTopProduct, setCurrentTopProduct] = useState(0);
+	const [currentBottomProduct, setCurrentBottomProduct] = useState(0);
+
+	const showPrevious = category => {
+		if (category === 'tops') {
+			if (currentTopProduct === 0) {
+				setCurrentTopProduct(topProducts.length - 1);
+			} else {
+				setCurrentTopProduct(currentTopProduct - 1);
+			}
+		} else if (category === 'bottoms') {
+			if (currentBottomProduct === 0) {
+				setCurrentBottomProduct(bottomProducts.length - 1);
+			} else {
+				setCurrentBottomProduct(currentBottomProduct - 1);
+			}
+		}
 	}; //TODO
-	const showNext = (category, currentSku) => {
-		console.log('Next');
+	const showNext = category => {
+		if (category === 'tops') {
+			if (currentTopProduct === topProducts.length - 1) {
+				setCurrentTopProduct(0);
+			} else {
+				setCurrentTopProduct(currentTopProduct + 1);
+			}
+		} else if (category === 'bottoms') {
+			if (currentBottomProduct === bottomProducts.length - 1) {
+				setCurrentBottomProduct(0);
+			} else {
+				setCurrentBottomProduct(currentBottomProduct + 1);
+			}
+		}
 	}; //TODO
 
 	if (productsStore.products.length > 0) {
-		const productTop = topProducts[0];
-		const productBottom = bottomProducts[0];
+		const productTop = topProducts[currentTopProduct];
+		const productBottom = bottomProducts[currentBottomProduct];
 		output = (
 			<>
 				<div>
-					<ConstructorItem
-						product={productTop}
-						showPrevious={showPrevious}
-						showNext={showNext}
-					/>
+					<TransitionGroup>
+						<CSSTransition key={currentTopProduct} timeout={1000}>
+							<ConstructorItem
+								product={productTop}
+								showPrevious={showPrevious}
+								showNext={showNext}
+							/>
+						</CSSTransition>
+					</TransitionGroup>
 				</div>
 				<div className={styles.productContainer}>
 					<ConstructorItem
