@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import SizesList from '../../ProductFeatures/SizesList/SizesList';
 import ColorsList from '../../ProductFeatures/ColorsList/ColorsList';
@@ -21,27 +22,38 @@ const ConstructorItem = props => {
 					<ColorsList type='radio' />
 				</div>
 				<div className={styles.images}>
-					<div>
-						<HiddenButton
-							label='Previous'
-							onClick={_ =>
-								props.showPrevious(props.product.category, props.product.sku)
-							}>
+					<HiddenButton
+						label='Previous'
+						onClick={_ =>
+							props.showPrevious(props.product.category, props.product.sku)
+						}>
+						<img src={arrowIcon} alt='Previous' className={styles.leftArrow} />
+					</HiddenButton>
+					<TransitionGroup>
+						<CSSTransition
+							key={props.currentIndex}
+							timeout={1000}
+							classNames={{
+								enter: styles.slideRightEnter,
+								enterActive: styles.slideRightEnterActive,
+								enterDone: styles.slideRightEnterDone,
+								exitActive: styles.slideRightExitActive,
+								exitDone: styles.slideRightExit,
+							}}>
 							<img
-								src={arrowIcon}
-								alt='Previous'
-								className={styles.leftArrow}
+								src={image}
+								alt={props.product.title}
+								className={styles.image}
 							/>
-						</HiddenButton>
-						<img src={image} alt={props.product.title} />
-						<HiddenButton
-							label='Next'
-							onClick={_ =>
-								props.showNext(props.product.category, props.product.sku)
-							}>
-							<img src={arrowIcon} alt='Next' className={styles.rightArrow} />
-						</HiddenButton>
-					</div>
+						</CSSTransition>
+					</TransitionGroup>
+					<HiddenButton
+						label='Next'
+						onClick={_ =>
+							props.showNext(props.product.category, props.product.sku)
+						}>
+						<img src={arrowIcon} alt='Next' className={styles.rightArrow} />
+					</HiddenButton>
 				</div>
 				<div className={styles.sizes}>
 					<SizesList type='radio' />
@@ -55,6 +67,7 @@ ConstructorItem.propTypes = {
 	product: PropTypes.object.isRequired,
 	showPrevious: PropTypes.func,
 	showNext: PropTypes.func,
+	currentIndex: PropTypes.number,
 };
 
 export default ConstructorItem;

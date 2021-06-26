@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import ConstructorItem from './ConstructorItem/ConstructorItem';
 
@@ -61,21 +60,19 @@ const Constructor = _ => {
 		output = (
 			<>
 				<div>
-					<TransitionGroup>
-						<CSSTransition key={currentTopProduct} timeout={1000}>
-							<ConstructorItem
-								product={productTop}
-								showPrevious={showPrevious}
-								showNext={showNext}
-							/>
-						</CSSTransition>
-					</TransitionGroup>
+					<ConstructorItem
+						product={productTop}
+						showPrevious={showPrevious}
+						showNext={showNext}
+						currentIndex={currentTopProduct}
+					/>
 				</div>
 				<div className={styles.productContainer}>
 					<ConstructorItem
 						product={productBottom}
 						showPrevious={showPrevious}
 						showNext={showNext}
+						currentIndex={currentBottomProduct}
 					/>
 				</div>
 			</>
