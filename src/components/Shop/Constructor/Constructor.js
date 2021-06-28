@@ -20,10 +20,13 @@ const Constructor = _ => {
 		);
 	}
 
+	const [sliderDirection, setSliderDirection] = useState('slideRight');
 	const [currentTopProduct, setCurrentTopProduct] = useState(0);
 	const [currentBottomProduct, setCurrentBottomProduct] = useState(0);
 
 	const showPrevious = category => {
+		setSliderDirection('slideLeft');
+
 		if (category === 'tops') {
 			if (currentTopProduct === 0) {
 				setCurrentTopProduct(topProducts.length - 1);
@@ -37,8 +40,9 @@ const Constructor = _ => {
 				setCurrentBottomProduct(currentBottomProduct - 1);
 			}
 		}
-	}; //TODO
+	};
 	const showNext = category => {
+		setSliderDirection('slideRight');
 		if (category === 'tops') {
 			if (currentTopProduct === topProducts.length - 1) {
 				setCurrentTopProduct(0);
@@ -52,7 +56,7 @@ const Constructor = _ => {
 				setCurrentBottomProduct(currentBottomProduct + 1);
 			}
 		}
-	}; //TODO
+	};
 
 	if (productsStore.products.length > 0) {
 		const productTop = topProducts[currentTopProduct];
@@ -65,6 +69,7 @@ const Constructor = _ => {
 						showPrevious={showPrevious}
 						showNext={showNext}
 						currentIndex={currentTopProduct}
+						sliderDirection={sliderDirection}
 					/>
 				</div>
 				<div className={styles.productContainer}>
@@ -73,6 +78,7 @@ const Constructor = _ => {
 						showPrevious={showPrevious}
 						showNext={showNext}
 						currentIndex={currentBottomProduct}
+						sliderDirection={sliderDirection}
 					/>
 				</div>
 			</>

@@ -1,5 +1,7 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { Transition } from 'react-transition-group/Transition';
 
 import SizesList from '../../ProductFeatures/SizesList/SizesList';
 import ColorsList from '../../ProductFeatures/ColorsList/ColorsList';
@@ -8,6 +10,7 @@ import HiddenButton from '../../../UI/Buttons/HiddenButton/HiddenButton';
 import styles from './ConstructorItem.module.css';
 import productImages from '../../../../assets/products/productImages';
 import arrowIcon from '../../../../assets/icons/arrow.svg';
+import { react } from '@babel/types';
 
 const ConstructorItem = props => {
 	const image =
@@ -15,13 +18,24 @@ const ConstructorItem = props => {
 			`${props.filterColor ? props.filterColor : props.product.defaultColor}`
 		];
 
+	const childFactory = direction => child =>
+		React.cloneElement(child, {
+			classNames: {
+				enter: styles[`${direction}Enter`],
+				enterActive: styles[`${direction}EnterActive`],
+				// enterDone: styles[`${direction}EnterDone`],
+				exitDone: styles[`${direction}ExitDone`],
+				exitActive: styles[`${direction}ExitActive`],
+			},
+		});
+
 	return (
 		<div>
 			<div className={styles.productContainer}>
 				<div className={styles.colors}>
 					<ColorsList type='radio' />
 				</div>
-				<div className={styles.images}>
+				<div className={styles.slider}>
 					<HiddenButton
 						label='Previous'
 						onClick={_ =>
@@ -29,24 +43,28 @@ const ConstructorItem = props => {
 						}>
 						<img src={arrowIcon} alt='Previous' className={styles.leftArrow} />
 					</HiddenButton>
-					<TransitionGroup>
-						<CSSTransition
-							key={props.currentIndex}
-							timeout={1000}
-							classNames={{
-								enter: styles.slideRightEnter,
-								enterActive: styles.slideRightEnterActive,
-								enterDone: styles.slideRightEnterDone,
-								exitActive: styles.slideRightExitActive,
-								exitDone: styles.slideRightExit,
-							}}>
-							<img
-								src={image}
-								alt={props.product.title}
-								className={styles.image}
-							/>
-						</CSSTransition>
-					</TransitionGroup>
+					<div className={styles.imageWrapper}>
+						{/* <Transition in={} timeout={500}> */}
+						<TransitionGroup childFactory={childFactory(props.sliderDirection)}>
+							<CSSTransition
+								key={props.currentIndex}
+								timeout={200}
+								classNames={{
+									enter: styles[`${props.sliderDirection}Enter`],
+									enterActive: styles[`${props.sliderDirection}EnterActive`],
+									// enterDone: styles[`${props.sliderDirection}EnterDone`],
+									exitDone: styles[`${props.sliderDirection}ExitDone`],
+									exitActive: styles[`${props.sliderDirection}ExitActive`],
+								}}>
+								<img
+									src={image}
+									alt={props.product.title}
+									className={styles.image}
+								/>
+							</CSSTransition>
+						</TransitionGroup>
+						{/* </Transition> */}
+					</div>
 					<HiddenButton
 						label='Next'
 						onClick={_ =>
