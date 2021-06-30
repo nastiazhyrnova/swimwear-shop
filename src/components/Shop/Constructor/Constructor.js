@@ -1,16 +1,19 @@
 import { useState, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import ConstructorItem from './ConstructorItem/ConstructorItem';
 import Button from '../../UI/Buttons/Button/Button';
 
+import { cartActions } from '../../../store/cart/cartSlice';
 import styles from './Constructor.module.css';
 
 const Constructor = _ => {
 	const productsStore = useSelector(state => state.products);
+	const dispatch = useDispatch();
 
-	const [currentTopProductIndex, setcurrentTopProductIndex] = useState(0);
-	const [currentBottomProductIndex, setcurrentBottomProductIndex] = useState(0);
+	const [currentTopProductIndex, setCurrentTopProductIndex] = useState(0);
+	const [currentBottomProductIndex, setCurrentBottomProductIndex] = useState(0);
+
 	const [currentTopProduct, setCurrentTopProduct] = useState({
 		color: null,
 		size: null,
@@ -60,6 +63,7 @@ const Constructor = _ => {
 		},
 		[productsStore.products, topProducts, currentTopProductIndex]
 	);
+
 	bottomProduct = useMemo(
 		_ => {
 			if (productsStore.products.length > 0) {
@@ -111,15 +115,15 @@ const Constructor = _ => {
 	const showPrevious = category => {
 		if (category === 'tops') {
 			if (currentTopProductIndex === 0) {
-				setcurrentTopProductIndex(topProducts.length - 1);
+				setCurrentTopProductIndex(topProducts.length - 1);
 			} else {
-				setcurrentTopProductIndex(currentTopProductIndex - 1);
+				setCurrentTopProductIndex(currentTopProductIndex - 1);
 			}
 		} else if (category === 'bottoms') {
 			if (currentBottomProductIndex === 0) {
-				setcurrentBottomProductIndex(bottomProducts.length - 1);
+				setCurrentBottomProductIndex(bottomProducts.length - 1);
 			} else {
-				setcurrentBottomProductIndex(currentBottomProductIndex - 1);
+				setCurrentBottomProductIndex(currentBottomProductIndex - 1);
 			}
 		}
 	};
@@ -127,17 +131,41 @@ const Constructor = _ => {
 	const showNext = category => {
 		if (category === 'tops') {
 			if (currentTopProductIndex === topProducts.length - 1) {
-				setcurrentTopProductIndex(0);
+				setCurrentTopProductIndex(0);
 			} else {
-				setcurrentTopProductIndex(currentTopProductIndex + 1);
+				setCurrentTopProductIndex(currentTopProductIndex + 1);
 			}
 		} else if (category === 'bottoms') {
 			if (currentBottomProductIndex === bottomProducts.length - 1) {
-				setcurrentBottomProductIndex(0);
+				setCurrentBottomProductIndex(0);
 			} else {
-				setcurrentBottomProductIndex(currentBottomProductIndex + 1);
+				setCurrentBottomProductIndex(currentBottomProductIndex + 1);
 			}
 		}
+	};
+	//TODO: disable add to carte if size is not chosen + add to the cart actions directly that after add to cart the modal should be opened and remove this action from single product add to cart
+
+	const addToCart = _ => {
+		dispatch(
+			cartActions.addToCart({
+				product: {
+					sku: topProduct.sku,
+					color: currentTopProduct.color,
+					size: currentTopProduct.size,
+					quantity: 1,
+				},
+			})
+		);
+		dispatch(
+			cartActions.addToCart({
+				product: {
+					sku: bottomProduct.sku,
+					color: currentBottomProduct.color,
+					size: currentBottomProduct.size,
+					quantity: 1,
+				},
+			})
+		);
 	};
 
 	if (productsStore.products.length > 0) {
@@ -188,7 +216,7 @@ const Constructor = _ => {
 				<Button
 					inversed
 					additionalClass={styles.addToCartButton}
-					onClick={_ => {}}>
+					onClick={addToCart}>
 					Add to cart
 				</Button>
 			</div>
