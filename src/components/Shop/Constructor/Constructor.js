@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
 import ConstructorItem from './ConstructorItem/ConstructorItem';
@@ -8,40 +8,103 @@ import styles from './Constructor.module.css';
 
 const Constructor = _ => {
 	const productsStore = useSelector(state => state.products);
-	let output = 'No products found';
-	let topProducts = [];
-	let bottomProducts = [];
-
-	if (productsStore.products.length > 0) {
-		topProducts = productsStore.products.filter(
-			product => product.category === 'tops'
-		);
-		bottomProducts = productsStore.products.filter(
-			product => product.category === 'bottoms'
-		);
-	}
 
 	const [currentTopProductIndex, setcurrentTopProductIndex] = useState(0);
 	const [currentBottomProductIndex, setcurrentBottomProductIndex] = useState(0);
+	const [currentTopProduct, setCurrentTopProduct] = useState({
+		color: null,
+		size: null,
+	});
+	const [currentBottomProduct, setCurrentBottomProduct] = useState({
+		color: null,
+		size: null,
+	});
 
-	const [chosenTopProduct, setChosenTopProduct] = useState({
-		sku: null,
-		color: null,
-		size: null,
-		quantity: 1,
-	});
-	const [chosenBottomProduct, setChosenBottomProduct] = useState({
-		sku: null,
-		color: null,
-		size: null,
-		quantity: 1,
-	});
+	//setting products arrays & single products
+	let output = 'No products found';
+	let topProducts = useMemo(_ => [], []);
+	let bottomProducts = useMemo(_ => [], []);
+	let topProduct;
+	let bottomProduct;
+
+	topProducts = useMemo(
+		_ => {
+			if (productsStore.products.length > 0) {
+				console.log('render top products');
+				return productsStore.products.filter(
+					product => product.category === 'tops'
+				);
+			}
+		},
+		[productsStore.products]
+	);
+
+	bottomProducts = useMemo(
+		_ => {
+			if (productsStore.products.length > 0) {
+				console.log('render bottom products');
+				return productsStore.products.filter(
+					product => product.category === 'bottoms'
+				);
+			}
+		},
+		[productsStore.products]
+	);
+
+	topProduct = useMemo(
+		_ => {
+			if (productsStore.products.length > 0) {
+				console.log('render top  individual product');
+				return topProducts[currentTopProductIndex];
+			}
+		},
+		[productsStore.products, topProducts, currentTopProductIndex]
+	);
+	bottomProduct = useMemo(
+		_ => {
+			if (productsStore.products.length > 0) {
+				console.log('render bottom  individual product');
+				return bottomProducts[currentBottomProductIndex];
+			}
+		},
+		[productsStore.products, bottomProducts, currentBottomProductIndex]
+	);
+
+	//setting detaulf colors on the first render of the first product
+	if (
+		productsStore.products.length > 0 &&
+		currentTopProductIndex === 0 &&
+		!currentTopProduct.color
+	) {
+		setCurrentTopProduct(prevState => ({
+			...prevState,
+			color: topProduct.defaultColor,
+		}));
+	}
+	if (
+		productsStore.products.length > 0 &&
+		currentBottomProductIndex === 0 &&
+		!currentBottomProduct.color
+	) {
+		setCurrentBottomProduct(prevState => ({
+			...prevState,
+			color: bottomProduct.defaultColor,
+		}));
+	}
 
 	const getColor = (category, color) => {
 		if (category === 'tops') {
-			setChosenTopProduct(prevState => ({ ...prevState, color: color }));
+			setCurrentTopProduct(prevState => ({ ...prevState, color: color }));
 		} else if (category === 'bottoms') {
-			setChosenBottomProduct(prevState => ({ ...prevState, color: color }));
+			setCurrentBottomProduct(prevState => ({ ...prevState, color: color }));
+		}
+	};
+
+	const getSize = (category, size) => {
+		if (category === 'tops') {
+			setCurrentTopProduct(prevState => ({ ...prevState, size: size }));
+		} else if (category === 'bottoms') {
+			setCurrentBottomProduct(prevState => ({ ...prevState, size: size }));
 		}
 	};
 
@@ -78,39 +141,35 @@ const Constructor = _ => {
 	};
 
 	if (productsStore.products.length > 0) {
-		const productTop = topProducts[currentTopProductIndex];
-		const productBottom = bottomProducts[currentBottomProductIndex];
-
 		output = (
 			<>
 				<div className={styles.productContainer}>
 					<ConstructorItem
 						key='tops'
 						id='tops'
-						product={productTop}
+						product={topProduct}
 						showPrevious={showPrevious}
 						showNext={showNext}
 						currentIndex={currentTopProductIndex}
 						passColor={(category, color) => getColor(category, color)}
+						passSize={(category, size) => getSize(category, size)}
 					/>
 				</div>
 				<div className={styles.productContainer}>
 					<ConstructorItem
 						key='bottoms'
 						id='bottoms'
-						product={productBottom}
+						product={bottomProduct}
 						showPrevious={showPrevious}
 						showNext={showNext}
 						currentIndex={currentBottomProductIndex}
 						passColor={(category, color) => getColor(category, color)}
+						passSize={(category, size) => getSize(category, size)}
 					/>
 				</div>
 			</>
 		);
 	}
-
-	console.log(chosenTopProduct);
-	console.log(chosenBottomProduct);
 
 	return (
 		<main>

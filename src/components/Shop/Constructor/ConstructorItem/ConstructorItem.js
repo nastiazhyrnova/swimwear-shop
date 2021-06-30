@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import SizesList from '../../ProductFeatures/SizesList/SizesList';
@@ -15,6 +15,7 @@ const ConstructorItem = props => {
 
 	const selectSize = size => {
 		setSize(size);
+		props.passSize(props.id, size);
 	};
 	const selectColor = color => {
 		setColor(color);

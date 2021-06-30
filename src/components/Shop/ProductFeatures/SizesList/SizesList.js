@@ -39,7 +39,6 @@ const Sizes = props => {
 					key={`${size}${props.id}`}
 					checked={checked}
 					onChange={size => {
-						console.log(`${size}${props.id}`);
 						selectSize(size);
 					}}
 					type={props.type}
