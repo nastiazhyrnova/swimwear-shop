@@ -24,6 +24,7 @@ const ColorsList = props => {
 					checked={checked}
 					onChange={defaultColor => props.changeSelectedColor(defaultColor)}
 					type={props.type}
+					id={props.id}
 				/>
 			);
 		});
@@ -36,6 +37,7 @@ ColorsList.propTypes = {
 	type: PropTypes.string.isRequired,
 	changeSelectedColor: PropTypes.func.isRequired,
 	selectedColor: PropTypes.string,
+	id: PropTypes.string.isRequired,
 };
 
 export default ColorsList;

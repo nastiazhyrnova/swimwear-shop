@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import ConstructorItem from './ConstructorItem/ConstructorItem';
+import Button from '../../UI/Buttons/Button/Button';
 
 import styles from './Constructor.module.css';
 
@@ -20,70 +21,96 @@ const Constructor = _ => {
 		);
 	}
 
-	const [sliderDirection, setSliderDirection] = useState('slideRight');
-	const [currentTopProduct, setCurrentTopProduct] = useState(0);
-	const [currentBottomProduct, setCurrentBottomProduct] = useState(0);
+	const [currentTopProductIndex, setcurrentTopProductIndex] = useState(0);
+	const [currentBottomProductIndex, setcurrentBottomProductIndex] = useState(0);
+
+	const [chosenTopProduct, setChosenTopProduct] = useState({
+		sku: null,
+		color: null,
+		size: null,
+		quantity: 1,
+	});
+	const [chosenBottomProduct, setChosenBottomProduct] = useState({
+		sku: null,
+		color: null,
+		size: null,
+		quantity: 1,
+	});
+
+	const getColor = (category, color) => {
+		if (category === 'tops') {
+			setChosenTopProduct(prevState => ({ ...prevState, color: color }));
+		} else if (category === 'bottoms') {
+			setChosenBottomProduct(prevState => ({ ...prevState, color: color }));
+		}
+	};
 
 	const showPrevious = category => {
-		setSliderDirection('slideLeft');
-
 		if (category === 'tops') {
-			if (currentTopProduct === 0) {
-				setCurrentTopProduct(topProducts.length - 1);
+			if (currentTopProductIndex === 0) {
+				setcurrentTopProductIndex(topProducts.length - 1);
 			} else {
-				setCurrentTopProduct(currentTopProduct - 1);
+				setcurrentTopProductIndex(currentTopProductIndex - 1);
 			}
 		} else if (category === 'bottoms') {
-			if (currentBottomProduct === 0) {
-				setCurrentBottomProduct(bottomProducts.length - 1);
+			if (currentBottomProductIndex === 0) {
+				setcurrentBottomProductIndex(bottomProducts.length - 1);
 			} else {
-				setCurrentBottomProduct(currentBottomProduct - 1);
+				setcurrentBottomProductIndex(currentBottomProductIndex - 1);
 			}
 		}
 	};
+
 	const showNext = category => {
-		setSliderDirection('slideRight');
 		if (category === 'tops') {
-			if (currentTopProduct === topProducts.length - 1) {
-				setCurrentTopProduct(0);
+			if (currentTopProductIndex === topProducts.length - 1) {
+				setcurrentTopProductIndex(0);
 			} else {
-				setCurrentTopProduct(currentTopProduct + 1);
+				setcurrentTopProductIndex(currentTopProductIndex + 1);
 			}
 		} else if (category === 'bottoms') {
-			if (currentBottomProduct === bottomProducts.length - 1) {
-				setCurrentBottomProduct(0);
+			if (currentBottomProductIndex === bottomProducts.length - 1) {
+				setcurrentBottomProductIndex(0);
 			} else {
-				setCurrentBottomProduct(currentBottomProduct + 1);
+				setcurrentBottomProductIndex(currentBottomProductIndex + 1);
 			}
 		}
 	};
 
 	if (productsStore.products.length > 0) {
-		const productTop = topProducts[currentTopProduct];
-		const productBottom = bottomProducts[currentBottomProduct];
+		const productTop = topProducts[currentTopProductIndex];
+		const productBottom = bottomProducts[currentBottomProductIndex];
+
 		output = (
 			<>
-				<div>
+				<div className={styles.productContainer}>
 					<ConstructorItem
+						key='tops'
+						id='tops'
 						product={productTop}
 						showPrevious={showPrevious}
 						showNext={showNext}
-						currentIndex={currentTopProduct}
-						sliderDirection={sliderDirection}
+						currentIndex={currentTopProductIndex}
+						passColor={(category, color) => getColor(category, color)}
 					/>
 				</div>
 				<div className={styles.productContainer}>
 					<ConstructorItem
+						key='bottoms'
+						id='bottoms'
 						product={productBottom}
 						showPrevious={showPrevious}
 						showNext={showNext}
-						currentIndex={currentBottomProduct}
-						sliderDirection={sliderDirection}
+						currentIndex={currentBottomProductIndex}
+						passColor={(category, color) => getColor(category, color)}
 					/>
 				</div>
 			</>
 		);
 	}
+
+	console.log(chosenTopProduct);
+	console.log(chosenBottomProduct);
 
 	return (
 		<main>
@@ -95,6 +122,17 @@ const Constructor = _ => {
 				</ol>
 			</div>
 			{output}
+			<div className={styles.total}>
+				<h2>
+					Total: <strong>25.00</strong>
+				</h2>
+				<Button
+					inversed
+					additionalClass={styles.addToCartButton}
+					onClick={_ => {}}>
+					Add to cart
+				</Button>
+			</div>
 		</main>
 	);
 };

@@ -18,11 +18,11 @@ const ColorItem = props => {
 		<label
 			className={styles.colorSwatch}
 			title={props.color.title}
-			htmlFor={props.color.code}>
+			htmlFor={`${props.color.code}${props.id}`}>
 			<input
 				type={props.type}
-				id={props.color.code}
-				name={props.color.title}
+				id={`${props.color.code}${props.id}`}
+				name={props.id}
 				value={props.color.title}
 				className={styles.input}
 				checked={props.checked}
@@ -47,6 +47,7 @@ ColorItem.propTypes = {
 	color: PropTypes.object.isRequired,
 	type: PropTypes.string.isRequired,
 	checked: PropTypes.bool,
+	id: PropTypes.string.isRequired,
 };
 
 export default ColorItem;

@@ -1,12 +1,27 @@
+.productContainer,
+.steps {
+	padding: 2rem;
+	margin: 0 auto;
+	max-width: 90%;
+}
+
 .steps {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	list-style: decimal inside none;
-	margin: 0 auto;
-	padding: 0;
 }
 .steps li {
 	margin: 0;
 	padding: 0;
 	color: var(--accent-color);
+}
+.total h2 {
+	margin: 2rem 0;
+}
+.total h2 strong {
+	font-weight: 400;
+}
+.addToCartButton {
+	padding-left: 3rem;
+	padding-right: 3rem;
 }

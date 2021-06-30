@@ -1,7 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
-import { Transition } from 'react-transition-group/Transition';
 
 import SizesList from '../../ProductFeatures/SizesList/SizesList';
 import ColorsList from '../../ProductFeatures/ColorsList/ColorsList';
@@ -10,30 +8,34 @@ import HiddenButton from '../../../UI/Buttons/HiddenButton/HiddenButton';
 import styles from './ConstructorItem.module.css';
 import productImages from '../../../../assets/products/productImages';
 import arrowIcon from '../../../../assets/icons/arrow.svg';
-import { react } from '@babel/types';
 
 const ConstructorItem = props => {
+	const [color, setColor] = useState(props.product.defaultColor);
+	const [size, setSize] = useState(null);
+
+	const selectSize = size => {
+		setSize(size);
+	};
+	const selectColor = color => {
+		setColor(color);
+		props.passColor(props.id, color);
+	};
+
 	const image =
 		productImages[`${props.product.category}`][`${props.product.sku}`][
-			`${props.filterColor ? props.filterColor : props.product.defaultColor}`
+			`${color ? color : props.product.defaultColor}`
 		];
-
-	const childFactory = direction => child =>
-		React.cloneElement(child, {
-			classNames: {
-				enter: styles[`${direction}Enter`],
-				enterActive: styles[`${direction}EnterActive`],
-				// enterDone: styles[`${direction}EnterDone`],
-				exitDone: styles[`${direction}ExitDone`],
-				exitActive: styles[`${direction}ExitActive`],
-			},
-		});
 
 	return (
 		<div>
 			<div className={styles.productContainer}>
 				<div className={styles.colors}>
-					<ColorsList type='radio' />
+					<ColorsList
+						type='radio'
+						changeSelectedColor={selectColor}
+						selectedColor={color}
+						id={props.id}
+					/>
 				</div>
 				<div className={styles.slider}>
 					<HiddenButton
@@ -44,26 +46,11 @@ const ConstructorItem = props => {
 						<img src={arrowIcon} alt='Previous' className={styles.leftArrow} />
 					</HiddenButton>
 					<div className={styles.imageWrapper}>
-						{/* <Transition in={} timeout={500}> */}
-						<TransitionGroup childFactory={childFactory(props.sliderDirection)}>
-							<CSSTransition
-								key={props.currentIndex}
-								timeout={200}
-								classNames={{
-									enter: styles[`${props.sliderDirection}Enter`],
-									enterActive: styles[`${props.sliderDirection}EnterActive`],
-									// enterDone: styles[`${props.sliderDirection}EnterDone`],
-									exitDone: styles[`${props.sliderDirection}ExitDone`],
-									exitActive: styles[`${props.sliderDirection}ExitActive`],
-								}}>
-								<img
-									src={image}
-									alt={props.product.title}
-									className={styles.image}
-								/>
-							</CSSTransition>
-						</TransitionGroup>
-						{/* </Transition> */}
+						<img
+							src={image}
+							alt={props.product.title}
+							className={styles.image}
+						/>
 					</div>
 					<HiddenButton
 						label='Next'
@@ -74,7 +61,13 @@ const ConstructorItem = props => {
 					</HiddenButton>
 				</div>
 				<div className={styles.sizes}>
-					<SizesList type='radio' />
+					<SizesList
+						column
+						type='radio'
+						selectedSize={size}
+						changeSelectedSize={selectSize}
+						id={props.id}
+					/>
 				</div>
 			</div>
 		</div>
@@ -86,8 +79,7 @@ ConstructorItem.propTypes = {
 	showPrevious: PropTypes.func,
 	showNext: PropTypes.func,
 	currentIndex: PropTypes.number,
+	passColor: PropTypes.func,
 };
 
 export default ConstructorItem;
-
-// * IDEA: add drag event to the image

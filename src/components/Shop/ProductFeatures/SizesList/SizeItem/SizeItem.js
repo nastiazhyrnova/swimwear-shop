@@ -12,11 +12,11 @@ const SizeItem = props => {
 		<label
 			className={sizeItemStyles.join(' ')}
 			title={props.size}
-			htmlFor={props.size}>
+			htmlFor={`${props.size}${props.id}`}>
 			<input
 				type={props.type}
-				id={props.size}
-				name={props.size}
+				id={`${props.size}${props.id}`}
+				name={props.id}
 				value={props.size}
 				className={styles.input}
 				checked={props.checked}
@@ -31,6 +31,7 @@ SizeItem.propTypes = {
 	type: PropTypes.string.isRequired,
 	onChange: PropTypes.func.isRequired,
 	size: PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
 };
 
 export default SizeItem;

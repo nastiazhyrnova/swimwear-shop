@@ -9,7 +9,7 @@ const Sizes = props => {
 	const productsStore = useSelector(state => state.products);
 	let output = 'No sizes variations found';
 
-	const chooseSize = size => {
+	const selectSize = size => {
 		props.changeSelectedSize(size);
 	};
 
@@ -26,6 +26,7 @@ const Sizes = props => {
 			}
 			//if props.selectedSize is a checkbox (e.g. selected Size is an array)
 			else if (
+				props.selectedSize &&
 				Array.isArray(props.selectedSize) &&
 				!!props.selectedSize.find(existingSize => existingSize === size)
 			) {
@@ -35,10 +36,14 @@ const Sizes = props => {
 			return (
 				<SizeItem
 					size={size}
-					key={size}
+					key={`${size}${props.id}`}
 					checked={checked}
-					onChange={size => chooseSize(size)}
+					onChange={size => {
+						console.log(`${size}${props.id}`);
+						selectSize(size);
+					}}
 					type={props.type}
+					id={props.id}
 				/>
 			);
 		});
@@ -56,6 +61,8 @@ Sizes.propTypes = {
 	type: PropTypes.string.isRequired,
 	changeSelectedSize: PropTypes.func.isRequired,
 	column: PropTypes.bool,
+	id: PropTypes.string,
+	// selectedSize:
 };
 
 export default Sizes;

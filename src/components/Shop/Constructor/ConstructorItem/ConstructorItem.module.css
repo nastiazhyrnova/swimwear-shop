@@ -2,6 +2,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	gap: 2rem;
 }
 .colors,
 .images,
@@ -13,7 +14,7 @@
 	flex: 1 1 0;
 }
 .slider {
-	flex: 5 10 0;
+	flex: 5 8 0;
 	margin: auto;
 	display: flex;
 	justify-content: space-around;
@@ -26,60 +27,16 @@
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	/* position: relative; */
 }
-
 .imageWrapper > div {
 	position: relative;
 	margin: 0 auto;
 	text-align: center;
 }
 .image {
-	/* margin: auto; */
-	width: 150px;
-	position: relative;
+	max-width: 200px;
+	max-height: 200px;
 }
-
-/*Slide right*/
-.slideRightEnter {
-	opacity: 0;
-	transform: translateX(0);
-}
-.slideRightEnterActive {
-	opacity: 1;
-	transform: translateX(100vw);
-	transition: all 2000ms ease-in-out;
-}
-.slideRightExit {
-	opacity: 1;
-	transform: translateX(-100vw);
-}
-.slideRightExitActive {
-	opacity: 0;
-	transform: translateX(-100vw);
-	transition: all 2000ms ease-in-out;
-}
-
-/*Slide left*/
-.slideLeftEnter {
-	opacity: 0;
-	transform: translateX(-50vw);
-}
-.slideLeftEnterActive {
-	opacity: 1;
-	/* transform: translateX(0); */
-	transition: all 2000ms ease-in-out;
-}
-.slideLeftExit {
-	opacity: 1;
-	/* transform: translateX(0); */
-}
-.slideLeftExitActive {
-	opacity: 0;
-	transform: translateX(100vw);
-	transition: all 2000ms ease-in-out;
-}
-
 .leftArrow,
 .rightArrow {
 	height: 50px;
@@ -89,4 +46,8 @@
 }
 .sizes {
 	flex: 1 1 0;
+}
+.sizes:first-child {
+	display: flex;
+	flex-direction: column;
 }
