@@ -17,18 +17,18 @@ const MainNavItems = props => {
 				</li>
 				<li tabIndex='0'>
 					<NavLink
-						to='/shop'
-						activeClassName={styles.active}
-						onClick={props.closeSidebar}>
-						Shop
-					</NavLink>
-				</li>
-				<li tabIndex='0'>
-					<NavLink
 						to='/create-yours'
 						activeClassName={styles.active}
 						onClick={props.closeSidebar}>
 						Create Yours
+					</NavLink>
+				</li>
+				<li tabIndex='0'>
+					<NavLink
+						to='/shop'
+						activeClassName={styles.active}
+						onClick={props.closeSidebar}>
+						Shop
 					</NavLink>
 				</li>
 				<li tabIndex='0'>

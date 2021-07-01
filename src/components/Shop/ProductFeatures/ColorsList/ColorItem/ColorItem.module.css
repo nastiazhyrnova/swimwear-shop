@@ -6,6 +6,9 @@
 .colorSwatch {
 	position: relative;
 }
+.colorSwatch > * {
+	pointer-events: none;
+}
 
 .colorSwatchImg,
 .overlay {

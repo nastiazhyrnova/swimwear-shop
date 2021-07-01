@@ -61,7 +61,7 @@
 }
 
 /*phone*/
-@media (max-width: 567px) {
+@media (max-width: 1024px) {
 	.productContainer {
 		display: flex;
 		flex-direction: column;
@@ -100,8 +100,11 @@
 
 	.imageWrapper {
 		width: fit-content;
+		height: 250px;
 	}
 	.image {
 		width: 100%;
+		height: auto;
+		max-height: fit-content;
 	}
 }

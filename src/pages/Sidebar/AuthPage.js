@@ -1,14 +1,9 @@
-import styles from './AuthPage.module.css';
-import Button from '../../components/UI/Buttons/Button/Button';
+import Auth from '../../components/Auth/Auth';
 
 const AuthPage = _ => {
 	return (
-		<div className={styles.authPage}>
-			<Button inversed onClick={_ => {}}>
-				Log In
-			</Button>
-			<p>Don't have an account?</p>
-			<Button onClick={_ => {}}>Register</Button>
+		<div>
+			<Auth />
 		</div>
 	);
 };
