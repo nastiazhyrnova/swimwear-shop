@@ -15,3 +15,11 @@
 .checked {
 	background-color: red;
 }
+/*phone + phone landscape*/
+@media (max-width: 768px) {
+	.column {
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+}

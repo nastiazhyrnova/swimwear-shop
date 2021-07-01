@@ -38,7 +38,6 @@ const Constructor = _ => {
 	let bottomProducts = useMemo(_ => [], []);
 	let topProduct;
 	let bottomProduct;
-	let price = 0;
 
 	topProducts = useMemo(
 		_ => {

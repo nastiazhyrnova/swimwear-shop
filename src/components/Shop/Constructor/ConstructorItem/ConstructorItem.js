@@ -9,6 +9,7 @@ import Label from '../../ProductFeatures/Label/Label';
 import styles from './ConstructorItem.module.css';
 import productImages from '../../../../assets/products/productImages';
 import arrowIcon from '../../../../assets/icons/arrow.svg';
+import { property } from 'lodash';
 
 const ConstructorItem = props => {
 	const [color, setColor] = useState(props.product.defaultColor);
@@ -28,9 +29,11 @@ const ConstructorItem = props => {
 			`${color ? color : props.product.defaultColor}`
 		];
 
+	const containerStyles = [styles.productContainer, styles[props.id]];
+
 	return (
 		<div>
-			<div className={styles.productContainer}>
+			<div className={containerStyles.join(' ')}>
 				<div className={styles.colors}>
 					<ColorsList
 						type='radio'
@@ -82,6 +85,7 @@ ConstructorItem.propTypes = {
 	showNext: PropTypes.func,
 	currentIndex: PropTypes.number,
 	passColor: PropTypes.func,
+	id: PropTypes.string,
 };
 
 export default ConstructorItem;

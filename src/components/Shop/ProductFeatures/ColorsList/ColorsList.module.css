@@ -7,3 +7,10 @@
 	margin: 0;
 	padding: 0;
 }
+/*phone + phone landscape*/
+@media (max-width: 768px) {
+	.colorAttributes {
+		align-items: center;
+		justify-content: center;
+	}
+}

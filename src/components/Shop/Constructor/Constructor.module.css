@@ -2,9 +2,8 @@
 .steps {
 	padding: 2rem;
 	margin: 0 auto;
-	max-width: 90%;
+	width: 90%;
 }
-
 .steps {
 	display: flex;
 	justify-content: space-between;
@@ -24,4 +23,30 @@
 .addToCartButton {
 	padding-left: 3rem;
 	padding-right: 3rem;
+}
+
+/* tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+}
+
+/*phone landscape*/
+@media (min-width: 568px) and (max-width: 768px) {
+}
+
+/*phone*/
+@media (max-width: 567px) {
+	.productContainer {
+		width: 100%;
+		padding: 0;
+		text-align: center;
+		margin: 0 auto;
+	}
+	.steps {
+		/* flex-direction: column; */
+		padding: 2rem 0.2rem;
+		gap: 1rem;
+		width: 100%;
+		align-items: center;
+		justify-content: space-between;
+	}
 }
