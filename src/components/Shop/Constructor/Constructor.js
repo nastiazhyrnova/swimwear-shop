@@ -1,10 +1,12 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import ConstructorItem from './ConstructorItem/ConstructorItem';
 import Button from '../../UI/Buttons/Button/Button';
+import TotalPrice from './TotalPrice/TotalPrice';
 
 import { cartActions } from '../../../store/cart/cartSlice';
+import { sidebarActions } from '../../../store/sidebar/sidebarSlice';
 import styles from './Constructor.module.css';
 
 const Constructor = _ => {
@@ -23,12 +25,20 @@ const Constructor = _ => {
 		size: null,
 	});
 
+	let orderValid = false;
+	if (!!currentBottomProduct.size && !!currentTopProduct.size) {
+		orderValid = true;
+	} else {
+		orderValid = false;
+	}
+
 	//setting products arrays & single products
 	let output = 'No products found';
 	let topProducts = useMemo(_ => [], []);
 	let bottomProducts = useMemo(_ => [], []);
 	let topProduct;
 	let bottomProduct;
+	let price = 0;
 
 	topProducts = useMemo(
 		_ => {
@@ -143,7 +153,6 @@ const Constructor = _ => {
 			}
 		}
 	};
-	//TODO: disable add to carte if size is not chosen + add to the cart actions directly that after add to cart the modal should be opened and remove this action from single product add to cart
 
 	const addToCart = _ => {
 		dispatch(
@@ -166,6 +175,7 @@ const Constructor = _ => {
 				},
 			})
 		);
+		dispatch(sidebarActions.openSidebar({ sidebar: 'cart' }));
 	};
 
 	if (productsStore.products.length > 0) {
@@ -210,11 +220,12 @@ const Constructor = _ => {
 			</div>
 			{output}
 			<div className={styles.total}>
-				<h2>
-					Total: <strong>25.00</strong>
-				</h2>
+				{productsStore.products.length > 0 ? (
+					<TotalPrice topProduct={topProduct} bottomProduct={bottomProduct} />
+				) : null}
 				<Button
 					inversed
+					disabled={!orderValid}
 					additionalClass={styles.addToCartButton}
 					onClick={addToCart}>
 					Add to cart

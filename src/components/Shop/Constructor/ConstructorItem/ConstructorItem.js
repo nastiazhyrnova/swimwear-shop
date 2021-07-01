@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import SizesList from '../../ProductFeatures/SizesList/SizesList';
 import ColorsList from '../../ProductFeatures/ColorsList/ColorsList';
 import HiddenButton from '../../../UI/Buttons/HiddenButton/HiddenButton';
+import Label from '../../ProductFeatures/Label/Label';
 
 import styles from './ConstructorItem.module.css';
 import productImages from '../../../../assets/products/productImages';
@@ -45,7 +46,7 @@ const ConstructorItem = props => {
 							props.showPrevious(props.product.category, props.product.sku)
 						}>
 						<img src={arrowIcon} alt='Previous' className={styles.leftArrow} />
-					</HiddenButton>
+					</HiddenButton>{' '}
 					<div className={styles.imageWrapper}>
 						<img
 							src={image}

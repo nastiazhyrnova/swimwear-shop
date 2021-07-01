@@ -1,0 +1,6 @@
+.discountedPrice {
+	opacity: 0.5;
+}
+.salePrice {
+	color: var(--sale-color);
+}

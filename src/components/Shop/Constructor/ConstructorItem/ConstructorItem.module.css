@@ -10,11 +10,12 @@
 	text-align: center;
 	margin: 0 auto;
 }
-.colors {
+.colors,
+.sizes {
 	flex: 1 1 0;
 }
 .slider {
-	flex: 5 8 0;
+	flex: 3 3 0;
 	margin: auto;
 	display: flex;
 	justify-content: space-around;
@@ -44,9 +45,7 @@
 .rightArrow {
 	transform: rotate(180deg);
 }
-.sizes {
-	flex: 1 1 0;
-}
+
 .sizes:first-child {
 	display: flex;
 	flex-direction: column;
