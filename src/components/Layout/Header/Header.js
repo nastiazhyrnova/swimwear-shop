@@ -19,7 +19,7 @@ const Header = _ => {
 			<div className={styles.logoContainer}>
 				{mobileView && <BurgerMenu />}
 				<Link to='/'>
-					<HiddenButton label='Ocean Dive'>
+					<HiddenButton onClick={_ => {}} label='Ocean Dive'>
 						{mobileView ? (
 							<img
 								className={styles.logoNoText}

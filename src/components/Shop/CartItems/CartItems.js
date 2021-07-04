@@ -8,7 +8,7 @@ import Button from '../../UI/Buttons/Button/Button';
 import { sidebarActions } from '../../../store/sidebar/sidebarSlice';
 import styles from './CartItems.module.css';
 
-const CartItems = () => {
+const CartItems = _ => {
 	const cart = useSelector(state => state.cart);
 	const sidebarStore = useSelector(state => state.sidebar);
 

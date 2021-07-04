@@ -1,5 +1,6 @@
 .authPage {
-	/* margin: 0 1rem; */
+	max-width: 500px;
+	margin: 0 auto;
 }
 .authPage button {
 	width: 100%;
@@ -7,4 +8,7 @@
 .authPage p {
 	margin-top: 2rem;
 	text-align: center;
+}
+.inputContainer {
+	margin-bottom: 1rem;
 }

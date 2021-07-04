@@ -1,9 +1,10 @@
+import { forwardRef } from 'react';
 import styles from './Input.module.css';
 
-const Input = props => {
+const Input = (props, ref) => {
 	return (
 		<>
-			<label for={props.name} className={styles.label}>
+			<label htmlFor={props.name} className={styles.label}>
 				{props.title}
 			</label>
 			<input
@@ -14,9 +15,10 @@ const Input = props => {
 				minLength={props.min}
 				maxLength={props.max}
 				required={props.required}
+				ref={ref}
 			/>
 		</>
 	);
 };
 
-export default Input;
+export default forwardRef(Input);

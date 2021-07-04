@@ -11,4 +11,8 @@
 	width: 100%;
 	padding: 0.4rem;
 	margin: 0.5rem 0;
+	border: 1px solid var(--middle-grey-color);
+}
+.input::placeholder {
+	opacity: 0.5;
 }

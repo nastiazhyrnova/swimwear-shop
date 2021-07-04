@@ -12,9 +12,10 @@ export const setProductsAction = _ => {
 			);
 			if (!response.ok) {
 				throw new Error(`Couldn't fetch ${category}`);
+			} else {
+				const data = await response.json();
+				return data;
 			}
-			const data = await response.json();
-			return data;
 		};
 
 		try {

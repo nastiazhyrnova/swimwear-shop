@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
@@ -16,10 +16,13 @@ import TermsAndConditions from './pages/Legal/TermsAndConditions';
 import LegalAdvice from './pages/Legal/LegalAdvice';
 import Page404 from './pages/404';
 import SingleProduct from './components/Shop/Single/SingleProduct';
+import AuthPage from './pages/AuthPage';
+import UserAccountPage from './pages/UserAccountPage';
 
 import { setProductsAction } from './store/products/products-actions';
 
 const App = _ => {
+	const authStore = useSelector(state => state.auth);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -43,6 +46,16 @@ const App = _ => {
 			</Route>
 			<Route path='/create-yours' exact>
 				<CreateYours />
+			</Route>
+			<Route path='/user-account' exact>
+				<UserAccountPage />
+			</Route>
+			<Route path='/auth' exact>
+				{!!authStore.token ? <Redirect to='/user-account' /> : <AuthPage />}
+			</Route>
+			<Route path='/orders' exact>
+				{/* TODO: Add orders page */}
+				{!!authStore.token ? 'Orders page' : <Redirect to='/auth' />}
 			</Route>
 			<Route path='/about' exact>
 				<About />

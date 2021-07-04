@@ -1,11 +1,11 @@
 import Auth from '../../components/Auth/Auth';
 
-const AuthPage = _ => {
+const AuthSidebar = _ => {
 	return (
-		<div>
+		<>
 			<Auth />
-		</div>
+		</>
 	);
 };
 
-export default AuthPage;
+export default AuthSidebar;
