@@ -28,7 +28,7 @@ const App = _ => {
 
 	useEffect(() => {
 		dispatch(setProductsAction());
-		dispatch(authActions.checkLogin());
+		dispatch(authActions.checkAuth());
 	}, [dispatch]);
 
 	const routerSettings = (

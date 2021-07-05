@@ -22,7 +22,7 @@ const authSlice = createSlice({
 			state.userId = action.payload.loginData.localId;
 			state.expiresIn = action.payload.expirationTime;
 		},
-		checkLogin(state, action) {
+		checkAuth(state, action) {
 			const storedDate = localStorage.getItem('expirationDate');
 			if (
 				localStorage.getItem('authToken') &&
