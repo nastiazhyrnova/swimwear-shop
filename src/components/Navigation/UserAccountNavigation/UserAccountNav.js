@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import HiddenButton from '../../UI/Buttons/HiddenButton/HiddenButton';
 
 import { authActions } from '../../../store/auth/authSlice';
+import { sidebarActions } from '../../../store/sidebar/sidebarSlice';
 import styles from './UserAccountNav.module.css';
 
 const UserAccountNav = props => {
@@ -15,12 +16,18 @@ const UserAccountNav = props => {
 		history.push('/');
 	};
 
+	const changePassword = _ => {
+		history.push('/change-password');
+		dispatch(sidebarActions.closeSidebar());
+	};
+
 	return (
 		<>
 			<div>User Account Nav menu</div>
-			<div>User Account Nav menu</div>
-			<div>User Account Nav menu</div>
-			<div>Change password</div>
+
+			<HiddenButton onClick={changePassword} label='Change password'>
+				Change Password
+			</HiddenButton>
 			<HiddenButton onClick={logout} label='LogOut'>
 				Log Out
 			</HiddenButton>

@@ -87,3 +87,49 @@ export const autoLogoutAction = _ => {
 		}, calculateExpirationTime(localStorage.getItem('expirationDate')));
 	};
 };
+
+export const changePasswordAction = newPassword => {
+	return async dispatch => {
+		const fetchData = async (idToken, newPassword) => {
+			const response = await fetch(
+				`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${API}`,
+				{
+					method: 'POST',
+					body: JSON.stringify({
+						idToken: idToken,
+						password: newPassword,
+						returnSecureToken: true,
+					}),
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}
+			);
+			if (!response.ok) {
+				console.log(response);
+				throw new Error(`Couldn't change the password`);
+			} else {
+				const data = await response.json();
+				console.log(data);
+				return data;
+			}
+		};
+
+		try {
+			dispatch(loadingActions.startLoading());
+			const userToken = localStorage.getItem('authToken');
+			const fetchedData = await fetchData((userToken, newPassword));
+			//change password finished here:
+			console.log(fetchedData);
+			dispatch(loadingActions.stopLoading());
+			dispatch(
+				autoHideNotificationAction(
+					'Your password has been changed sucessfully.'
+				)
+			);
+		} catch (err) {
+			dispatch(loadingActions.stopLoading());
+			dispatch(autoHideNotificationAction(err.toString()));
+		}
+	};
+};
