@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const calculateExpirationTime = expirationTime => {
+export const calculateExpirationTime = expirationTime => {
 	const currentTime = new Date().getTime();
 	const adjExpirationTime = new Date(expirationTime).getTime();
 
@@ -14,13 +14,11 @@ const authSlice = createSlice({
 	initialState: {
 		token: null,
 		userId: null,
-		expiresIn: null,
 	},
 	reducers: {
 		login(state, action) {
 			state.token = action.payload.loginData.idToken;
 			state.userId = action.payload.loginData.localId;
-			state.expiresIn = action.payload.expirationTime;
 		},
 		checkAuth(state, action) {
 			const storedDate = localStorage.getItem('expirationDate');
@@ -30,7 +28,6 @@ const authSlice = createSlice({
 			) {
 				state.token = localStorage.getItem('authToken');
 				state.userId = localStorage.getItem('userId');
-				state.expiresIn = localStorage.getItem('expirationDate');
 			}
 		},
 		logout(state, action) {
@@ -40,13 +37,11 @@ const authSlice = createSlice({
 			return {
 				token: null,
 				userId: null,
-				expiresIn: null,
 			};
 		},
 		register(state, action) {
 			state.token = action.payload.loginData.idToken;
 			state.userId = action.payload.loginData.localId;
-			state.expiresIn = action.payload.expirationTime;
 		},
 	},
 });

@@ -1,12 +1,11 @@
 import { useState, useRef } from 'react';
-import { useDispatch } from 'react-redux';
-import { useHistory, useLocation } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 
 import Input from '../UI/Input/Input';
 import Button from '../UI/Buttons/Button/Button';
 
 import { authAction } from '../../store/auth/auth-actions';
-import { sidebarActions } from './../../store/sidebar/sidebarSlice';
 import styles from './Auth.module.css';
 
 const Auth = props => {
@@ -38,40 +37,42 @@ const Auth = props => {
 	};
 
 	return (
-		<div className={styles.authPage}>
-			<form onSubmit={submit}>
-				<div className={styles.inputContainer}>
-					<Input
-						name='email'
-						title='Email'
-						type='email'
-						min='8'
-						required={true}
-						label
-						ref={emailInputRef}
-					/>
-					<Input
-						name='password'
-						title='Password'
-						type='password'
-						min='6'
-						max='15'
-						required={true}
-						label
-						ref={passwordInputRef}
-					/>
-				</div>
+		<>
+			<div className={styles.authPage}>
+				<form onSubmit={submit}>
+					<div className={styles.inputContainer}>
+						<Input
+							name='email'
+							title='Email'
+							type='email'
+							min='8'
+							required={true}
+							label
+							ref={emailInputRef}
+						/>
+						<Input
+							name='password'
+							title='Password'
+							type='password'
+							min='6'
+							max='15'
+							required={true}
+							label
+							ref={passwordInputRef}
+						/>
+					</div>
+					<div>
+						<Button inversed>{registered ? 'Log In' : 'Register'}</Button>
+					</div>
+				</form>
 				<div>
-					<Button inversed>{registered ? 'Log In' : 'Register'}</Button>
+					<p>
+						{registered ? "Don't have an account?" : 'Already have an account?'}
+					</p>
+					{registered ? loginButton : registerButton}
 				</div>
-			</form>
-			<div>
-				<p>
-					{registered ? "Don't have an account?" : 'Already have an account?'}
-				</p>
-				{registered ? loginButton : registerButton}
 			</div>
-		</div>
+		</>
 	);
 };
 

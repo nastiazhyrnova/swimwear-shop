@@ -1,5 +1,7 @@
-import { loadingActions } from '../loading/loadingSlice';
 import { authActions } from './authSlice';
+import { loadingActions } from '../loading/loadingSlice';
+import { autoHideNotificationAction } from '../notification/notification-actions';
+import { calculateExpirationTime } from './authSlice';
 
 const API = 'AIzaSyCkGzADyUrE43jqsl0gLMAL4J4QUAG5oyI';
 
@@ -50,22 +52,38 @@ export const authAction = (actionType, userData) => {
 				dispatch(
 					authActions.register({
 						loginData: fetchedData,
-						expirationTime,
 					})
 				);
 			} else if (actionType === 'login') {
 				dispatch(
 					authActions.login({
 						loginData: fetchedData,
-						expirationTime,
 					})
 				);
 			}
 
 			dispatch(loadingActions.stopLoading());
+			dispatch(
+				autoHideNotificationAction(
+					`${
+						actionType === 'register'
+							? 'Thanks for registering. You are logged in now.'
+							: 'You are logged in now.'
+					}`
+				)
+			);
 		} catch (err) {
 			dispatch(loadingActions.stopLoading());
-			console.log(err);
+			dispatch(autoHideNotificationAction(err.toString()));
 		}
+	};
+};
+
+export const autoLogoutAction = _ => {
+	return async dispatch => {
+		setTimeout(_ => {
+			dispatch(authActions.logout());
+			dispatch(autoHideNotificationAction('You have been logged out.'));
+		}, calculateExpirationTime(localStorage.getItem('expirationDate')));
 	};
 };

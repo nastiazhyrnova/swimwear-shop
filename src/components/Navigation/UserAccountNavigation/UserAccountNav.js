@@ -12,7 +12,6 @@ const UserAccountNav = props => {
 
 	const logout = _ => {
 		dispatch(authActions.logout());
-
 		history.push('/');
 	};
 

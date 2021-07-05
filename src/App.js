@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
+import Notification from './components/UI/Notification/Notification';
 
 import Home from './pages/Home';
 import Shop from './pages/Shop';
@@ -21,15 +22,29 @@ import UserAccountPage from './pages/UserAccountPage';
 
 import { setProductsAction } from './store/products/products-actions';
 import { authActions } from './store/auth/authSlice';
+import { autoLogoutAction } from './store/auth/auth-actions';
 
 const App = _ => {
 	const authStore = useSelector(state => state.auth);
+	const notificationStore = useSelector(state => state.notification);
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		dispatch(setProductsAction());
-		dispatch(authActions.checkAuth());
-	}, [dispatch]);
+	useEffect(
+		_ => {
+			dispatch(setProductsAction());
+			dispatch(authActions.checkAuth());
+		},
+		[dispatch]
+	);
+
+	useEffect(
+		_ => {
+			if (!!authStore.token) {
+				dispatch(autoLogoutAction());
+			}
+		},
+		[dispatch, authStore.token]
+	);
 
 	const routerSettings = (
 		<Switch>
@@ -87,6 +102,7 @@ const App = _ => {
 		<Layout>
 			<Loader />
 			{routerSettings}
+			{notificationStore.show && <Notification />}
 		</Layout>
 	);
 };

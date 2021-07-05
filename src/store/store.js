@@ -6,6 +6,7 @@ import productsSlice from './products/productsSlice';
 import sidebarSlice from './sidebar/sidebarSlice';
 import modalSlice from './modal/modalSlice';
 import authSlice from './auth/authSlice';
+import notificationSlice from './notification/notificationSlice';
 
 const store = configureStore({
 	reducer: {
@@ -15,6 +16,7 @@ const store = configureStore({
 		sidebar: sidebarSlice.reducer,
 		modal: modalSlice.reducer,
 		auth: authSlice.reducer,
+		notification: notificationSlice.reducer,
 	},
 });
 
