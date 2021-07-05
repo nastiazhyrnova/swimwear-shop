@@ -28,6 +28,7 @@
 	opacity: 0.3;
 	cursor: pointer;
 	right: 10px;
+	z-index: 2501;
 }
 .crossRight {
 	left: 10px;

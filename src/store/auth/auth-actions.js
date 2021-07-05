@@ -50,12 +50,14 @@ export const authAction = (actionType, userData) => {
 				dispatch(
 					authActions.register({
 						loginData: fetchedData,
+						expirationTime,
 					})
 				);
 			} else if (actionType === 'login') {
 				dispatch(
 					authActions.login({
 						loginData: fetchedData,
+						expirationTime,
 					})
 				);
 			}

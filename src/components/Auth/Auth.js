@@ -6,6 +6,7 @@ import Input from '../UI/Input/Input';
 import Button from '../UI/Buttons/Button/Button';
 
 import { authAction } from '../../store/auth/auth-actions';
+import { sidebarActions } from './../../store/sidebar/sidebarSlice';
 import styles from './Auth.module.css';
 
 const Auth = props => {
@@ -23,7 +24,8 @@ const Auth = props => {
 		<Button onClick={_ => setRegistered(true)}>Log In</Button>
 	);
 
-	const submit = _ => {
+	const submit = e => {
+		e.preventDefault();
 		const email = emailInputRef.current.value;
 		const password = passwordInputRef.current.value;
 
@@ -33,15 +35,11 @@ const Auth = props => {
 			//register new user
 			dispatch(authAction('register', { email, password }));
 		}
-		history.goBack();
-		// if (props.page) {
-		// 	history.push('/');
-		// }
 	};
 
 	return (
 		<div className={styles.authPage}>
-			<div>
+			<form onSubmit={submit}>
 				<div className={styles.inputContainer}>
 					<Input
 						name='email'
@@ -64,11 +62,9 @@ const Auth = props => {
 					/>
 				</div>
 				<div>
-					<Button inversed onClick={submit}>
-						{registered ? 'Log In' : 'Register'}
-					</Button>
+					<Button inversed>{registered ? 'Log In' : 'Register'}</Button>
 				</div>
-			</div>
+			</form>
 			<div>
 				<p>
 					{registered ? "Don't have an account?" : 'Already have an account?'}

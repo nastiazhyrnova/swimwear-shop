@@ -20,6 +20,7 @@ import AuthPage from './pages/AuthPage';
 import UserAccountPage from './pages/UserAccountPage';
 
 import { setProductsAction } from './store/products/products-actions';
+import { authActions } from './store/auth/authSlice';
 
 const App = _ => {
 	const authStore = useSelector(state => state.auth);
@@ -27,6 +28,7 @@ const App = _ => {
 
 	useEffect(() => {
 		dispatch(setProductsAction());
+		dispatch(authActions.checkLogin());
 	}, [dispatch]);
 
 	const routerSettings = (

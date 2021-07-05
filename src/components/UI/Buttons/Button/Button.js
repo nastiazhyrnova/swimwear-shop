@@ -24,7 +24,7 @@ const Button = props => {
 };
 
 Button.propTypes = {
-	onClick: PropTypes.func.isRequired,
+	onClick: PropTypes.func,
 	additionalClass: PropTypes.string,
 	disabled: PropTypes.bool,
 	inversed: PropTypes.bool,
