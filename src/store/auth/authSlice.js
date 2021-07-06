@@ -28,6 +28,14 @@ const authSlice = createSlice({
 			) {
 				state.token = localStorage.getItem('authToken');
 				state.userId = localStorage.getItem('userId');
+			} else {
+				localStorage.removeItem('authToken');
+				localStorage.removeItem('userId');
+				localStorage.removeItem('expirationDate');
+				return {
+					token: null,
+					userId: null,
+				};
 			}
 		},
 		logout(state, action) {

@@ -16,21 +16,34 @@ const UserAccountNav = props => {
 		history.push('/');
 	};
 
-	const changePassword = _ => {
-		history.push('/change-password');
+	const openCart = _ => {
+		dispatch(sidebarActions.openSidebar({ sidebar: 'cart' }));
+	};
+
+	const openOrders = _ => {
 		dispatch(sidebarActions.closeSidebar());
+		history.push('/orders');
 	};
 
 	return (
 		<>
-			<div>User Account Nav menu</div>
-
-			<HiddenButton onClick={changePassword} label='Change password'>
-				Change Password
-			</HiddenButton>
-			<HiddenButton onClick={logout} label='LogOut'>
-				Log Out
-			</HiddenButton>
+			<ul className={styles.navList}>
+				<li>
+					<HiddenButton onClick={openCart} label='Cart'>
+						Cart
+					</HiddenButton>
+				</li>
+				<li>
+					<HiddenButton onClick={openOrders} label='Orders'>
+						Your Orders
+					</HiddenButton>
+				</li>
+				<li>
+					<HiddenButton onClick={logout} label='LogOut'>
+						Log Out
+					</HiddenButton>
+				</li>
+			</ul>
 		</>
 	);
 };

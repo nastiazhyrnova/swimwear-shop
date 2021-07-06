@@ -1,0 +1,9 @@
+.navList {
+	list-style: none;
+	padding: 0;
+}
+.navList li,
+.navList button {
+	font-size: 1.2rem;
+	padding: 0.3rem 0;
+}

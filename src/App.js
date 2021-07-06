@@ -19,7 +19,7 @@ import Page404 from './pages/404';
 import SingleProduct from './components/Shop/Single/SingleProduct';
 import AuthPage from './pages/AuthPage';
 import UserAccountPage from './pages/UserAccountPage';
-import ChangePasswordPage from './pages/ChangePasswordPage';
+import Orders from './pages/Orders';
 
 import { setProductsAction } from './store/products/products-actions';
 import { authActions } from './store/auth/authSlice';
@@ -72,12 +72,11 @@ const App = _ => {
 				{!!authStore.token ? <Redirect to='/user-account' /> : <AuthPage />}
 			</Route>
 			<Route path='/orders' exact>
-				{/* TODO: Add orders page */}
-				{!!authStore.token ? 'Orders page' : <Redirect to='/auth' />}
+				{!!authStore.token ? <Orders /> : <Redirect to='/auth' />}
 			</Route>
-			<Route path='/change-password' exact>
+			{/* <Route path='/change-password' exact>
 				{!!authStore.token ? <ChangePasswordPage /> : <Redirect to='/auth' />}
-			</Route>
+			</Route> */}
 			<Route path='/about' exact>
 				<About />
 			</Route>

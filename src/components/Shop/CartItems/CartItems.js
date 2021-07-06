@@ -22,16 +22,16 @@ const CartItems = _ => {
 		/>
 	));
 
-	const goToShop = _ => {
-		history.push('/shop');
+	const goToCreateYours = _ => {
+		history.push('/create-yours');
 		dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
 	};
 
 	const emptyCart = (
 		<>
 			<p className='centered'>Your cart is empty...</p>
-			<Button inversed onClick={goToShop}>
-				Go to shop
+			<Button inversed onClick={goToCreateYours}>
+				Create custom bikini set
 			</Button>
 		</>
 	);
