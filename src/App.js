@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 import Layout from './components/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
@@ -22,11 +24,15 @@ import UserAccountPage from './pages/UserAccountPage';
 import Orders from './pages/Orders';
 import OrderSummary from './pages/OrderSummary';
 import Checkout from './pages/Checkout';
+import PaymentPage from './pages/PaymentPage';
 
 import { setProductsAction } from './store/products/products-actions';
 import { authActions } from './store/auth/authSlice';
 import { autoLogoutAction } from './store/auth/auth-actions';
 import { cartActions } from './store/cart/cartSlice';
+
+const promise =
+	'pk_test_51JAK0OJVwUyiicVaFrZinQmk4ZV5PUiYqyEZWAy9L3Lp3LjM9sq4uXrwvrcfZqMs0gn04Z8PUWwVOKS3Qm6y6ME700tWvfnhdC';
 
 const App = _ => {
 	const authStore = useSelector(state => state.auth);
@@ -97,7 +103,11 @@ const App = _ => {
 				<CreateYours />
 			</Route>
 			<Route path='/user-account' exact>
-				<UserAccountPage />
+				{!!authStore.token ? (
+					<UserAccountPage />
+				) : (
+					<Redirect to='/user-account' />
+				)}
 			</Route>
 			<Route path='/auth' exact>
 				{!!authStore.token ? <Redirect to='/user-account' /> : <AuthPage />}
@@ -110,6 +120,15 @@ const App = _ => {
 			</Route>
 			<Route path='/checkout' exact>
 				{!!authStore.token ? <Checkout /> : <Redirect to='/auth' />}
+			</Route>
+			<Route path='/payment' exact>
+				{!!authStore.token ? (
+					<Elements stripe={promise}>
+						<PaymentPage />
+					</Elements>
+				) : (
+					<Redirect to='/auth' />
+				)}
 			</Route>
 			{/* <Route path='/change-password' exact>
 				{!!authStore.token ? <ChangePasswordPage /> : <Redirect to='/auth' />}

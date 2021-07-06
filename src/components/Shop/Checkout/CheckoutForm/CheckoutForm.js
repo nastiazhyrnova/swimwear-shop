@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory, useRouteMatch } from 'react-router';
 
 import Input from '../../../UI/Input/Input';
 import Button from '../../../UI/Buttons/Button/Button';
@@ -17,6 +18,8 @@ const CheckoutForm = _ => {
 
 	const [fastShipping, setFastShipping] = useState(false);
 
+	const history = useHistory();
+
 	// console.log(shippingRef.current.value);
 
 	let subtotal = calculateSubtotal(cartStore, productsStore.products);
@@ -30,9 +33,14 @@ const CheckoutForm = _ => {
 		shippingCost = 5;
 	}
 
+	const goToPayment = e => {
+		e.preventDefault();
+		history.push('/payment');
+	};
+
 	return (
 		<div>
-			<form>
+			<form onSubmit={goToPayment}>
 				<p className={styles.title}>Address and personal information:</p>
 				<Input
 					name='name'
@@ -65,9 +73,7 @@ const CheckoutForm = _ => {
 				<Input name='additionalinfo' title='Observations:' type='text' />
 				<p className={styles.title}>Shipping method:</p>
 				<div className={styles.shippingContainer}>
-					<div
-						className={styles.shippingMethod}
-						onClick={_ => setFastShipping(false)}>
+					<div className={styles.shippingMethod}>
 						<input
 							type='radio'
 							id='economy'
@@ -75,14 +81,16 @@ const CheckoutForm = _ => {
 							value='economy'
 							checked
 						/>
-						<label htmlFor='economy'>Economy: 3-5 working days (free) </label>
+						<label onClick={_ => setFastShipping(false)} htmlFor='economy'>
+							Economy: 3-5 working days (free){' '}
+						</label>
 					</div>
 
-					<div
-						className={styles.shippingMethod}
-						onClick={_ => setFastShipping(true)}>
+					<div className={styles.shippingMethod}>
 						<input type='radio' id='fast' name='shipping' value='fast' />
-						<label htmlFor='fast'>Fast: 1-day delivery (+ 5€)</label>
+						<label onClick={_ => setFastShipping(true)} htmlFor='fast'>
+							Fast: 1-day delivery (+ 5€)
+						</label>
 					</div>
 				</div>
 
@@ -111,6 +119,7 @@ const CheckoutForm = _ => {
 					</p>
 					<hr />
 				</div>
+
 				<Button inversed>Confirm and pay</Button>
 			</form>
 		</div>
