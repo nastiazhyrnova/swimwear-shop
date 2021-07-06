@@ -10,7 +10,7 @@
 .input {
 	width: 100%;
 	padding: 0.4rem;
-	margin: 0.5rem 0;
+	margin: 0.5rem 0 1.2rem;
 	border: 1px solid var(--middle-grey-color);
 }
 .input::placeholder {

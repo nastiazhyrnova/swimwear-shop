@@ -1,0 +1,27 @@
+.title {
+	font-weight: 500;
+	font-size: 1.15em;
+	text-decoration: underline;
+}
+.shippingContainer {
+	padding: 0 0 1rem;
+}
+.shippingMethod {
+	text-align: left;
+	padding: 0.4rem 0;
+}
+.priceContainer {
+	text-align: right;
+	margin-bottom: 3rem;
+}
+.priceContainer p {
+	margin: 0.1rem 0;
+	text-align: right;
+}
+.discount {
+	color: var(--sale-color);
+}
+.total {
+	font-weight: 500;
+	font-size: larger;
+}

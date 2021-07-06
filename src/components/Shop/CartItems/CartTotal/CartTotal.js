@@ -1,6 +1,9 @@
 import { useSelector } from 'react-redux';
 
-import calculateSalePrice from '../../../../utilities/calculateSalePrice';
+import {
+	calculateSubtotal,
+	calculateDiscountedTotal,
+} from '../../../../utilities/calculateCartTotals';
 import formatPrice from '../../../../utilities/formatPrice';
 import styles from './CartTotal.module.css';
 
@@ -8,30 +11,11 @@ const CartTotal = props => {
 	const cartStore = useSelector(state => state.cart);
 	const productsStore = useSelector(state => state.products);
 
-	const subtotal = cartStore
-		.map(cartItem => {
-			const productInfo = productsStore.products.find(
-				product => product.sku === cartItem.sku
-			);
-			return cartItem.quantity * productInfo.price;
-		})
-		.reduce((accumulator, currentValue) => accumulator + currentValue);
-
-	const discountedTotal = cartStore
-		.map(cartItem => {
-			const productInfo = productsStore.products.find(
-				product => product.sku === cartItem.sku
-			);
-			let discountedPrice = productInfo.price;
-			if (productInfo.sale.onSale) {
-				discountedPrice = calculateSalePrice(
-					productInfo.price,
-					productInfo.sale.discount
-				);
-			}
-			return cartItem.quantity * discountedPrice;
-		})
-		.reduce((accumulator, currentValue) => accumulator + currentValue);
+	const subtotal = calculateSubtotal(cartStore, productsStore.products);
+	const discountedTotal = calculateDiscountedTotal(
+		cartStore,
+		productsStore.products
+	);
 
 	return (
 		<>

@@ -20,6 +20,8 @@ import SingleProduct from './components/Shop/Single/SingleProduct';
 import AuthPage from './pages/AuthPage';
 import UserAccountPage from './pages/UserAccountPage';
 import Orders from './pages/Orders';
+import OrderSummary from './pages/OrderSummary';
+import Checkout from './pages/Checkout';
 
 import { setProductsAction } from './store/products/products-actions';
 import { authActions } from './store/auth/authSlice';
@@ -32,6 +34,7 @@ const App = _ => {
 	const notificationStore = useSelector(state => state.notification);
 	const dispatch = useDispatch();
 
+	//set products and check if user is logged in
 	useEffect(
 		_ => {
 			dispatch(setProductsAction());
@@ -53,7 +56,6 @@ const App = _ => {
 	useEffect(
 		_ => {
 			if (localStorage.getItem('cart')) {
-				console.log('localstorage cart exists');
 				dispatch(
 					cartActions.setCart({
 						localCart: JSON.parse(localStorage.getItem('cart')),
@@ -102,6 +104,12 @@ const App = _ => {
 			</Route>
 			<Route path='/orders' exact>
 				{!!authStore.token ? <Orders /> : <Redirect to='/auth' />}
+			</Route>
+			<Route path='/order-summary' exact>
+				{!!authStore.token ? <OrderSummary /> : <Redirect to='/auth' />}
+			</Route>
+			<Route path='/checkout' exact>
+				{!!authStore.token ? <Checkout /> : <Redirect to='/auth' />}
 			</Route>
 			{/* <Route path='/change-password' exact>
 				{!!authStore.token ? <ChangePasswordPage /> : <Redirect to='/auth' />}
