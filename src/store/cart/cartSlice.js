@@ -21,7 +21,6 @@ const addToCartFunc = (state, action) => {
 	const existingItemIndex = getItemIndex(state, action.payload.product);
 
 	if (existingItemIndex === null) {
-		console.log(action.payload.product);
 		return state.push(action.payload.product);
 	} else {
 		state[existingItemIndex].quantity =
@@ -54,6 +53,9 @@ const cartSlice = createSlice({
 		},
 		removeFromCart(state, action) {
 			removeFromCartFunc(state, action);
+		},
+		setCart(state, action) {
+			return (state = action.payload.localCart);
 		},
 	},
 });

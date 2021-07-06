@@ -24,9 +24,11 @@ import Orders from './pages/Orders';
 import { setProductsAction } from './store/products/products-actions';
 import { authActions } from './store/auth/authSlice';
 import { autoLogoutAction } from './store/auth/auth-actions';
+import { cartActions } from './store/cart/cartSlice';
 
 const App = _ => {
 	const authStore = useSelector(state => state.auth);
+	const cartStore = useSelector(state => state.cart);
 	const notificationStore = useSelector(state => state.notification);
 	const dispatch = useDispatch();
 
@@ -45,6 +47,33 @@ const App = _ => {
 			}
 		},
 		[dispatch, authStore.token]
+	);
+
+	//retrieve cart from the local storage
+	useEffect(
+		_ => {
+			if (localStorage.getItem('cart')) {
+				console.log('localstorage cart exists');
+				dispatch(
+					cartActions.setCart({
+						localCart: JSON.parse(localStorage.getItem('cart')),
+					})
+				);
+			}
+		},
+		[dispatch]
+	);
+
+	//update cart in the local storage everytime we change it
+	useEffect(
+		_ => {
+			if (cartStore.length > 0) {
+				localStorage.setItem('cart', JSON.stringify(cartStore));
+			} else if (cartStore.length === 0) {
+				localStorage.removeItem('cart');
+			}
+		},
+		[cartStore]
 	);
 
 	const routerSettings = (
