@@ -14,7 +14,6 @@
 	color: var(--dark-color);
 	transition: 0.3s all ease-out;
 	text-align: center;
-	background-color: #ffffff;
 }
 html {
 	max-width: 1980px;
@@ -22,6 +21,7 @@ html {
 }
 body {
 	margin: 0;
+	background-color: #ffffff;
 }
 main {
 	padding: 2rem 0.5rem;
