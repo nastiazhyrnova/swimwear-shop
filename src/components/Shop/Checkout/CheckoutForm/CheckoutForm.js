@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router';
 
@@ -11,33 +11,37 @@ import {
 	calculateSubtotal,
 } from '../../../../utilities/calculateCartTotals';
 import styles from './CheckoutForm.module.css';
+import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
 
 const CheckoutForm = _ => {
 	const cartStore = useSelector(state => state.cart);
 	const productsStore = useSelector(state => state.products);
 
-	const [fastShipping, setFastShipping] = useState(false);
+	const shippingRef = useRef();
+	const [shippingCost, setShippingCost] = useState(null);
 
 	const history = useHistory();
-
-	// console.log(shippingRef.current.value);
 
 	let subtotal = calculateSubtotal(cartStore, productsStore.products);
 	let discountedTotal = calculateDiscountedTotal(
 		cartStore,
 		productsStore.products
 	);
-	let shippingCost = 0;
-
-	if (fastShipping) {
-		shippingCost = 5;
-	}
 
 	const goToPayment = e => {
 		e.preventDefault();
 		history.push('/payment');
 	};
 
+	const shippingMethodHandler = e => {
+		e.preventDefault();
+		if (shippingRef.current.value === 'fast') {
+			console.log('fast shipping');
+			setShippingCost(5);
+		} else if (shippingRef.current.value === 'economy') {
+			setShippingCost(0);
+		}
+	};
 	return (
 		<div>
 			<form onSubmit={goToPayment}>
@@ -74,7 +78,19 @@ const CheckoutForm = _ => {
 				<p className={styles.title}>Shipping method:</p>
 				<div className={styles.shippingContainer}>
 					<div className={styles.shippingMethod}>
-						<input
+						<select
+							name='shipping'
+							id='Choose shiping'
+							onChange={shippingMethodHandler}
+							ref={shippingRef}
+							className={styles.dropDown}>
+							{/* <option value=''>Choose a shipping method</option> */}
+							<option value='economy'>Economy: 3-5 working days (free)</option>
+							<option value='fast'>Fast: 1-day delivery (+ 5€)</option>
+						</select>
+					</div>
+				</div>
+				{/* <input
 							type='radio'
 							id='economy'
 							name='shipping'
@@ -83,16 +99,16 @@ const CheckoutForm = _ => {
 						/>
 						<label onClick={_ => setFastShipping(false)} htmlFor='economy'>
 							Economy: 3-5 working days (free){' '}
-						</label>
-					</div>
-
+						</label> */}
+				{/* </div> */}
+				{/*
 					<div className={styles.shippingMethod}>
 						<input type='radio' id='fast' name='shipping' value='fast' />
 						<label onClick={_ => setFastShipping(true)} htmlFor='fast'>
 							Fast: 1-day delivery (+ 5€)
 						</label>
 					</div>
-				</div>
+				</div> */}
 
 				<hr />
 				<div className={styles.priceContainer}>
