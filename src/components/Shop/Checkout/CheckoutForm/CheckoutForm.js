@@ -1,26 +1,36 @@
 import { useState, useRef } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useRouteMatch } from 'react-router';
 
 import Input from '../../../UI/Input/Input';
 import Button from '../../../UI/Buttons/Button/Button';
 
+import { autoHideNotificationAction } from '../../../../store/notification/notification-actions';
 import formatPrice from '../../../../utilities/formatPrice';
 import {
 	calculateDiscountedTotal,
 	calculateSubtotal,
 } from '../../../../utilities/calculateCartTotals';
 import styles from './CheckoutForm.module.css';
-import PriceTag from '../../ProductFeatures/PriceTag/PriceTag';
+
+const validateInputLength = (input, length) => input.trim().length >= length;
 
 const CheckoutForm = _ => {
 	const cartStore = useSelector(state => state.cart);
 	const productsStore = useSelector(state => state.products);
 
-	const shippingRef = useRef();
+	const nameRef = useRef();
+	const streetRef = useRef();
+	const cityRef = useRef();
+	const postalCodeRef = useRef();
+	const additionalinfoRef = useRef();
+	const shippingMethodRef = useRef();
+
 	const [shippingCost, setShippingCost] = useState(null);
+	// const [formIsValid, setFormIsValid] = useState(false);
 
 	const history = useHistory();
+	const dispatch = useDispatch();
 
 	let subtotal = calculateSubtotal(cartStore, productsStore.products);
 	let discountedTotal = calculateDiscountedTotal(
@@ -28,17 +38,42 @@ const CheckoutForm = _ => {
 		productsStore.products
 	);
 
+	const validateForm = _ =>
+		validateInputLength(nameRef.current.value, 8) &&
+		validateInputLength(streetRef.current.value, 8) &&
+		validateInputLength(cityRef.current.value, 3) &&
+		validateInputLength(postalCodeRef.current.value, 5) &&
+		shippingCost >= 0;
+
 	const goToPayment = e => {
 		e.preventDefault();
-		history.push('/payment');
+		if (validateForm()) {
+			console.log('go to payment');
+			// history.push('/payment');
+		} else {
+			console.log(validateForm());
+			console.log('form i s not valid');
+			let message = 'Form is not valid, please check entered data';
+			switch (true) {
+				case !validateInputLength(nameRef.current.value, 8):
+					console.log('Name should be at least 8 characters without spaces');
+					message = 'Name should be at least 8 characters without spaces';
+					break;
+				case !validateInputLength(streetRef.current.value, 8):
+					message = 'Street should be at least 8 characters without spaces';
+					break;
+				default:
+					return;
+			}
+			dispatch(autoHideNotificationAction({ message: message }));
+		}
 	};
 
 	const shippingMethodHandler = e => {
 		e.preventDefault();
-		if (shippingRef.current.value === 'fast') {
-			console.log('fast shipping');
+		if (shippingMethodRef.current.value === 'fast') {
 			setShippingCost(5);
-		} else if (shippingRef.current.value === 'economy') {
+		} else if (shippingMethodRef.current.value === 'economy') {
 			setShippingCost(0);
 		}
 	};
@@ -52,6 +87,7 @@ const CheckoutForm = _ => {
 					type='text'
 					min='8'
 					required={true}
+					ref={nameRef}
 				/>
 				<Input
 					name='street'
@@ -59,6 +95,7 @@ const CheckoutForm = _ => {
 					type='text'
 					min='8'
 					required={true}
+					ref={streetRef}
 				/>
 				<Input
 					name='city'
@@ -66,6 +103,7 @@ const CheckoutForm = _ => {
 					type='text'
 					min='3'
 					required={true}
+					ref={cityRef}
 				/>
 				<Input
 					name='postalcode'
@@ -73,6 +111,7 @@ const CheckoutForm = _ => {
 					type='text'
 					min='5'
 					required={true}
+					ref={postalCodeRef}
 				/>
 				<Input name='additionalinfo' title='Observations:' type='text' />
 				<p className={styles.title}>Shipping method:</p>
@@ -80,36 +119,15 @@ const CheckoutForm = _ => {
 					<div className={styles.shippingMethod}>
 						<select
 							name='shipping'
-							id='Choose shiping'
+							id='shipping'
 							onChange={shippingMethodHandler}
-							ref={shippingRef}
+							ref={shippingMethodRef}
 							className={styles.dropDown}>
-							{/* <option value=''>Choose a shipping method</option> */}
 							<option value='economy'>Economy: 3-5 working days (free)</option>
 							<option value='fast'>Fast: 1-day delivery (+ 5€)</option>
 						</select>
 					</div>
 				</div>
-				{/* <input
-							type='radio'
-							id='economy'
-							name='shipping'
-							value='economy'
-							checked
-						/>
-						<label onClick={_ => setFastShipping(false)} htmlFor='economy'>
-							Economy: 3-5 working days (free){' '}
-						</label> */}
-				{/* </div> */}
-				{/*
-					<div className={styles.shippingMethod}>
-						<input type='radio' id='fast' name='shipping' value='fast' />
-						<label onClick={_ => setFastShipping(true)} htmlFor='fast'>
-							Fast: 1-day delivery (+ 5€)
-						</label>
-					</div>
-				</div> */}
-
 				<hr />
 				<div className={styles.priceContainer}>
 					{subtotal !== discountedTotal && (

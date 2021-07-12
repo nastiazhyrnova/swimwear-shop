@@ -123,10 +123,10 @@ const App = _ => {
 			</Route>
 			<Route path='/payment' exact>
 				{!!authStore.token ? (
-					<Elements stripe={promise}>
-						<PaymentPage />
-					</Elements>
+					// <Elements stripe={promise}>
+					<PaymentPage />
 				) : (
+					// </Elements>
 					<Redirect to='/auth' />
 				)}
 			</Route>

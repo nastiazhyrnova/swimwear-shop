@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './Input.module.css';
 
-const Input = (props, ref) => {
+const Input = forwardRef((props, ref) => {
 	return (
 		<>
 			<label htmlFor={props.name} className={styles.label}>
@@ -21,15 +21,15 @@ const Input = (props, ref) => {
 			/>
 		</>
 	);
-};
+});
 
 Input.propTypes = {
 	name: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	type: PropTypes.string.isRequired,
-	min: PropTypes.number,
-	max: PropTypes.number,
+	min: PropTypes.string,
+	max: PropTypes.string,
 	required: PropTypes.bool,
 };
 
-export default forwardRef(Input);
+export default Input;
