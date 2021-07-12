@@ -48,24 +48,28 @@ const CheckoutForm = _ => {
 	const goToPayment = e => {
 		e.preventDefault();
 		if (validateForm()) {
-			console.log('go to payment');
 			// history.push('/payment');
 		} else {
-			console.log(validateForm());
-			console.log('form i s not valid');
 			let message = 'Form is not valid, please check entered data';
-			switch (true) {
-				case !validateInputLength(nameRef.current.value, 8):
-					console.log('Name should be at least 8 characters without spaces');
+			switch (false) {
+				case validateInputLength(nameRef.current.value, 8):
 					message = 'Name should be at least 8 characters without spaces';
 					break;
-				case !validateInputLength(streetRef.current.value, 8):
+				case validateInputLength(streetRef.current.value, 8):
 					message = 'Street should be at least 8 characters without spaces';
 					break;
+				case validateInputLength(cityRef.current.value, 8):
+					message = 'City should be at least 3 characters without spaces';
+					break;
+				case validateInputLength(postalCodeRef.current.value, 8):
+					message =
+						'Postal code should be at least 5 characters without spaces';
+					break;
 				default:
-					return;
+					message = 'Form is not valid, please check entered data';
+					break;
 			}
-			dispatch(autoHideNotificationAction({ message: message }));
+			dispatch(autoHideNotificationAction(message));
 		}
 	};
 
