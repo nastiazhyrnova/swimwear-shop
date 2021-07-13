@@ -1,0 +1,31 @@
+.orderItemContainer {
+	/* background-color: red; */
+	margin: 1rem;
+	/* background-color: var(--light-grey-color); */
+	border: 1px solid var(--light-grey-color);
+}
+.orderInfo {
+	background-color: var(--accent-color);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.orderInfo span {
+	color: var(--light-color);
+	padding: 0.5rem 0.2rem;
+}
+.header span {
+	font-weight: 500;
+	padding: 0.8rem 0.2rem;
+}
+.body {
+	/* padding-bottom: 0.5rem;
+	border-bottom: 1px solid var(--light-color); */
+}
+.summary {
+	font-weight: 500;
+	text-align: left;
+	padding: 0.8rem 0.2rem;
+	background-color: var(--light-color);
+	color: var(--accent-color);
+}

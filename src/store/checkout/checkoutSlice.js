@@ -3,20 +3,37 @@ import { createSlice } from '@reduxjs/toolkit';
 const checkoutSlice = createSlice({
 	name: 'checkout',
 	initialState: {
+		date: null,
 		shippingCost: 0,
 		deliveryAddress: null,
-		// total: null,
+		products: [],
+		userId: null,
+		subtotal: null,
+		status: null,
 	},
 	reducers: {
-		setShippingCost: (state, action) => {
-			state.shippingCost = action.payload;
+		setOrderDetails: (state, action) => {
+			state.shippingCost = action.payload.shippingCost;
+			state.deliveryAddress = action.payload.deliveryAddress;
+			state.products = action.payload.products;
+			state.userId = action.payload.userId;
+			state.date = action.payload.date;
+			state.subtotal = action.payload.subtotal;
 		},
-		setDeliveryAddress: (state, action) => {
-			state.deliveryAddress = action.payload;
+		setStatus: (state, action) => {
+			state.status = action.payload.status;
 		},
-		// setTotal: (state, action) => {
-		// 	state.total = action.payload;
-		// },
+		resetData: (state, action) => {
+			return {
+				date: null,
+				shippingCost: 0,
+				deliveryAddress: null,
+				products: [],
+				userId: null,
+				subtotal: null,
+				status: null,
+			};
+		},
 	},
 });
 

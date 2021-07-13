@@ -1,0 +1,14 @@
+.productContainer {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr 1fr;
+}
+.title {
+	text-align: left;
+}
+.color {
+	text-transform: capitalize;
+}
+.productContainer > span {
+	padding: 0.2rem;
+}

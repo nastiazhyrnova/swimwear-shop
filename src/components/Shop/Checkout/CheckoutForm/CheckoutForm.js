@@ -19,6 +19,7 @@ const validateInputLength = (input, length) => input.trim().length >= length;
 const CheckoutForm = _ => {
 	const cartStore = useSelector(state => state.cart);
 	const productsStore = useSelector(state => state.products);
+	const authStore = useSelector(state => state.auth);
 
 	const nameRef = useRef();
 	const streetRef = useRef();
@@ -27,8 +28,7 @@ const CheckoutForm = _ => {
 	const additionalinfoRef = useRef();
 	const shippingMethodRef = useRef();
 
-	const [shippingCost, setShippingCost] = useState(null);
-	// const [formIsValid, setFormIsValid] = useState(false);
+	const [shippingCost, setShippingCost] = useState(0);
 
 	const history = useHistory();
 	const dispatch = useDispatch();
@@ -49,19 +49,25 @@ const CheckoutForm = _ => {
 	const goToPayment = e => {
 		e.preventDefault();
 		if (validateForm()) {
-			dispatch(checkoutActions.setShippingCost(shippingCost));
 			dispatch(
-				checkoutActions.setDeliveryAddress({
-					name: nameRef.current.value,
-					street: streetRef.current.value,
-					city: cityRef.current.value,
-					postalCode: postalCodeRef.current.value,
-					additionalInfo: additionalinfoRef.current
-						? additionalinfoRef.current.value
-						: '',
+				checkoutActions.setOrderDetails({
+					date: new Date(),
+					shippingCost: shippingCost,
+					deliveryAddress: {
+						name: nameRef.current.value,
+						street: streetRef.current.value,
+						city: cityRef.current.value,
+						postalCode: postalCodeRef.current.value,
+						additionalInfo: additionalinfoRef.current
+							? additionalinfoRef.current.value
+							: '',
+					},
+					products: cartStore,
+					userId: authStore.userId,
+					subtotal: discountedTotal,
 				})
 			);
-
+			dispatch(checkoutActions.setStatus('Processing'));
 			history.push('/payment');
 		} else {
 			let message = 'Form is not valid, please check entered data';

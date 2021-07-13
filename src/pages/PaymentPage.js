@@ -9,13 +9,10 @@ const PaymentPage = _ => {
 	const checkoutStore = useSelector(state => state.checkout);
 	const cartStore = useSelector(state => state.cart);
 	const productsStore = useSelector(state => state.products);
-
 	const discountedTotal = calculateDiscountedTotal(
 		cartStore,
 		productsStore.products
 	);
-
-	console.log(discountedTotal);
 
 	return (
 		<div className='inputPageContainer'>

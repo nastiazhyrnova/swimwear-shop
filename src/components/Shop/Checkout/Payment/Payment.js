@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import useScrollToTop from '../../../../hooks/use-scroll-to-top';
 
-import Input from '../../../UI/Input/Input';
 import Button from '../../../UI/Buttons/Button/Button';
 
+import { postOrderAction } from '../../../../store/checkout/checkout-actions';
 import { calculateDiscountedTotal } from '../../../../utilities/calculateCartTotals';
 import styles from './Payment.module.css';
+import { checkoutActions } from '../../../../store/checkout/checkoutSlice';
 
 const Payment = _ => {
 	const stripe = useStripe();
@@ -25,14 +27,11 @@ const Payment = _ => {
 	const [succeeded, setSucceeded] = useState(false);
 	const [clientSecret, setClientSecret] = useState(null);
 
+	useScrollToTop();
+
 	useEffect(
 		_ => {
 			const getClientSecret = async _ => {
-				console.log(
-					(calculateDiscountedTotal(cartStore, productsStore.products) +
-						checkoutStore.shippingCost) *
-						100
-				);
 				const response = await fetch(
 					`http://localhost:5001/bikini-shop-25276/us-central1/api/payments/create?total=${
 						(calculateDiscountedTotal(cartStore, productsStore.products) +
@@ -55,12 +54,10 @@ const Payment = _ => {
 					return data;
 				}
 			};
-
 			getClientSecret();
 		},
 		[checkoutStore.shippingCost, cartStore, productsStore.products]
 	);
-	console.log(clientSecret);
 
 	const submitPayment = async e => {
 		e.preventDefault();
@@ -73,12 +70,12 @@ const Payment = _ => {
 				},
 			})
 			.then(({ paymentIntent }) => {
-				//payment intent = payment confirmation
 				setSucceeded(true);
 				setError(null);
 				setProcessing(false);
-
 				history.replace('/orders');
+				dispatch(checkoutActions.setStatus('Paid'));
+				dispatch(postOrderAction(checkoutStore));
 			});
 	};
 
