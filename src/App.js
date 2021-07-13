@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
@@ -31,8 +33,9 @@ import { authActions } from './store/auth/authSlice';
 import { autoLogoutAction } from './store/auth/auth-actions';
 import { cartActions } from './store/cart/cartSlice';
 
-const promise =
-	'pk_test_51JAK0OJVwUyiicVaFrZinQmk4ZV5PUiYqyEZWAy9L3Lp3LjM9sq4uXrwvrcfZqMs0gn04Z8PUWwVOKS3Qm6y6ME700tWvfnhdC';
+const promise = loadStripe(
+	'pk_test_51JAK0OJVwUyiicVaFrZinQmk4ZV5PUiYqyEZWAy9L3Lp3LjM9sq4uXrwvrcfZqMs0gn04Z8PUWwVOKS3Qm6y6ME700tWvfnhdC'
+);
 
 const App = _ => {
 	const authStore = useSelector(state => state.auth);
@@ -123,10 +126,10 @@ const App = _ => {
 			</Route>
 			<Route path='/payment' exact>
 				{!!authStore.token ? (
-					// <Elements stripe={promise}>
-					<PaymentPage />
+					<Elements stripe={promise}>
+						<PaymentPage />
+					</Elements>
 				) : (
-					// </Elements>
 					<Redirect to='/auth' />
 				)}
 			</Route>

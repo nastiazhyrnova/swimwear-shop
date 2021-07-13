@@ -7,6 +7,7 @@ import sidebarSlice from './sidebar/sidebarSlice';
 import modalSlice from './modal/modalSlice';
 import authSlice from './auth/authSlice';
 import notificationSlice from './notification/notificationSlice';
+import checkoutSlice from './checkout/checkoutSlice';
 
 const store = configureStore({
 	reducer: {
@@ -17,6 +18,7 @@ const store = configureStore({
 		modal: modalSlice.reducer,
 		auth: authSlice.reducer,
 		notification: notificationSlice.reducer,
+		checkout: checkoutSlice.reducer,
 	},
 });
 

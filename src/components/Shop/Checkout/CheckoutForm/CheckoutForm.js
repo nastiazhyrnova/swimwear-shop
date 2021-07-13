@@ -11,6 +11,7 @@ import {
 	calculateDiscountedTotal,
 	calculateSubtotal,
 } from '../../../../utilities/calculateCartTotals';
+import { checkoutActions } from '../../../../store/checkout/checkoutSlice';
 import styles from './CheckoutForm.module.css';
 
 const validateInputLength = (input, length) => input.trim().length >= length;
@@ -48,7 +49,20 @@ const CheckoutForm = _ => {
 	const goToPayment = e => {
 		e.preventDefault();
 		if (validateForm()) {
-			// history.push('/payment');
+			dispatch(checkoutActions.setShippingCost(shippingCost));
+			dispatch(
+				checkoutActions.setDeliveryAddress({
+					name: nameRef.current.value,
+					street: streetRef.current.value,
+					city: cityRef.current.value,
+					postalCode: postalCodeRef.current.value,
+					additionalInfo: additionalinfoRef.current
+						? additionalinfoRef.current.value
+						: '',
+				})
+			);
+
+			history.push('/payment');
 		} else {
 			let message = 'Form is not valid, please check entered data';
 			switch (false) {

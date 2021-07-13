@@ -57,6 +57,9 @@ const cartSlice = createSlice({
 		setCart(state, action) {
 			return (state = action.payload.localCart);
 		},
+		emptyCart(state, action) {
+			return [];
+		},
 	},
 });
 

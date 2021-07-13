@@ -1,0 +1,13 @@
+.form {
+	padding: 2rem 0;
+}
+.button {
+	margin-top: 3rem;
+}
+.error {
+	color: var(--sale-color);
+}
+.demo {
+	color: var(--mid-grey-color);
+	font-size: 0.8rem;
+}
