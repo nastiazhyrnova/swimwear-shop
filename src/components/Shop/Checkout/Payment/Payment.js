@@ -33,7 +33,7 @@ const Payment = _ => {
 		_ => {
 			const getClientSecret = async _ => {
 				const response = await fetch(
-					`http://localhost:5001/bikini-shop-25276/us-central1/api/payments/create?total=${
+					`https://us-central1-bikini-shop-25276.cloudfunctions.net/api/payments/create?total=${
 						(calculateDiscountedTotal(cartStore, productsStore.products) +
 							checkoutStore.shippingCost) *
 						100

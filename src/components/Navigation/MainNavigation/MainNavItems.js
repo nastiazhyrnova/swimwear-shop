@@ -12,17 +12,17 @@ const MainNavItems = props => {
 						exact
 						activeClassName={styles.active}
 						onClick={props.closeSidebar}>
-						Home
+						Create custom set
 					</NavLink>
 				</li>
-				<li tabIndex='0'>
+				{/* <li tabIndex='0'>
 					<NavLink
 						to='/create-yours'
 						activeClassName={styles.active}
 						onClick={props.closeSidebar}>
 						Create Yours
 					</NavLink>
-				</li>
+				</li> */}
 				<li tabIndex='0'>
 					<NavLink
 						to='/shop'
@@ -31,22 +31,22 @@ const MainNavItems = props => {
 						Shop
 					</NavLink>
 				</li>
-				<li tabIndex='0'>
+				{/* <li tabIndex='0'>
 					<NavLink
 						to='/about'
 						activeClassName={styles.active}
 						onClick={props.closeSidebar}>
 						About
 					</NavLink>
-				</li>
-				<li tabIndex='0'>
+				</li> */}
+				{/* <li tabIndex='0'>
 					<NavLink
 						to='/contact'
 						activeClassName={styles.active}
 						onClick={props.closeSidebar}>
 						Contact
 					</NavLink>
-				</li>
+				</li> */}
 			</ul>
 		</nav>
 	);

@@ -95,10 +95,6 @@ const App = _ => {
 			<Route path='/shop' exact>
 				<Shop />
 			</Route>
-			<Route path='/shop/:category' exact>
-				{/* TODO: add component for the category */}
-				<div>Category Listing</div>
-			</Route>
 			<Route path='/shop/:category/:id' exact>
 				<SingleProduct />
 			</Route>
@@ -112,9 +108,6 @@ const App = _ => {
 					<Redirect to='/user-account' />
 				)}
 			</Route>
-			<Route path='/auth' exact>
-				{!!authStore.token ? <Redirect to='/user-account' /> : <AuthPage />}
-			</Route>
 			<Route path='/orders' exact>
 				{!!authStore.token ? <Orders /> : <Redirect to='/auth' />}
 			</Route>
@@ -123,6 +116,9 @@ const App = _ => {
 			</Route>
 			<Route path='/checkout' exact>
 				{!!authStore.token ? <Checkout /> : <Redirect to='/auth' />}
+			</Route>
+			<Route path='/auth' exact>
+				{!!authStore.token ? <Redirect to='/user-account' /> : <AuthPage />}
 			</Route>
 			<Route path='/payment' exact>
 				{!!authStore.token ? (

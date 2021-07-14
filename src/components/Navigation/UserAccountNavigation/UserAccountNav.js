@@ -28,11 +28,11 @@ const UserAccountNav = props => {
 	return (
 		<>
 			<ul className={styles.navList}>
-				<li>
+				{/* <li>
 					<HiddenButton onClick={openCart} label='Cart'>
 						Cart
 					</HiddenButton>
-				</li>
+				</li> */}
 				<li>
 					<HiddenButton onClick={openOrders} label='Orders'>
 						Your Orders

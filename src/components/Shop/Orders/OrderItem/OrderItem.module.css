@@ -1,8 +1,7 @@
 .orderItemContainer {
-	/* background-color: red; */
-	margin: 1rem;
-	/* background-color: var(--light-grey-color); */
 	border: 1px solid var(--light-grey-color);
+	max-width: 750px;
+	margin: 1rem auto;
 }
 .orderInfo {
 	background-color: var(--accent-color);
