@@ -6,7 +6,7 @@ import AuthSidebar from './AuthSidebar';
 
 const UserAccount = props => {
 	const authStore = useSelector(state => state.auth);
-
+	console.log('rendring [user account]');
 	return (
 		<SideBarCard title='Your Profile'>
 			{!!authStore.token ? <UserAccountNav /> : <AuthSidebar />}

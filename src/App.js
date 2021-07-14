@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,28 +10,31 @@ import Layout from './components/Layout/Layout';
 import Loader from './components/UI/Loader/Loader';
 import Notification from './components/UI/Notification/Notification';
 
-import Home from './pages/Home';
-import Shop from './pages/Shop';
-import CreateYours from './pages/CreateYours';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import DeliveryAndReturns from './pages/Legal/DeliveryAndReturns';
-import PrivacyPolicy from './pages/Legal/PrivacyPolicy';
-import TermsAndConditions from './pages/Legal/TermsAndConditions';
-import LegalAdvice from './pages/Legal/LegalAdvice';
-import Page404 from './pages/404';
-import SingleProduct from './components/Shop/Single/SingleProduct';
-import AuthPage from './pages/AuthPage';
-import UserAccountPage from './pages/UserAccountPage';
-import Orders from './pages/Orders';
-import OrderSummary from './pages/OrderSummary';
-import Checkout from './pages/Checkout';
-import PaymentPage from './pages/PaymentPage';
-
 import { setProductsAction } from './store/products/products-actions';
 import { authActions } from './store/auth/authSlice';
 import { autoLogoutAction } from './store/auth/auth-actions';
 import { cartActions } from './store/cart/cartSlice';
+
+const Home = React.lazy(_ => import('./pages/Home'));
+const Shop = React.lazy(_ => import('./pages/Shop'));
+const SingleProduct = React.lazy(_ =>
+	import('./components/Shop/Single/SingleProduct')
+);
+const Orders = React.lazy(_ => import('./pages/Orders'));
+const Page404 = React.lazy(_ => import('./pages/404'));
+const DeliveryAndReturns = React.lazy(_ =>
+	import('./pages/Legal/DeliveryAndReturns')
+);
+const PrivacyPolicy = React.lazy(_ => import('./pages/Legal/PrivacyPolicy'));
+const TermsAndConditions = React.lazy(_ =>
+	import('./pages/Legal/TermsAndConditions')
+);
+const LegalAdvice = React.lazy(_ => import('./pages/Legal/LegalAdvice'));
+const AuthPage = React.lazy(_ => import('./pages/AuthPage'));
+const UserAccountPage = React.lazy(_ => import('./pages/UserAccountPage'));
+const OrderSummary = React.lazy(_ => import('./pages/OrderSummary'));
+const Checkout = React.lazy(_ => import('./pages/Checkout'));
+const PaymentPage = React.lazy(_ => import('./pages/PaymentPage'));
 
 const promise = loadStripe(
 	'pk_test_51JAK0OJVwUyiicVaFrZinQmk4ZV5PUiYqyEZWAy9L3Lp3LjM9sq4uXrwvrcfZqMs0gn04Z8PUWwVOKS3Qm6y6ME700tWvfnhdC'
@@ -42,7 +45,7 @@ const App = _ => {
 	const cartStore = useSelector(state => state.cart);
 	const notificationStore = useSelector(state => state.notification);
 	const dispatch = useDispatch();
-
+	console.log(!!authStore.token);
 	//set products and check if user is logged in
 	useEffect(
 		_ => {
@@ -87,79 +90,64 @@ const App = _ => {
 		[cartStore]
 	);
 
-	const routerSettings = (
-		<Switch>
-			<Route path='/' exact>
-				<Home />
-			</Route>
-			<Route path='/shop' exact>
-				<Shop />
-			</Route>
-			<Route path='/shop/:category/:id' exact>
-				<SingleProduct />
-			</Route>
-			<Route path='/create-yours' exact>
-				<CreateYours />
-			</Route>
-			<Route path='/user-account' exact>
-				{!!authStore.token ? (
-					<UserAccountPage />
-				) : (
-					<Redirect to='/user-account' />
-				)}
-			</Route>
-			<Route path='/orders' exact>
-				{!!authStore.token ? <Orders /> : <Redirect to='/auth' />}
-			</Route>
-			<Route path='/order-summary' exact>
-				{!!authStore.token ? <OrderSummary /> : <Redirect to='/auth' />}
-			</Route>
-			<Route path='/checkout' exact>
-				{!!authStore.token ? <Checkout /> : <Redirect to='/auth' />}
-			</Route>
-			<Route path='/auth' exact>
-				{!!authStore.token ? <Redirect to='/user-account' /> : <AuthPage />}
-			</Route>
-			<Route path='/payment' exact>
-				{!!authStore.token ? (
-					<Elements stripe={promise}>
-						<PaymentPage />
-					</Elements>
-				) : (
-					<Redirect to='/auth' />
-				)}
-			</Route>
-			{/* <Route path='/change-password' exact>
-				{!!authStore.token ? <ChangePasswordPage /> : <Redirect to='/auth' />}
-			</Route> */}
-			<Route path='/about' exact>
-				<About />
-			</Route>
-			<Route path='/contact' exact>
-				<Contact />
-			</Route>
-			<Route path='/delivery-and-returns' exact>
-				<DeliveryAndReturns />
-			</Route>
-			<Route path='/privacy-policy' exact>
-				<PrivacyPolicy />
-			</Route>
-			<Route path='/terms-and-conditions' exact>
-				<TermsAndConditions />
-			</Route>
-			<Route path='/legal-advice' exact>
-				<LegalAdvice />
-			</Route>
-			<Route path='*'>
-				<Page404 />
-			</Route>
-		</Switch>
-	);
-
 	return (
 		<Layout>
 			<Loader />
-			{routerSettings}
+			<Suspense fallback={<Loader />}>
+				<Switch>
+					<Route path='/' exact>
+						<Home />
+					</Route>
+					<Route path='/shop' exact>
+						<Shop />
+					</Route>
+					<Route path='/shop/:category/:id' exact>
+						<SingleProduct />
+					</Route>
+					<Route path='/user-account' exact>
+						{authStore.token && <UserAccountPage />}
+						{/* {!!authStore.token && <Redirect to='/auth' />} */}
+					</Route>
+					<Route path='/orders' exact>
+						{authStore.token && <Orders />}
+
+						{/* {!!authStore.token ? <Orders /> : <Redirect to='/auth' />} */}
+					</Route>
+					<Route path='/order-summary' exact>
+						{!!authStore.token ? <OrderSummary /> : <Redirect to='/auth' />}
+					</Route>
+					<Route path='/checkout' exact>
+						{!!authStore.token ? <Checkout /> : <Redirect to='/auth' />}
+					</Route>
+					<Route path='/auth' exact>
+						{!!authStore.token ? <Redirect to='/user-account' /> : <AuthPage />}
+					</Route>
+					<Route path='/payment' exact>
+						{!!authStore.token ? (
+							<Elements stripe={promise}>
+								<PaymentPage />
+							</Elements>
+						) : (
+							<Redirect to='/auth' />
+						)}
+					</Route>
+					<Route path='/delivery-and-returns' exact>
+						<DeliveryAndReturns />
+					</Route>
+					<Route path='/privacy-policy' exact>
+						<PrivacyPolicy />
+					</Route>
+					<Route path='/terms-and-conditions' exact>
+						<TermsAndConditions />
+					</Route>
+					<Route path='/legal-advice' exact>
+						<LegalAdvice />
+					</Route>
+					<Route path='*'>
+						<Page404 />
+					</Route>
+				</Switch>
+			</Suspense>
 			{notificationStore.show && <Notification />}
 		</Layout>
 	);

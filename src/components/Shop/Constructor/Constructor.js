@@ -42,7 +42,6 @@ const Constructor = _ => {
 	topProducts = useMemo(
 		_ => {
 			if (productsStore.products.length > 0) {
-				console.log('render top products');
 				return productsStore.products.filter(
 					product => product.category === 'tops'
 				);
@@ -54,7 +53,6 @@ const Constructor = _ => {
 	bottomProducts = useMemo(
 		_ => {
 			if (productsStore.products.length > 0) {
-				console.log('render bottom products');
 				return productsStore.products.filter(
 					product => product.category === 'bottoms'
 				);
@@ -66,7 +64,6 @@ const Constructor = _ => {
 	topProduct = useMemo(
 		_ => {
 			if (productsStore.products.length > 0) {
-				console.log('render top  individual product');
 				return topProducts[currentTopProductIndex];
 			}
 		},
@@ -76,7 +73,6 @@ const Constructor = _ => {
 	bottomProduct = useMemo(
 		_ => {
 			if (productsStore.products.length > 0) {
-				console.log('render bottom  individual product');
 				return bottomProducts[currentBottomProductIndex];
 			}
 		},

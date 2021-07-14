@@ -24,6 +24,7 @@ const UserAccountNav = props => {
 		dispatch(sidebarActions.closeSidebar());
 		history.push('/orders');
 	};
+	console.log('rendring [user account nav]');
 
 	return (
 		<>

@@ -109,10 +109,7 @@ const SingleProduct = _ => {
 						{'<'}
 					</span>
 					<p className={styles.breadcrumbs}>
-						<Link to={`/shop/`}>Shop</Link>/
-						<Link to={`/shop/${productDetails.category}`}>
-							{productDetails.category}
-						</Link>
+						<Link to={`/shop/`}>Shop</Link>/{productDetails.category}
 					</p>
 				</div>
 				<SingleProductCard
