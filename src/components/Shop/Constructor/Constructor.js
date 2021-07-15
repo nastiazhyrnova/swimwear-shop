@@ -221,6 +221,7 @@ const Constructor = _ => {
 				<Button
 					inversed
 					disabled={!orderValid}
+					disabledMessage='Please choose size & color for both items'
 					additionalClass={styles.addToCartButton}
 					onClick={addToCart}>
 					Add to cart

@@ -16,7 +16,7 @@ const Button = props => {
 		<button
 			className={mergedStyles}
 			onClick={props.onClick}
-			title={props.children}
+			title={props.disabled ? props.disabledMessage : props.children}
 			disabled={props.disabled}>
 			{props.children}
 		</button>
@@ -29,6 +29,7 @@ Button.propTypes = {
 	disabled: PropTypes.bool,
 	inversed: PropTypes.bool,
 	grey: PropTypes.bool,
+	disabledMessage: PropTypes.string,
 };
 
 export default Button;

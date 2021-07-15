@@ -1,4 +1,5 @@
 .card {
+	overflow-y: auto;
 	position: relative;
 	height: 90vh;
 	text-align: center;
@@ -13,11 +14,14 @@
 	width: fit-content;
 	margin: 1rem auto 3rem;
 }
-.card .logo {
+.contentWrapper {
+	padding-bottom: 2rem;
+}
+.logo {
 	max-width: 30%;
-	position: absolute;
+	position: relative;
 	bottom: 0;
-	left: 35%;
+	/* left: 35%; */
 	margin: 0 auto;
 }
 

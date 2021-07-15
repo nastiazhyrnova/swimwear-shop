@@ -16,9 +16,9 @@ const UserAccountNav = props => {
 		history.push('/');
 	};
 
-	const openCart = _ => {
-		dispatch(sidebarActions.openSidebar({ sidebar: 'cart' }));
-	};
+	// const openCart = _ => {
+	// 	dispatch(sidebarActions.openSidebar({ sidebar: 'cart' }));
+	// };
 
 	const openOrders = _ => {
 		dispatch(sidebarActions.closeSidebar());

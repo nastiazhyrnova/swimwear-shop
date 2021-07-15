@@ -111,14 +111,12 @@ const App = _ => {
 							<UserAccountPage />
 						</Route>
 					)}
-					{!authStore.token ? (
+					{!authStore.token && (
 						<Route path='/auth' exact>
 							<AuthPage />
 						</Route>
-					) : (
-						<Redirect to='/user-account' />
 					)}
-					{!!authStore.token && (
+					{authStore.token && (
 						<Route path='/orders' exact>
 							<Orders />
 						</Route>

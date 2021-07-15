@@ -73,9 +73,9 @@ const Payment = _ => {
 				setSucceeded(true);
 				setError(null);
 				setProcessing(false);
-				history.replace('/orders');
 				dispatch(checkoutActions.setStatus('Paid'));
 				dispatch(postOrderAction(checkoutStore));
+				history.replace('/');
 			});
 	};
 

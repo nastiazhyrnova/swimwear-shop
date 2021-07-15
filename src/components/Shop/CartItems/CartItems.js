@@ -12,7 +12,7 @@ import styles from './CartItems.module.css';
 
 const CartItems = props => {
 	const cart = useSelector(state => state.cart);
-	const sidebarStore = useSelector(state => state.sidebar);
+	const authStore = useSelector(state => state.auth);
 
 	const dispatch = useDispatch();
 	const history = useHistory();
@@ -26,13 +26,18 @@ const CartItems = props => {
 
 	const goToCreateYours = _ => {
 		dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
-		history.push('/create-yours');
+		history.push('/');
 	};
 
 	const goToOrderSummary = _ => {
-		dispatch(checkoutActions.startCheckout());
-		dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
-		history.push('/order-summary');
+		if (!!authStore.token) {
+			dispatch(checkoutActions.startCheckout());
+			dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
+			history.push('/order-summary');
+		} else {
+			dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
+			history.push('/auth');
+		}
 	};
 
 	const goToCheckout = _ => {

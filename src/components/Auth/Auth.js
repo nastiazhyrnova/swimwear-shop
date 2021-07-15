@@ -30,9 +30,11 @@ const Auth = props => {
 
 		if (registered) {
 			dispatch(authAction('login', { email, password }));
+			history.push('/');
 		} else {
 			//register new user
 			dispatch(authAction('register', { email, password }));
+			history.push('/');
 		}
 	};
 
