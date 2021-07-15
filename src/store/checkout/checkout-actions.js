@@ -25,7 +25,6 @@ export const postOrderAction = orderDetails => {
 
 		try {
 			const fetchedData = await fetchData(orderDetails);
-			console.log(fetchedData);
 			dispatch(
 				autoHideNotificationAction(
 					`Your order has been paid sucessfully. Order number is ${fetchedData.name}`

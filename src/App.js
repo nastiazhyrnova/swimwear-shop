@@ -43,9 +43,9 @@ const promise = loadStripe(
 const App = _ => {
 	const authStore = useSelector(state => state.auth);
 	const cartStore = useSelector(state => state.cart);
+	const checkoutStore = useSelector(state => state.checkout);
 	const notificationStore = useSelector(state => state.notification);
 	const dispatch = useDispatch();
-	console.log(!!authStore.token);
 	//set products and check if user is logged in
 	useEffect(
 		_ => {
@@ -90,6 +90,8 @@ const App = _ => {
 		[cartStore]
 	);
 
+	useEffect(_ => {}, []);
+
 	return (
 		<Layout>
 			<Loader />
@@ -104,33 +106,40 @@ const App = _ => {
 					<Route path='/shop/:category/:id' exact>
 						<SingleProduct />
 					</Route>
-					<Route path='/user-account' exact>
-						{authStore.token && <UserAccountPage />}
-						{/* {!!authStore.token && <Redirect to='/auth' />} */}
-					</Route>
-					<Route path='/orders' exact>
-						{authStore.token && <Orders />}
-
-						{/* {!!authStore.token ? <Orders /> : <Redirect to='/auth' />} */}
-					</Route>
-					<Route path='/order-summary' exact>
-						{!!authStore.token ? <OrderSummary /> : <Redirect to='/auth' />}
-					</Route>
-					<Route path='/checkout' exact>
-						{!!authStore.token ? <Checkout /> : <Redirect to='/auth' />}
-					</Route>
-					<Route path='/auth' exact>
-						{!!authStore.token ? <Redirect to='/user-account' /> : <AuthPage />}
-					</Route>
-					<Route path='/payment' exact>
-						{!!authStore.token ? (
+					{!!authStore.token && (
+						<Route path='/user-account' exact>
+							<UserAccountPage />
+						</Route>
+					)}
+					{!authStore.token ? (
+						<Route path='/auth' exact>
+							<AuthPage />
+						</Route>
+					) : (
+						<Redirect to='/user-account' />
+					)}
+					{!!authStore.token && (
+						<Route path='/orders' exact>
+							<Orders />
+						</Route>
+					)}
+					{!!authStore.token && checkoutStore.checkoutStarted && (
+						<Route path='/order-summary' exact>
+							<OrderSummary />
+						</Route>
+					)}
+					{!!authStore.token && checkoutStore.checkoutStarted && (
+						<Route path='/checkout' exact>
+							<Checkout />
+						</Route>
+					)}
+					{!!authStore.token && checkoutStore.checkoutStarted && (
+						<Route path='/payment' exact>
 							<Elements stripe={promise}>
 								<PaymentPage />
 							</Elements>
-						) : (
-							<Redirect to='/auth' />
-						)}
-					</Route>
+						</Route>
+					)}
 					<Route path='/delivery-and-returns' exact>
 						<DeliveryAndReturns />
 					</Route>

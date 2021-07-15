@@ -46,7 +46,6 @@ export const setProductsAction = _ => {
 			dispatch(loadingActions.stopLoading());
 		} catch (err) {
 			dispatch(loadingActions.stopLoading());
-			console.log(err);
 		}
 	};
 };

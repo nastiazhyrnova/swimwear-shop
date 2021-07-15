@@ -7,6 +7,7 @@ import CartTotal from './CartTotal/CartTotal';
 import Button from '../../UI/Buttons/Button/Button';
 
 import { sidebarActions } from '../../../store/sidebar/sidebarSlice';
+import { checkoutActions } from '../../../store/checkout/checkoutSlice';
 import styles from './CartItems.module.css';
 
 const CartItems = props => {
@@ -24,18 +25,19 @@ const CartItems = props => {
 	));
 
 	const goToCreateYours = _ => {
-		history.push('/create-yours');
 		dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
+		history.push('/create-yours');
 	};
 
 	const goToOrderSummary = _ => {
-		history.push('/order-summary');
+		dispatch(checkoutActions.startCheckout());
 		dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
+		history.push('/order-summary');
 	};
 
 	const goToCheckout = _ => {
-		history.push('/checkout');
 		dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
+		history.push('/checkout');
 	};
 
 	const emptyCart = (

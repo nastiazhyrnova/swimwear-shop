@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const checkoutSlice = createSlice({
 	name: 'checkout',
 	initialState: {
+		checkoutStarted: false,
 		date: null,
 		shippingCost: 0,
 		deliveryAddress: null,
@@ -23,6 +24,9 @@ const checkoutSlice = createSlice({
 		setStatus: (state, action) => {
 			state.status = action.payload.status;
 		},
+		startCheckout: (state, action) => {
+			state.checkoutStarted = true;
+		},
 		resetData: (state, action) => {
 			return {
 				date: null,
@@ -32,6 +36,7 @@ const checkoutSlice = createSlice({
 				userId: null,
 				subtotal: null,
 				status: null,
+				checkoutStarted: false,
 			};
 		},
 	},

@@ -16,7 +16,7 @@
 	background-color: red;
 }
 /*phone + phone landscape*/
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
 	.column {
 		flex-direction: row;
 		align-items: center;

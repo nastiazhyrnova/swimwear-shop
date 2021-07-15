@@ -12,7 +12,6 @@ const OrderProduct = props => {
 		);
 	}
 
-	console.log(productDetails);
 	return (
 		<div className={styles.productContainer}>
 			<span className={styles.title}>

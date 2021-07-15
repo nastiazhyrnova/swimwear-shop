@@ -6,7 +6,6 @@ import formatPrice from '../../../../utilities/formatPrice';
 import styles from './OrderItem.module.css';
 
 const OrderItem = props => {
-	console.log(props.order.products);
 	const products = props.order.products.map(product => (
 		<OrderProduct
 			sku={product.sku}
@@ -17,7 +16,6 @@ const OrderItem = props => {
 	));
 
 	const date = new Date(props.order.date);
-	console.log(props.order);
 
 	const day = date.getDay();
 	const month = date.getMonth();

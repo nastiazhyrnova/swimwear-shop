@@ -21,7 +21,6 @@ const authSlice = createSlice({
 			state.userId = action.payload.loginData.localId;
 		},
 		checkAuth(state, action) {
-			console.log('check auth is running');
 			const storedDate = localStorage.getItem('expirationDate');
 			if (
 				localStorage.getItem('authToken') &&
@@ -29,7 +28,6 @@ const authSlice = createSlice({
 			) {
 				state.token = localStorage.getItem('authToken');
 				state.userId = localStorage.getItem('userId');
-				console.log('state is updated with a token');
 			} else {
 				localStorage.removeItem('authToken');
 				localStorage.removeItem('userId');
