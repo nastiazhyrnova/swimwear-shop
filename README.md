@@ -1,7 +1,8 @@
 E-commerce Web App with visual constructor
 
 SPA made with React JS / Redux Toolkit / React Router / Stripe / Firebase REST API, Auth, hosting & Cloud functions
-*Illustrations are made by me too
+
+*Illustrations are made by me in Procreate
 
 https://bikini-shop-25276.web.app/
 
