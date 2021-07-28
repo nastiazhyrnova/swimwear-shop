@@ -36,11 +36,6 @@ const Slider = () => {
 						src={homePhoto}
 						alt='Girl in a bikini lying at the beach'
 					/>
-
-					{/* <span className={sliderTitleWhite}>Create a CUSTOM bikini set</span>
-					<span className={sliderSubtitleWhite}>
-						hand made especially for <strong>you</strong>
-					</span> */}
 				</div>
 			</div>
 		</section>

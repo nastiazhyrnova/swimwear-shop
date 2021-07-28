@@ -58,13 +58,17 @@ const SingleProductCard = props => {
 							onRemove={() => props.dispatchLocalState({ type: 'REMOVE_ITEM' })}
 							currentQuantity={props.state.quantity}
 						/>
-						<Button
-							inversed
-							additionalClass={styles.addToCartButton}
-							disabled={!props.state.size}
-							onClick={props.addToCart}>
-							Add to cart
-						</Button>
+						<span
+							className={styles.buttonWrapperToolip}
+							title={!props.state.size ? 'Please choose size' : 'Add to cart'}>
+							<Button
+								inversed
+								additionalClass={styles.addToCartButton}
+								disabled={!props.state.size}
+								onClick={props.addToCart}>
+								Add to cart
+							</Button>
+						</span>
 					</div>
 				</div>
 			</article>

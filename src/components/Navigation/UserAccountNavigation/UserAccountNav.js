@@ -16,10 +16,6 @@ const UserAccountNav = props => {
 		history.push('/');
 	};
 
-	// const openCart = () => {
-	// 	dispatch(sidebarActions.openSidebar({ sidebar: 'cart' }));
-	// };
-
 	const openOrders = () => {
 		dispatch(sidebarActions.closeSidebar());
 		history.push('/orders');
@@ -28,11 +24,6 @@ const UserAccountNav = props => {
 	return (
 		<>
 			<ul className={styles.navList}>
-				{/* <li>
-					<HiddenButton onClick={openCart} label='Cart'>
-						Cart
-					</HiddenButton>
-				</li> */}
 				<li>
 					<HiddenButton onClick={openOrders} label='Orders'>
 						Your Orders

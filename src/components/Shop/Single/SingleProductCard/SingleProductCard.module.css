@@ -72,7 +72,10 @@
 	justify-content: flex-start;
 	gap: 1rem;
 }
-
+.buttonWrapperToolip {
+	width: 100%;
+	text-align: left;
+}
 .addToCartButton {
 	text-align: center;
 	max-width: 50%;
