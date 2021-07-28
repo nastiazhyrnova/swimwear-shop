@@ -1,6 +1,6 @@
 import useScrollToTop from '../../hooks/use-scroll-to-top';
 
-const DeliveryAndReturns = _ => {
+const DeliveryAndReturns = () => {
 	useScrollToTop();
 	return (
 		<main>

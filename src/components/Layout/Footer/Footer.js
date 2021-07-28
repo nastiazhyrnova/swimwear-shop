@@ -2,7 +2,7 @@ import FooterNav from '../../Navigation/FooterNavigation/FooterNav';
 
 import styles from './Footer.module.css';
 
-const Footer = _ => {
+const Footer = () => {
 	return (
 		<footer className={styles.footer}>
 			<FooterNav />

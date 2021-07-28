@@ -24,12 +24,12 @@ const CartItems = props => {
 		/>
 	));
 
-	const goToCreateYours = _ => {
+	const goToCreateYours = () => {
 		dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
 		history.push('/');
 	};
 
-	const goToOrderSummary = _ => {
+	const goToOrderSummary = () => {
 		if (!!authStore.token) {
 			dispatch(checkoutActions.startCheckout());
 			dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
@@ -40,7 +40,7 @@ const CartItems = props => {
 		}
 	};
 
-	const goToCheckout = _ => {
+	const goToCheckout = () => {
 		dispatch(sidebarActions.closeSidebar({ sidebar: 'cart' }));
 		history.push('/checkout');
 	};

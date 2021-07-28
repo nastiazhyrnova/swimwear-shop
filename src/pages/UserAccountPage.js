@@ -1,6 +1,6 @@
 import UserAccountNav from '../components/Navigation/UserAccountNavigation/UserAccountNav';
 
-const UserAccountPage = _ => {
+const UserAccountPage = () => {
 	return (
 		<>
 			<h1>Your Profile</h1>

@@ -11,7 +11,7 @@ const Filters = props => {
 
 	const [showFiltersAccordeon, setShowFiltersAccordeon] = useState(false);
 
-	const setSortValue = _ => {
+	const setSortValue = () => {
 		let by = null;
 		let asc = true;
 		if (sortingRef.current.value === 'priceasc') {
@@ -30,7 +30,7 @@ const Filters = props => {
 		props.sortBy({ by: by, asc: asc });
 	};
 
-	const toggleFiltersAccordeon = _ => {
+	const toggleFiltersAccordeon = () => {
 		setShowFiltersAccordeon(!showFiltersAccordeon);
 	};
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import ChangePassword from '../components/Auth/ChangePassword/ChangePassword';
 
-const ChangePasswordPage = _ => {
+const ChangePasswordPage = () => {
 	return (
 		<div>
 			<h1>Change password</h1>

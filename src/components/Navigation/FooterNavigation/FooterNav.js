@@ -4,7 +4,7 @@ import useReactSimpleMatchMedia from 'react-simple-matchmedia';
 import styles from './FooterNav.module.css';
 import logo from '../../../assets/logo-without-text.svg';
 
-const FooterNav = _ => {
+const FooterNav = () => {
 	const mobileView = useReactSimpleMatchMedia('phone');
 
 	return (

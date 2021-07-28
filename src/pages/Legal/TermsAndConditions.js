@@ -1,5 +1,5 @@
 import useScrollToTop from '../../hooks/use-scroll-to-top';
-const TermsAndConditions = _ => {
+const TermsAndConditions = () => {
 	useScrollToTop();
 	return (
 		<main>

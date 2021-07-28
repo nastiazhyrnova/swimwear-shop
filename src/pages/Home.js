@@ -6,10 +6,10 @@ import ProductListing from '../components/Shop/Listing/ProductListing';
 import Button from '../components/UI/Buttons/Button/Button';
 import Constructor from '../components/Shop/Constructor/Constructor';
 
-const Home = _ => {
+const Home = () => {
 	useScrollToTop();
 	const history = useHistory();
-	const goToShop = _ => {
+	const goToShop = () => {
 		history.push('/shop');
 	};
 

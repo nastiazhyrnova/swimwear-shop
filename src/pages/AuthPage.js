@@ -1,6 +1,6 @@
 import Auth from '../components/Auth/Auth';
 
-const AuthPage = _ => {
+const AuthPage = () => {
 	return (
 		<>
 			<div className='pageWithPadding'>

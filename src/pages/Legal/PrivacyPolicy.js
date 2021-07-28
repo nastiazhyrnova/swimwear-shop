@@ -1,6 +1,6 @@
 import useScrollToTop from '../../hooks/use-scroll-to-top';
 
-const PrivacyPolicy = _ => {
+const PrivacyPolicy = () => {
 	useScrollToTop();
 	return (
 		<main>

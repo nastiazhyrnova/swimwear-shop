@@ -54,8 +54,8 @@ const SingleProductCard = props => {
 					<p>{props.product.description}</p>
 					<div className={styles.addToCartContainer}>
 						<Counter
-							onAdd={_ => props.dispatchLocalState({ type: 'ADD_ITEM' })}
-							onRemove={_ => props.dispatchLocalState({ type: 'REMOVE_ITEM' })}
+							onAdd={() => props.dispatchLocalState({ type: 'ADD_ITEM' })}
+							onRemove={() => props.dispatchLocalState({ type: 'REMOVE_ITEM' })}
 							currentQuantity={props.state.quantity}
 						/>
 						<Button

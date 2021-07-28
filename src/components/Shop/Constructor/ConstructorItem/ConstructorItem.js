@@ -45,7 +45,7 @@ const ConstructorItem = props => {
 				<div className={styles.slider}>
 					<HiddenButton
 						label='Previous'
-						onClick={_ =>
+						onClick={() =>
 							props.showPrevious(props.product.category, props.product.sku)
 						}>
 						<img src={arrowIcon} alt='Previous' className={styles.leftArrow} />
@@ -59,7 +59,7 @@ const ConstructorItem = props => {
 					</div>
 					<HiddenButton
 						label='Next'
-						onClick={_ =>
+						onClick={() =>
 							props.showNext(props.product.category, props.product.sku)
 						}>
 						<img src={arrowIcon} alt='Next' className={styles.rightArrow} />

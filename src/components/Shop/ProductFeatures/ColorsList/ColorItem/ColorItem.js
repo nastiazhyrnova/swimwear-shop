@@ -26,7 +26,7 @@ const ColorItem = props => {
 				value={props.color.title}
 				className={styles.input}
 				checked={props.checked}
-				onChange={_ => props.onChange(props.color.code)}
+				onChange={() => props.onChange(props.color.code)}
 			/>
 			<img
 				src={swatchImage}

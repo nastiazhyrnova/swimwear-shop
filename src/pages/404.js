@@ -1,4 +1,4 @@
-const Page404 = _ => {
+const Page404 = () => {
 	return (
 		<div className='centered'>
 			<h1>Ooops! ;(</h1>

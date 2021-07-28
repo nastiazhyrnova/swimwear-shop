@@ -9,7 +9,7 @@ import { cartActions } from '../../../store/cart/cartSlice';
 import { sidebarActions } from '../../../store/sidebar/sidebarSlice';
 import styles from './Constructor.module.css';
 
-const Constructor = _ => {
+const Constructor = () => {
 	const productsStore = useSelector(state => state.products);
 	const dispatch = useDispatch();
 
@@ -34,50 +34,38 @@ const Constructor = _ => {
 
 	//setting products arrays & single products
 	let output = 'No products found';
-	let topProducts = useMemo(_ => [], []);
-	let bottomProducts = useMemo(_ => [], []);
+	let topProducts = useMemo(() => [], []);
+	let bottomProducts = useMemo(() => [], []);
 	let topProduct;
 	let bottomProduct;
 
-	topProducts = useMemo(
-		_ => {
-			if (productsStore.products.length > 0) {
-				return productsStore.products.filter(
-					product => product.category === 'tops'
-				);
-			}
-		},
-		[productsStore.products]
-	);
+	topProducts = useMemo(() => {
+		if (productsStore.products.length > 0) {
+			return productsStore.products.filter(
+				product => product.category === 'tops'
+			);
+		}
+	}, [productsStore.products]);
 
-	bottomProducts = useMemo(
-		_ => {
-			if (productsStore.products.length > 0) {
-				return productsStore.products.filter(
-					product => product.category === 'bottoms'
-				);
-			}
-		},
-		[productsStore.products]
-	);
+	bottomProducts = useMemo(() => {
+		if (productsStore.products.length > 0) {
+			return productsStore.products.filter(
+				product => product.category === 'bottoms'
+			);
+		}
+	}, [productsStore.products]);
 
-	topProduct = useMemo(
-		_ => {
-			if (productsStore.products.length > 0) {
-				return topProducts[currentTopProductIndex];
-			}
-		},
-		[productsStore.products, topProducts, currentTopProductIndex]
-	);
+	topProduct = useMemo(() => {
+		if (productsStore.products.length > 0) {
+			return topProducts[currentTopProductIndex];
+		}
+	}, [productsStore.products, topProducts, currentTopProductIndex]);
 
-	bottomProduct = useMemo(
-		_ => {
-			if (productsStore.products.length > 0) {
-				return bottomProducts[currentBottomProductIndex];
-			}
-		},
-		[productsStore.products, bottomProducts, currentBottomProductIndex]
-	);
+	bottomProduct = useMemo(() => {
+		if (productsStore.products.length > 0) {
+			return bottomProducts[currentBottomProductIndex];
+		}
+	}, [productsStore.products, bottomProducts, currentBottomProductIndex]);
 
 	//setting detaulf colors on the first render of the first product
 	if (
@@ -149,7 +137,7 @@ const Constructor = _ => {
 		}
 	};
 
-	const addToCart = _ => {
+	const addToCart = () => {
 		dispatch(
 			cartActions.addToCart({
 				product: {

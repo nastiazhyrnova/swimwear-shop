@@ -15,82 +15,70 @@ import { authActions } from './store/auth/authSlice';
 import { autoLogoutAction } from './store/auth/auth-actions';
 import { cartActions } from './store/cart/cartSlice';
 
-const Home = React.lazy(_ => import('./pages/Home'));
-const Shop = React.lazy(_ => import('./pages/Shop'));
-const SingleProduct = React.lazy(_ =>
+const Home = React.lazy(() => import('./pages/Home'));
+const Shop = React.lazy(() => import('./pages/Shop'));
+const SingleProduct = React.lazy(() =>
 	import('./components/Shop/Single/SingleProduct')
 );
-const Orders = React.lazy(_ => import('./pages/Orders'));
-const Page404 = React.lazy(_ => import('./pages/404'));
-const DeliveryAndReturns = React.lazy(_ =>
+const Orders = React.lazy(() => import('./pages/Orders'));
+const Page404 = React.lazy(() => import('./pages/404'));
+const DeliveryAndReturns = React.lazy(() =>
 	import('./pages/Legal/DeliveryAndReturns')
 );
-const PrivacyPolicy = React.lazy(_ => import('./pages/Legal/PrivacyPolicy'));
-const TermsAndConditions = React.lazy(_ =>
+const PrivacyPolicy = React.lazy(() => import('./pages/Legal/PrivacyPolicy'));
+const TermsAndConditions = React.lazy(() =>
 	import('./pages/Legal/TermsAndConditions')
 );
-const LegalAdvice = React.lazy(_ => import('./pages/Legal/LegalAdvice'));
-const AuthPage = React.lazy(_ => import('./pages/AuthPage'));
-const UserAccountPage = React.lazy(_ => import('./pages/UserAccountPage'));
-const OrderSummary = React.lazy(_ => import('./pages/OrderSummary'));
-const Checkout = React.lazy(_ => import('./pages/Checkout'));
-const PaymentPage = React.lazy(_ => import('./pages/PaymentPage'));
+const LegalAdvice = React.lazy(() => import('./pages/Legal/LegalAdvice'));
+const AuthPage = React.lazy(() => import('./pages/AuthPage'));
+const UserAccountPage = React.lazy(() => import('./pages/UserAccountPage'));
+const OrderSummary = React.lazy(() => import('./pages/OrderSummary'));
+const Checkout = React.lazy(() => import('./pages/Checkout'));
+const PaymentPage = React.lazy(() => import('./pages/PaymentPage'));
 
 const promise = loadStripe(
 	'pk_test_51JAK0OJVwUyiicVaFrZinQmk4ZV5PUiYqyEZWAy9L3Lp3LjM9sq4uXrwvrcfZqMs0gn04Z8PUWwVOKS3Qm6y6ME700tWvfnhdC'
 );
 
-const App = _ => {
+const App = () => {
 	const authStore = useSelector(state => state.auth);
 	const cartStore = useSelector(state => state.cart);
 	const checkoutStore = useSelector(state => state.checkout);
 	const notificationStore = useSelector(state => state.notification);
 	const dispatch = useDispatch();
 	//set products and check if user is logged in
-	useEffect(
-		_ => {
-			dispatch(setProductsAction());
-			dispatch(authActions.checkAuth());
-		},
-		[dispatch]
-	);
+	useEffect(() => {
+		dispatch(setProductsAction());
+		dispatch(authActions.checkAuth());
+	}, [dispatch]);
 
-	useEffect(
-		_ => {
-			if (!!authStore.token) {
-				dispatch(autoLogoutAction());
-			}
-		},
-		[dispatch, authStore.token]
-	);
+	useEffect(() => {
+		if (!!authStore.token) {
+			dispatch(autoLogoutAction());
+		}
+	}, [dispatch, authStore.token]);
 
 	//retrieve cart from the local storage
-	useEffect(
-		_ => {
-			if (localStorage.getItem('cart')) {
-				dispatch(
-					cartActions.setCart({
-						localCart: JSON.parse(localStorage.getItem('cart')),
-					})
-				);
-			}
-		},
-		[dispatch]
-	);
+	useEffect(() => {
+		if (localStorage.getItem('cart')) {
+			dispatch(
+				cartActions.setCart({
+					localCart: JSON.parse(localStorage.getItem('cart')),
+				})
+			);
+		}
+	}, [dispatch]);
 
 	//update cart in the local storage everytime we change it
-	useEffect(
-		_ => {
-			if (cartStore.length > 0) {
-				localStorage.setItem('cart', JSON.stringify(cartStore));
-			} else if (cartStore.length === 0) {
-				localStorage.removeItem('cart');
-			}
-		},
-		[cartStore]
-	);
+	useEffect(() => {
+		if (cartStore.length > 0) {
+			localStorage.setItem('cart', JSON.stringify(cartStore));
+		} else if (cartStore.length === 0) {
+			localStorage.removeItem('cart');
+		}
+	}, [cartStore]);
 
-	useEffect(_ => {}, []);
+	useEffect(() => {}, []);
 
 	return (
 		<Layout>

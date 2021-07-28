@@ -8,14 +8,14 @@ import Sidebar from '../../../UI/Sidebar/Sidebar';
 import SideBarCard from '../../../UI/Sidebar/SideBarCard/SideBarCard';
 import MainNavItems from '../../../Navigation/MainNavigation/MainNavItems';
 
-const BurgerMenu = _ => {
+const BurgerMenu = () => {
 	const dispatch = useDispatch();
 	const sidebarStore = useSelector(state => state.sidebar);
 
-	const openSidebar = _ => {
+	const openSidebar = () => {
 		dispatch(sidebarActions.openSidebar({ sidebar: 'mobileMenu' }));
 	};
-	const closeSidebar = _ => {
+	const closeSidebar = () => {
 		dispatch(sidebarActions.closeSidebar());
 	};
 

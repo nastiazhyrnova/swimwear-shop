@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
 import styles from './Loader.module.css';
 
-const Loader = _ => {
+const Loader = () => {
 	const loading = useSelector(state => state.loading);
 
 	const loader = (

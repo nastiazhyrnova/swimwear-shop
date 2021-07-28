@@ -54,7 +54,7 @@ const FiltersAccordeon = props => {
 		}
 	};
 
-	const applyFilters = _ => {
+	const applyFilters = () => {
 		props.filterBy({
 			color: chosenFilters.color,
 			category: chosenFilters.category,
@@ -63,7 +63,7 @@ const FiltersAccordeon = props => {
 		props.toggleFiltersAccordeon();
 	};
 
-	const resetChosenFilters = _ => {
+	const resetChosenFilters = () => {
 		setChosenFilters({
 			category: null,
 			color: null,
@@ -93,7 +93,7 @@ const FiltersAccordeon = props => {
 				<p
 					className={categoryStyles.join(' ')}
 					key={category}
-					onClick={_ => filterByCategoryHandler(category)}>
+					onClick={() => filterByCategoryHandler(category)}>
 					{category}
 				</p>
 			);

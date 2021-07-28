@@ -9,7 +9,7 @@ import { notificationActions } from '../../../store/notification/notificationSli
 import { autoHideNotificationAction } from '../../../store/notification/notification-actions';
 import styles from '../Auth.module.css';
 
-const ChangePassword = _ => {
+const ChangePassword = () => {
 	const newPasswordRef = useRef();
 	const newPasswordRepeatRef = useRef();
 	const dispatch = useDispatch();

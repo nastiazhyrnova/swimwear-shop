@@ -5,7 +5,7 @@ import Payment from '../components/Shop/Checkout/Payment/Payment';
 import { calculateDiscountedTotal } from '../utilities/calculateCartTotals';
 import formatPrice from '../utilities/formatPrice';
 
-const PaymentPage = _ => {
+const PaymentPage = () => {
 	const checkoutStore = useSelector(state => state.checkout);
 	const cartStore = useSelector(state => state.cart);
 	const productsStore = useSelector(state => state.products);

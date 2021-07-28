@@ -5,12 +5,12 @@ import homePhoto from '../../assets/home-photo.jpg';
 
 import Button from '../UI/Buttons/Button/Button';
 
-const Slider = _ => {
+const Slider = () => {
 	const sliderTitleWhite = `${styles.sliderTitle} ${styles.white}`;
 	const sliderSubtitleWhite = `${styles.sliderSubtitle} ${styles.white}`;
 
 	const history = useHistory();
-	const openCreateYours = _ => {
+	const openCreateYours = () => {
 		history.push('/create-yours');
 	};
 

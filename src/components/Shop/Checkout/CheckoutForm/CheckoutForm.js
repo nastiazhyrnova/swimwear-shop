@@ -16,7 +16,7 @@ import styles from './CheckoutForm.module.css';
 
 const validateInputLength = (input, length) => input.trim().length >= length;
 
-const CheckoutForm = _ => {
+const CheckoutForm = () => {
 	const cartStore = useSelector(state => state.cart);
 	const productsStore = useSelector(state => state.products);
 	const authStore = useSelector(state => state.auth);
@@ -39,7 +39,7 @@ const CheckoutForm = _ => {
 		productsStore.products
 	);
 
-	const validateForm = _ =>
+	const validateForm = () =>
 		validateInputLength(nameRef.current.value, 8) &&
 		validateInputLength(streetRef.current.value, 8) &&
 		validateInputLength(cityRef.current.value, 3) &&

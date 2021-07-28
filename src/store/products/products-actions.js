@@ -4,7 +4,7 @@ import { productsActions } from './productsSlice';
 import getRandomArrayItem from '../../utilities/getRandomArrayItem';
 import arrayShuffle from 'array-shuffle';
 
-export const setProductsAction = _ => {
+export const setProductsAction = () => {
 	return async dispatch => {
 		const fetchData = async category => {
 			const response = await fetch(

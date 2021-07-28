@@ -11,16 +11,16 @@ const UserAccountNav = props => {
 	const dispatch = useDispatch();
 	const history = useHistory();
 
-	const logout = _ => {
+	const logout = () => {
 		dispatch(authActions.logout());
 		history.push('/');
 	};
 
-	// const openCart = _ => {
+	// const openCart = () => {
 	// 	dispatch(sidebarActions.openSidebar({ sidebar: 'cart' }));
 	// };
 
-	const openOrders = _ => {
+	const openOrders = () => {
 		dispatch(sidebarActions.closeSidebar());
 		history.push('/orders');
 	};

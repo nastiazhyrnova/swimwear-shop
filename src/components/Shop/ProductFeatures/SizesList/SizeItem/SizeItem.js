@@ -20,7 +20,7 @@ const SizeItem = props => {
 				value={props.size}
 				className={styles.input}
 				checked={props.checked}
-				onChange={_ => props.onChange(props.size)}
+				onChange={() => props.onChange(props.size)}
 			/>
 			{props.size}
 		</label>

@@ -1,6 +1,6 @@
 import Auth from '../../components/Auth/Auth';
 
-const AuthSidebar = _ => {
+const AuthSidebar = () => {
 	return (
 		<>
 			<Auth />

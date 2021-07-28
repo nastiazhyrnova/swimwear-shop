@@ -3,7 +3,7 @@ import { useState } from 'react';
 import ProductListing from '../components/Shop/Listing/ProductListing';
 import Filters from '../components/Shop/Listing/Filters/Filters';
 
-const Shop = _ => {
+const Shop = () => {
 	const [sorting, setSorting] = useState({
 		by: null,
 		asc: true,

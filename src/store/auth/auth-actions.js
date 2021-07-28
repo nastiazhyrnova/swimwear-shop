@@ -79,9 +79,9 @@ export const authAction = (actionType, userData) => {
 	};
 };
 
-export const autoLogoutAction = _ => {
+export const autoLogoutAction = () => {
 	return async dispatch => {
-		setTimeout(_ => {
+		setTimeout(() => {
 			dispatch(authActions.logout());
 			dispatch(autoHideNotificationAction('You have been logged out.'));
 		}, calculateExpirationTime(localStorage.getItem('expirationDate')));

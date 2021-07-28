@@ -24,7 +24,7 @@ const ProductCard = props => {
 			productImages[`${props.product.category}`][`${props.product.sku}`][
 				`${props.filterColor ? props.filterColor : props.product.defaultColor}`
 			];
-		const openProductDetails = _ => {
+		const openProductDetails = () => {
 			if (props.filterColor) {
 				history.push(
 					`/shop/${props.product.category}/${props.product.sku}?filterColor=${props.filterColor}`

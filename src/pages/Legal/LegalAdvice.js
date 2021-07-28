@@ -1,5 +1,5 @@
 import useScrollToTop from '../../hooks/use-scroll-to-top';
-const LegalAdvice = _ => {
+const LegalAdvice = () => {
 	useScrollToTop();
 	return (
 		<main>

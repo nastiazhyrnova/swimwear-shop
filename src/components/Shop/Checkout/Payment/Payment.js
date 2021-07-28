@@ -11,7 +11,7 @@ import { calculateDiscountedTotal } from '../../../../utilities/calculateCartTot
 import styles from './Payment.module.css';
 import { checkoutActions } from '../../../../store/checkout/checkoutSlice';
 
-const Payment = _ => {
+const Payment = () => {
 	const stripe = useStripe();
 	const elements = useElements();
 	const dispatch = useDispatch();
@@ -29,35 +29,32 @@ const Payment = _ => {
 
 	useScrollToTop();
 
-	useEffect(
-		_ => {
-			const getClientSecret = async _ => {
-				const response = await fetch(
-					`https://us-central1-bikini-shop-25276.cloudfunctions.net/api/payments/create?total=${
-						(calculateDiscountedTotal(cartStore, productsStore.products) +
-							checkoutStore.shippingCost) *
-						100
-					}`,
-					{
-						method: 'POST',
-						headers: {
-							'Content-Type': 'application/json',
-						},
-					}
-				);
-
-				if (!response.ok) {
-					throw new Error(`Couldn't process the payment`);
-				} else {
-					const data = await response.json();
-					setClientSecret(data.clientSecret);
-					return data;
+	useEffect(() => {
+		const getClientSecret = async () => {
+			const response = await fetch(
+				`https://us-central1-bikini-shop-25276.cloudfunctions.net/api/payments/create?total=${
+					(calculateDiscountedTotal(cartStore, productsStore.products) +
+						checkoutStore.shippingCost) *
+					100
+				}`,
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
 				}
-			};
-			getClientSecret();
-		},
-		[checkoutStore.shippingCost, cartStore, productsStore.products]
-	);
+			);
+
+			if (!response.ok) {
+				throw new Error(`Couldn't process the payment`);
+			} else {
+				const data = await response.json();
+				setClientSecret(data.clientSecret);
+				return data;
+			}
+		};
+		getClientSecret();
+	}, [checkoutStore.shippingCost, cartStore, productsStore.products]);
 
 	const submitPayment = async e => {
 		e.preventDefault();

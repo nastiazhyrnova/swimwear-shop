@@ -10,17 +10,17 @@ import styles from './ShopNavItems.module.css';
 import cartIcon from '../../../assets/icons/shopping-cart.svg';
 import userIcon from '../../../assets/icons/user.svg';
 
-const ShopNavItems = _ => {
+const ShopNavItems = () => {
 	const cartStore = useSelector(state => state.cart);
 	const sidebarStore = useSelector(state => state.sidebar);
 	const dispatch = useDispatch();
 
-	const closeAnySidebar = _ => {
+	const closeAnySidebar = () => {
 		dispatch(sidebarActions.closeSidebar());
 	};
 
 	//Cart Sidebar
-	const openCartSidebar = _ => {
+	const openCartSidebar = () => {
 		dispatch(sidebarActions.openSidebar({ sidebar: 'cart' }));
 	};
 	const cartSidebar = (
@@ -30,7 +30,7 @@ const ShopNavItems = _ => {
 	);
 
 	//User Account Sidebar
-	const openUserAccountSidebar = _ => {
+	const openUserAccountSidebar = () => {
 		dispatch(sidebarActions.openSidebar({ sidebar: 'userAccount' }));
 	};
 	const userAccountSidebar = (

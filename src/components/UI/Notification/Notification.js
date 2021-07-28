@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import styles from './Notification.module.css';
 
-const Notification = _ => {
+const Notification = () => {
 	const notificationStore = useSelector(state => state.notification);
 
 	const notification = (

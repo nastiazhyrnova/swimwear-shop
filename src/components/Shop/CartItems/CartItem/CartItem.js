@@ -34,7 +34,7 @@ const CartItem = props => {
 					<div className={styles.quantity}>
 						<Counter
 							currentQuantity={props.product.quantity}
-							onAdd={_ => {
+							onAdd={() => {
 								dispatch(
 									cartActions.addToCart({
 										product: props.product,
@@ -42,7 +42,7 @@ const CartItem = props => {
 									})
 								);
 							}}
-							onRemove={_ => {
+							onRemove={() => {
 								dispatch(
 									cartActions.reduceQuantity({
 										product: props.product,
@@ -66,7 +66,7 @@ const CartItem = props => {
 						src={binIcon}
 						alt='Remove product(s)'
 						title='Remove product(s)'
-						onClick={_ => {
+						onClick={() => {
 							dispatch(cartActions.removeFromCart({ product: props.product }));
 						}}
 					/>

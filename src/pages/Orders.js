@@ -1,6 +1,6 @@
 import { OrdersList } from '../components/Shop/Orders/OrdersList';
 
-const Orders = _ => {
+const Orders = () => {
 	return (
 		<div>
 			<div className='pageWithPadding'>

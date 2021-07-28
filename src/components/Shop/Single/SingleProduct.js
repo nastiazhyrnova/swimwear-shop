@@ -32,7 +32,7 @@ const singleProductReducer = (state, action) => {
 	}
 };
 
-const SingleProduct = _ => {
+const SingleProduct = () => {
 	const history = useHistory();
 	const storeDispatch = useDispatch();
 
@@ -41,18 +41,15 @@ const SingleProduct = _ => {
 	const productsStore = useSelector(state => state.products);
 
 	let productDetails = null;
-	productDetails = useMemo(
-		_ => {
-			if (productsStore.products.length !== 0) {
-				return lodash.cloneDeep(
-					productsStore.products.filter(productItem => {
-						return productItem.sku === id;
-					})
-				)[0];
-			}
-		},
-		[productsStore.products, id]
-	);
+	productDetails = useMemo(() => {
+		if (productsStore.products.length !== 0) {
+			return lodash.cloneDeep(
+				productsStore.products.filter(productItem => {
+					return productItem.sku === id;
+				})
+			)[0];
+		}
+	}, [productsStore.products, id]);
 
 	//check passed params for color to filter
 	const query = new URLSearchParams(useLocation().search);
@@ -85,7 +82,7 @@ const SingleProduct = _ => {
 		}
 	}, [id, productDetails]);
 
-	const addToCartHandler = _ => {
+	const addToCartHandler = () => {
 		storeDispatch(
 			cartActions.addToCart({
 				product: state,
@@ -105,7 +102,7 @@ const SingleProduct = _ => {
 						className={styles.goBack}
 						type='button'
 						title='Go back'
-						onClick={_ => history.goBack()}>
+						onClick={() => history.goBack()}>
 						{'<'}
 					</span>
 					<p className={styles.breadcrumbs}>

@@ -16,11 +16,11 @@ const Auth = props => {
 	const history = useHistory();
 
 	const loginButton = (
-		<Button onClick={_ => setRegistered(false)}>Register</Button>
+		<Button onClick={() => setRegistered(false)}>Register</Button>
 	);
 
 	const registerButton = (
-		<Button onClick={_ => setRegistered(true)}>Log In</Button>
+		<Button onClick={() => setRegistered(true)}>Log In</Button>
 	);
 
 	const submit = e => {

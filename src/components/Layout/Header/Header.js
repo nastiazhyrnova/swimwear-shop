@@ -9,7 +9,7 @@ import BurgerMenu from './BurgerMenu/BurgerMenu';
 import styles from './Header.module.css';
 import logo from '../../../assets/logo-with-text-horizontal.svg';
 
-const Header = _ => {
+const Header = () => {
 	const mobileView = useReactSimpleMatchMedia('phone');
 	// const desktopView = useReactSimpleMatchMedia('desktop');
 	// const tabletView = useReactSimpleMatchMedia('tablet');
@@ -19,7 +19,7 @@ const Header = _ => {
 			<div className={styles.logoContainer}>
 				{mobileView && <BurgerMenu />}
 				<Link to='/'>
-					<HiddenButton onClick={_ => {}} label='Ocean Dive'>
+					<HiddenButton onClick={() => {}} label='Ocean Dive'>
 						{mobileView ? (
 							<img
 								className={styles.logoNoText}
