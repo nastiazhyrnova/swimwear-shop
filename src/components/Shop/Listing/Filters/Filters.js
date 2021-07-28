@@ -54,7 +54,9 @@ const Filters = props => {
 						title='Sort by'
 						onChange={setSortValue}
 						ref={sortingRef}>
-						<option value=''>Sort by:</option>
+						<option value='' disabled selected hidden>
+							Sort by:
+						</option>
 						<option value='priceasc'>Price: ascending</option>
 						<option value='pricedesc'>Price: descending</option>
 						<option value='popular'>Most popular</option>

@@ -14,10 +14,36 @@
 	text-align: right;
 	width: 100%;
 }
+
 .sortContainer select {
 	padding: 5px 10px;
 	border: none;
 	cursor: pointer;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%),
+		linear-gradient(135deg, gray 50%, transparent 50%),
+		linear-gradient(to right, #ccc, #ccc);
+	background-position: calc(100% - 20px) calc(1em + 2px),
+		calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+	background-size: 5px 5px, 5px 5px, 1px 1.5em;
+	background-repeat: no-repeat;
+	padding-right: 3.5rem;
+}
+
+.sortContainer select:focus {
+	outline: 0;
+}
+.sortContainer select::before {
+	content: '>';
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	background-color: red;
+}
+.sortContainer select option {
+	padding-right: 2rem;
 }
 .filterContainer {
 	width: 100%;

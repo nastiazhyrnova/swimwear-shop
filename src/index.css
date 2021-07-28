@@ -7,6 +7,10 @@
 	--accent-color: #038a8a;
 	--sale-color: #fa3a3a;
 }
+::selection {
+	color: var(--light-color);
+	background-color: var(--accent-color);
+}
 * {
 	box-sizing: border-box;
 	font-family: 'Lexend', sans-serif;
