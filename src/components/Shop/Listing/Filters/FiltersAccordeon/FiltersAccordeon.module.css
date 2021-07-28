@@ -1,3 +1,13 @@
+.dropDownContainer {
+	position: static;
+	z-index: 3000;
+	width: 80%;
+	height: auto;
+	background-color: var(--light-color);
+	padding: 3rem 4rem;
+	margin: 0 auto;
+}
+
 .modalContainer {
 	height: 100%;
 	display: flex;
@@ -46,7 +56,20 @@
 	justify-content: flex-end;
 }
 
+/* tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+	.filterWrapper {
+		width: 90%;
+		height: auto;
+	}
+}
+
+/*phone landscape*/
 @media (max-width: 768px) {
+	.dropDownContainer {
+		width: 100%;
+		height: 80%;
+	}
 	.modalContainer {
 		height: auto;
 	}
@@ -61,5 +84,12 @@
 	.buttonContainer {
 		margin: 1rem 0 1rem;
 		flex-direction: column-reverse;
+	}
+}
+
+/*phone*/
+@media (max-width: 567px) {
+	.dropDownContainer {
+		padding: 2rem;
 	}
 }

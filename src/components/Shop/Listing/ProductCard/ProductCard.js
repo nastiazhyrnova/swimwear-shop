@@ -35,22 +35,26 @@ const ProductCard = props => {
 		};
 
 		output = (
-			<article className={styles.product} onClick={openProductDetails}>
-				<Label product={props.product} />
-				<div className={styles.imgContainer}>
-					<img src={productImage} alt={props.product.title} />
+			<>
+				<div className={styles.productContainer}>
+					<article className={styles.product} onClick={openProductDetails}>
+						<Label product={props.product} />
+						<div className={styles.imgContainer}>
+							<img src={productImage} alt={props.product.title} />
+						</div>
+						<div className={styles.productDetails}>
+							<span className={styles.productTitle}>{props.product.title}</span>
+							<span className={styles.productColors}>
+								{productsStore.attributes.color.length} colors
+							</span>
+						</div>
+						<PriceTag product={props.product} />
+					</article>
+					<Button additionalClass={styles.button} onClick={openProductDetails}>
+						See Details
+					</Button>
 				</div>
-				<div className={styles.productDetails}>
-					<span className={styles.productTitle}>{props.product.title}</span>
-					<span className={styles.productColors}>
-						{productsStore.attributes.color.length} colors
-					</span>
-				</div>
-				<PriceTag product={props.product} />
-				<Button additionalClass={styles.button} onClick={openProductDetails}>
-					See Details
-				</Button>
-			</article>
+			</>
 		);
 	}
 

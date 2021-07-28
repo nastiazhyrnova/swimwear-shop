@@ -15,18 +15,11 @@ const Shop = _ => {
 	});
 
 	const sortBy = ({ by, asc }) => {
-		setSorting({
-			by: by,
-			asc: asc,
-		});
+		setSorting({ by, asc });
 	};
 
 	const filterBy = ({ color, sizes, category }) => {
-		setFilters({
-			color: color,
-			category: category,
-			sizes: sizes,
-		});
+		setFilters({ color, category, sizes });
 	};
 
 	return (

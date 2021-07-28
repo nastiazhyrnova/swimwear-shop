@@ -1,18 +1,15 @@
-import { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import FiltersModal from './FiltersModal/FiltersModal';
-
-import { modalActions } from '../../../../store/modal/modalSlice';
+import FiltersAccordeon from './FiltersAccordeon/FiltersAccordeon';
 
 import styles from './Filters.module.css';
 import filterIcon from '../../../../assets/icons/filter.svg';
 
 const Filters = props => {
-	const modalStore = useSelector(state => state.modal);
-	const dispatch = useDispatch();
 	const sortingRef = useRef();
+
+	const [showFiltersAccordeon, setShowFiltersAccordeon] = useState(false);
 
 	const setSortValue = _ => {
 		let by = null;
@@ -33,28 +30,18 @@ const Filters = props => {
 		props.sortBy({ by: by, asc: asc });
 	};
 
-	const openFiltersModal = _ => {
-		dispatch(modalActions.openModal({ modal: 'shopFilters' }));
-	};
-	const closeFiltersModal = _ => {
-		dispatch(modalActions.closeModal({ modal: 'shopFilters' }));
+	const toggleFiltersAccordeon = _ => {
+		setShowFiltersAccordeon(!showFiltersAccordeon);
 	};
 
 	return (
 		<>
-			{modalStore.shopFilters.show && (
-				<FiltersModal
-					close={closeFiltersModal}
-					filters={props.filters}
-					filterBy={props.filterBy}
-				/>
-			)}
 			<div className={styles.mainContainer}>
 				<div className={styles.filterContainter}>
 					<button
 						className={styles.filterButton}
 						title='Show filters'
-						onClick={openFiltersModal}>
+						onClick={toggleFiltersAccordeon}>
 						<span>
 							<img src={filterIcon} alt='Filter icon' />
 							Filter
@@ -75,6 +62,13 @@ const Filters = props => {
 				</div>
 				<div></div>
 			</div>
+			{showFiltersAccordeon && (
+				<FiltersAccordeon
+					filters={props.filters}
+					filterBy={props.filterBy}
+					toggleFiltersAccordeon={toggleFiltersAccordeon}
+				/>
+			)}
 		</>
 	);
 };

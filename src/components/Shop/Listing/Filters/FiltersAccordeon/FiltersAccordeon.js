@@ -2,15 +2,13 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import Modal from '../../../../UI/Modal/Modal';
 import Button from '../../../../UI/Buttons/Button/Button';
-import ColorList from '../../../../Shop/ProductFeatures/ColorsList/ColorsList';
-import SizesList from '../../../../Shop/ProductFeatures/SizesList/SizesList';
+import ColorList from '../../../ProductFeatures/ColorsList/ColorsList';
+import SizesList from '../../../ProductFeatures/SizesList/SizesList';
 
-import { modalActions } from '../../../../../store/modal/modalSlice';
-import styles from './FiltersModal.module.css';
+import styles from './FiltersAccordeon.module.css';
 
-const FiltersModal = props => {
+const FiltersAccordeon = props => {
 	const productsStore = useSelector(state => state.products);
 
 	const [chosenFilters, setChosenFilters] = useState({
@@ -62,7 +60,7 @@ const FiltersModal = props => {
 			category: chosenFilters.category,
 			sizes: chosenFilters.sizes,
 		});
-		dispatch(modalActions.closeModal({ modal: 'shopFilters' }));
+		props.toggleFiltersAccordeon();
 	};
 
 	const resetChosenFilters = _ => {
@@ -76,7 +74,7 @@ const FiltersModal = props => {
 			category: null,
 			sizes: [],
 		});
-		dispatch(modalActions.closeModal({ modal: 'shopFilters' }));
+		props.toggleFiltersAccordeon();
 	};
 
 	//get unique category names
@@ -103,7 +101,10 @@ const FiltersModal = props => {
 	}
 
 	return (
-		<Modal close={props.close} title='Filter products'>
+		<aside
+			close={props.close}
+			title='Filter products'
+			className={styles.dropDownContainer}>
 			<div className={styles.modalContainer}>
 				<div className={styles.filtersContainer}>
 					<div className={styles.filterColumn}>
@@ -139,13 +140,13 @@ const FiltersModal = props => {
 					</Button>
 				</div>
 			</div>
-		</Modal>
+		</aside>
 	);
 };
 
-FiltersModal.propTypes = {
+FiltersAccordeon.propTypes = {
 	filters: PropTypes.object,
 	filterBy: PropTypes.func,
 };
 
-export default FiltersModal;
+export default FiltersAccordeon;
