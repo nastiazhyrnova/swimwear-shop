@@ -3,14 +3,12 @@ import { loadingActions } from '../loading/loadingSlice';
 import { autoHideNotificationAction } from '../notification/notification-actions';
 import { calculateExpirationTime } from './authSlice';
 
-const API = 'AIzaSyCkGzADyUrE43jqsl0gLMAL4J4QUAG5oyI';
-
 export const authAction = (actionType, userData) => async dispatch => {
 	const fetchData = async userData => {
 		const response = await fetch(
 			`https://identitytoolkit.googleapis.com/v1/accounts:${
 				actionType === 'register' ? 'signUp' : 'signInWithPassword'
-			}?key=${API}`,
+			}?key=${process.env.REACT_APP_SECRET_KEY}`,
 			{
 				method: 'POST',
 				body: JSON.stringify({
